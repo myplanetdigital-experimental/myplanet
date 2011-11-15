@@ -1,0 +1,13 @@
+name = My Planet
+core = 7.x
+
+stylesheets[all][] = css/style.css
+scripts[] = js/script.js
+
+scripts[] = js/jquery.easing.js
+
+regions[header] = Header
+regions[content_top] = Content Top
+regions[content] = Content
+regions[content_bottom] = Content Bottom
+regions[footer] = Footer
