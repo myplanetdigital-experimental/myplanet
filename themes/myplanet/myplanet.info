@@ -2,9 +2,11 @@ name = My Planet
 core = 7.x
 
 stylesheets[all][] = css/style.css
-scripts[] = js/script.js
 
-scripts[] = js/jquery.easing.js
+scripts[] = js/jquery.easing.min.js
+scripts[] = js/jquery.scrollTo.min.js
+scripts[] = js/jquery.serialScroll.min.js
+scripts[] = js/script.js
 
 regions[header] = Header
 regions[content_top] = Content Top

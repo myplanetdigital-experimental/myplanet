@@ -1,0 +1,9 @@
+<?php
+
+function myplanetdigital_form_alter(&$form, &$form_state, $form_id) {
+	switch ($form_id) {
+		case 'commerce_checkout_form_checkout' :
+			$form['customer_profile_billing']['commerce_customer_address'][LANGUAGE_NONE][0]['name_block']['name_line']['#title'] = 'Name';
+			break;
+	}
+}
