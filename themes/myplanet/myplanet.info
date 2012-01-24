@@ -1,6 +1,7 @@
 name = My Planet
 core = 7.x
 
+stylesheets[all][] = css/fonts.css
 stylesheets[all][] = css/style.css
 
 scripts[] = js/jquery.easing.min.js
