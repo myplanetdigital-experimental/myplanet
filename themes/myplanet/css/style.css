@@ -91,12 +91,13 @@ p { margin: 0; }
 .views-row { position: relative; float: left; }
 .views-row.my-col-last { float: right; margin-right: 0 !important; }
 .views-row.my-row-last { margin-bottom: 0 !important; }
-.pane-page-title { position: absolute; z-index: 20; padding-top: 4px; }
+.pane-page-title { position: relative; z-index: 20; padding-top: 4px; }
 .pane-page-title h1 { margin: 0; width: 100%; font: bold 100px/100% "tradegothic", Arial, serif; letter-spacing: -5px; }
 .sub-title { color: #f05a28; font: bold italic 17px/100% "plantin", Georgia, serif;  }
 
 /* Sub Menu */
-.sub-menu { width:100%; padding-top: 73px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.sub-menu-row { background: url(../images/divider.png) repeat-x 0 bottom; }
+.sub-menu { padding-top: 73px;  }
 .sub-menu ul li { float: right; margin-right: -18px; }
 .sub-menu ul li a { float: left; display: block; margin: 0 18px; padding-bottom: 15px; font: bold 20px/140% "plantin", Georgia, serif; color: black; letter-spacing: -1px; }
 .sub-menu ul li a:hover { color: #f05a28; }
