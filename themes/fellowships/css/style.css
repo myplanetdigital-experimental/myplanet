@@ -19,7 +19,7 @@ ul li, ul.menu li { margin: 0; padding: 0; list-style: none; }
 .pink-panel { float: left; width: 100%; color: #fff; background: url(../images/planet-left.png) no-repeat center 0; }
 .pink-panel a { color: #fff; }
 .pink-panel > .inside { margin-top: 55px !important; background-color: #ef3969; }
-.black-circle a { display: block; width: 109px; height: 109px; text-align: center; color: #fff; font: 16px/675% "tradegothic", arial, sans-serif; background: url(../images/black-circle.png) no-repeat 0 0; }
+.black-circle a { display: block; width: 109px; height: 109px; text-align: center; color: #fff; font: 16px/675% "tradegothic", Arial, serif; background: url(../images/black-circle.png) no-repeat 0 0; }
 
 /* Cascade */
 #header-wrapper { float: left; width: 100%; }

@@ -76,6 +76,11 @@
 		}
 	);
 	
+	/* Our Story */
+	$(".our-team-view .views-row").hover(
+		function() { $(this).find(".layer").stop().animate({ opacity: 1 }, 100, "easeOutCubic"); }, 
+		function() { $(this).find(".layer").stop().animate({ opacity: 0 }, 800, "easeOutCubic"); }
+	);
 	
 	
 	
