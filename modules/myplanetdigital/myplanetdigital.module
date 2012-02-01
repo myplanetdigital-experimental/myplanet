@@ -17,6 +17,11 @@ function myplanetdigital_form_alter(&$form, &$form_state, $form_id) {
 	}
 }
 
+function show_image($nid, $image_style) {
+	$node = node_load($nid);
+	echo theme('image_style', array('path' => $node->field_ig_image[LANGUAGE_NONE][0]['uri'], 'style_name' => $image_style));
+}
+
 function invoice_payment_form_output() {
 	return '';
 	global $user;

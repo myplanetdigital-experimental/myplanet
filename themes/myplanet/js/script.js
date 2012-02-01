@@ -64,50 +64,32 @@
 		}
 	);
 	
+	/* Thumbnail */
+	$(".thumbnail").hover(
+		function() { $(this).find(".layer, .layer > .field-content > a").stop().animate({ opacity: 1 }, 100, "easeOutCubic"); }, 
+		function() { $(this).find(".layer, .layer > .field-content > a").stop().animate({ opacity: 0 }, 800, "easeOutCubic"); }
+	);
+	
 	/* Front Page Items */
-	$(".front-items-view .views-row").hover(
-		function() {
-			$(this).find(".layer a").stop().animate({ opacity: 1 }, 100, "easeOutCubic");
-			$(this).find(".link2").stop().animate({ backgroundPositionX: "24px" }, 850, "easeOutElastic");
-		}, 
-		function() {
-			$(this).find(".layer a").stop().animate({ opacity: 0 }, 800, "easeOutCubic");
-			$(this).find(".link2").stop().animate({ backgroundPositionX: "20px" }, 250);
+	$(".front-items-view .thumbnail").hover(
+		function() { $(this).find(".link2").stop().animate({ backgroundPositionX: "24px" }, 850, "easeOutElastic");	}, 
+		function() { $(this).find(".link2").stop().animate({ backgroundPositionX: "20px" }, 250); }
+	);
+	
+	/* Opportunities Menu */
+	if ($(".opportunities-page .opportunities .left-region .tax-menu").html() != null) {
+		if ($(".opportunities-page .opportunities .left-region .tax-menu ul li a.active").parent().hasClass('expanded') === true) {
+			$(".opportunities-page .opportunities .left-region .tax-menu ul li a.active").parent().find("ul").css("display", "block");
 		}
+		if ($(".opportunities-page .opportunities .left-region .tax-menu ul li a.active").parent().parent().parent().hasClass('expanded') === true) {
+			$(".opportunities-page .opportunities .left-region .tax-menu ul li a.active").parent().parent().css("display", "block");
+		}
+	}
+	
+	$(".opportunities-page .opportunities .left-region .tax-menu ul li").hover(
+		function() { $(this).stop().animate({ backgroundPositionX: "163px" }, 850, "easeOutElastic");	}, 
+		function() { $(this).stop().animate({ backgroundPositionX: "153px" }, 250); }
 	);
-	
-	/* Our Story */
-	$(".our-team-view .views-row").hover(
-		function() { $(this).find(".layer").stop().animate({ opacity: 1 }, 100, "easeOutCubic"); }, 
-		function() { $(this).find(".layer").stop().animate({ opacity: 0 }, 800, "easeOutCubic"); }
-	);
-	
-	
-	
-	
-	
-	/* Related */
-	$(".related .thumbnail").unbind();
-	$(".related .readmore").hover(
-		function() { $(this).stop().animate({ backgroundPosition: "0px 0px" }, openspeed, easingtype); }, 
-		function() { $(this).stop().animate({ backgroundPosition: "-12px 0px" }, closespeed); }
-	);
-	$(".related_region .thumbnail").unbind();
-	$(".related_region .readmore").hover(
-		function() { $(this).stop().animate({ backgroundPosition: "0px 0px" }, openspeed, easingtype); }, 
-		function() { $(this).stop().animate({ backgroundPosition: "-12px 0px" }, closespeed); }
-	);
-	
-	/* Related */
-	$("#area_interest .thumbnail").unbind();
-	$("#area_interest .readmore").hover(
-		function() { $(this).stop().animate({ backgroundPosition: "0px 0px" }, openspeed, easingtype); }, 
-		function() { $(this).stop().animate({ backgroundPosition: "-12px 0px" }, closespeed); }
-	);
-	
-
-
-
 	
 	/* Blog Topics */
 	$("#blog_topics a").hover(
@@ -139,11 +121,11 @@
 		}
 	);
 	
-	$("#focal").serialScroll({
-		target : "#slides",
+	$(".focal-slideshow").serialScroll({
+		target : ".slides",
 		items : "li",				// Selector to the items ( relative to the matched elements, '#sections' in this case )
-		prev : "#prev",				// Selector to the 'prev' button (absolute!, meaning it's relative to the document)
-		next : "#next",				// Selector to the 'next' button (absolute too)
+		prev : ".focal-prev",		// Selector to the 'prev' button (absolute!, meaning it's relative to the document)
+		next : ".focal-next",		// Selector to the 'next' button (absolute too)
 		axis : "xy",				// The default is 'y' scroll on both ways
 		duration : 700,				// Length of the animation (if you scroll 2 axes and use queue, then each axis take half this time)
 		force : true, 				// Force a scroll to the element specified by 'start' (some browsers don't reset on refreshes)

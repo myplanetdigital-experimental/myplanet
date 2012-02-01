@@ -4,6 +4,7 @@ core = 7.x
 stylesheets[all][] = css/fonts.css
 stylesheets[all][] = css/style.css
 
+scripts[] = js/jquery.corner.js
 scripts[] = js/jquery.easing.min.js
 scripts[] = js/jquery.scrollTo.min.js
 scripts[] = js/jquery.serialScroll.min.js
