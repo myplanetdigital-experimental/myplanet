@@ -239,11 +239,102 @@ p { margin: 0; }
 .job-posts-view .title2 { font-size: 13px; font-weight: bold; }
 .job-posts-view .summary { margin-top: 10px; }
 .job-posts-view .link { position: absolute; bottom: 15px; width: 100px; height: 20px; font-weight: bold; }
+.resources-view {  }
+.resources-view .views-row.grid-2 { margin: 0 21px 22px 0; width: 368px; height: 278px; background-color: #f1f1f1; }
+.resources-view .grid-2 .image { float: left; font-size: 0; line-height: 0; }
+.resources-view .grid-2 .main-category { margin: 15px 0 0 130px; font-weight: bold; color: #f05a28; }
+.resources-view .grid-2 .title { margin-left: 130px; font: 25px/108% "plantin", Georgia, serif; letter-spacing: -1px; }
+.resources-view .grid-2 .body { margin: 10px 22px 0 130px; }
+.resources-view .grid-2 .layer a { position: absolute; display: block; padding: 25px 28px 0; left: 0; right: 0; top: 0; bottom: 0; opacity: 0; filter: alpha(opacity=0); color: #fff; background-color: #000; }
+.resources-view .grid-2 .title2 { font: 25px/108% "plantin", Georgia, serif; letter-spacing: -1px; }
+.resources-view .grid-2 .leadline { margin-top: 10px; font-weight: bold; }
+.resources-view .grid-2 .leadline .postdate { margin-right: 8px; }
+.resources-view .grid-2 .body2 { margin-top: 16px; }
+.resources-view .grid-2 .link { position: absolute; right: 13px; bottom: 19px; width: 100px; height: 20px; font-weight: bold; background: url(../images/mp_sprite.png) no-repeat 10px -47px; }
+.resources-view .views-row.grid-4 { margin: 0 20px 22px 0; width: 174px; height: 274px; background-color: #f1f1f1; }
+.resources-view .grid-4 .image { font-size: 0; line-height: 0; }
+.resources-view .grid-4 .main-category { margin: 14px 17px 0; font-weight: bold; color: #f05a28; }
+.resources-view .grid-4 .title { margin: 8px 17px 0; font: 17px/103% "plantin", Georgia, serif; letter-spacing: -1px; }
+.resources-main-category-menu-view {  }
+.resources-main-category-menu-view .views-row { float: none; width: 100%; height: 35px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.resources-main-category-menu-view .title a { display: block; padding: 6px 0 0 17px; color: #141414; font-weight: normal; background: url(../images/blog-filter.png) no-repeat 1px 11px; }
+.resources-main-category-menu-view .title a.active { background: url(../images/blog-filter-active.png) no-repeat 1px 11px; }
+.resources-second-category-menu-view {  }
+.resources-second-category-menu-view .views-row { float: none; width: 100%; height: 35px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.resources-second-category-menu-view .title a { display: block; padding: 6px 0 0 17px; color: #141414; font-weight: normal; background: url(../images/blog-filter.png) no-repeat 1px 11px; }
+.resources-second-category-menu-view .title a.active { background: url(../images/blog-filter-active.png) no-repeat 1px 11px; }
+.resources-tags-menu-view {  }
+.resources-tags-menu-view .views-row { float: none; width: 100%; height: 35px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.resources-tags-menu-view .title { float: left; }
+.resources-tags-menu-view .title a { display: block; padding-top: 6px; color: #141414; font-weight: normal; }
+.resources-tags-menu-view .count { float: right; padding-top: 6px; color: #b4b4b4; }
+.resources-archive-menu-view .views-summary li { float: none; padding-top: 6px; width: 100%; height: 29px; text-align: right; color: #b4b4b4; font-weight: normal; background: url(../images/divider.png) repeat-x 0 bottom; }
+.resources-archive-menu-view .views-summary li a { float: left; color: #141414; }
 
 /* Front Page */
 .front #content-back { background: url(../images/front-page.png) no-repeat center 0; }
 .front-page { padding-bottom: 100px; }
 .front-page .front-items-view { padding-top: 496px; }
+
+/* Careers - Work at Myplanet */
+.careers_page { padding-bottom: 100px; }
+.careers_page .focal-slideshow { padding: 12px 0 21px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.careers_page .incentives { padding-top: 30px; }
+.careers_page .incentives .left-region { width: 175px; margin-right: 20px; }
+.careers_page .incentives .center-region { width: 367px; }
+.careers_page .incentives .center-region .text { margin-top: -6px; font: 25px/140% "plantin", Georgia, serif; letter-spacing: -1px; }
+.careers_page .incentives .right-region { float: right; width: 368px; }
+.careers_page .incentives .right-region .image { font-size: 0; line-height: 0; }
+.careers_page .benefits { padding: 32px 0 44px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.careers_page .benefits > .inside { float: right; width: 755px; }
+.careers_page .related { padding: 34px 0 0; }
+.careers_page .related .left-region { margin-right: 20px; width: 175px; }
+.careers_page .related .right-region { float: right; width: 755px; }
+
+/* Careers - Our Company */
+.opportunities-page { padding-bottom: 100px; }
+.opportunities-page .opportunities { padding: 34px 0 44px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.opportunities-page .opportunities .left-region { width: 175px; }
+.opportunities-page .opportunities .left-region .sub-title { padding-bottom: 18px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.opportunities-page .opportunities .left-region .tax-menu { padding-top: 10px; }
+.opportunities-page .opportunities .left-region .tax-menu ul li { background: url(../images/menu-back.png) no-repeat 153px 16px; }
+.opportunities-page .opportunities .left-region .tax-menu ul li a { display: block; padding: 9px 0 6px; color: #000; background: url(../images/divider.png) repeat-x 0 bottom; }
+.opportunities-page .opportunities .left-region .tax-menu ul li a.active { font-weight: bold; }
+.opportunities-page .opportunities .left-region .tax-menu ul li ul { display: none; padding: 12px 0; background: url(../images/divider.png) repeat-x 0 bottom; }
+.opportunities-page .opportunities .left-region .tax-menu ul li ul li { background: none; }
+.opportunities-page .opportunities .left-region .tax-menu ul li ul li a { padding: 0 0 0 19px; background: none; }
+.opportunities-page .opportunities .right-region { float: right; width: 755px; }
+.opportunities-page .related { padding-top: 34px; }
+
+/* Resources Page */
+.resourses-page { padding-bottom: 100px; }
+.resourses-page .top-image { background: url(../images/divider.png) repeat-x 0 bottom; }
+.resourses-page .top-image .pane-content { margin-left: -21px; width: 971px; height: 116px; font-size: 0; line-height: 0; text-indent: -1000px; background: url(../images/resources.png) no-repeat 0 0; }
+.resourses-page .main-body { padding-top: 27px; }
+.resourses-page .main-body .left-region { width: 175px; }
+.resourses-page .main-body .right-region { float: right; width: 757px; }
+.resourses-page .main-body .left-region .sub-title { height: 37px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.resourses-page .main-body .left-region .resources-main-category-menu-view { padding-bottom: 34px; }
+.resourses-page .main-body .left-region .resources-second-category-menu-view { padding-bottom: 34px; }
+.resourses-page .main-body .left-region .resources-tags-menu-view { padding-bottom: 34px; }
+.resourses-page .main-body .right-region .sort-view-subscribe { padding-bottom: 14px; height: 29px; }
+.resourses-page .main-body .right-region .sort-view-subscribe .sort { float: left; }
+.resourses-page .main-body .right-region .sort-view-subscribe .view { float: right; padding-top: 6px; font: italic 12px/133% Georgia, Arial, sans-serif; }
+.resourses-page .main-body .right-region .sort-view-subscribe .subscribe { float: right; padding: 6px 0 0 15px; font: italic 12px/133% Georgia, Arial, sans-serif; }
+.resourses-page .main-body .right-region .sort-view-subscribe .sort li { float: left; }
+.resourses-page .main-body .right-region .sort-view-subscribe .sort li a { display: block; margin-right: 24px; padding: 4px 0 5px; color: #000; }
+.resourses-page .main-body .right-region .sort-view-subscribe .sort li a.active { padding: 4px 30px 5px 14px; color: #fff; background-color: #000; }
+.resourses-page .main-body .right-region .sort-view-subscribe .sort li a.date.active { background: #000 url(../images/mp_sprite.png) no-repeat -15px -561px; }
+.resourses-page .main-body .right-region .sort-view-subscribe .sort li a.date.active.desc { background-position: -15px -465px; }
+.resourses-page .main-body .right-region .sort-view-subscribe .sort li a.comments.active { background: #000 url(../images/mp_sprite.png) no-repeat 20px -561px; }
+.resourses-page .main-body .right-region .sort-view-subscribe .sort li a.comments.active.desc { background-position: 20px -465px; }
+.resourses-page .main-body .right-region .sort-view-subscribe .view div { float: left; }
+.resourses-page .main-body .right-region .sort-view-subscribe .view .grid-2 a { display: block; margin-left: 10px; width: 15px; height: 15px; font-size: 0; line-height: 0; background: url(../images/blog-view-types.png) no-repeat 0 0; }
+.resourses-page .main-body .right-region .sort-view-subscribe .view .grid-4 a { display: block; margin-left: 4px; width: 15px; height: 15px; font-size: 0; line-height: 0; background: url(../images/blog-view-types.png) no-repeat -15px 0; }
+.resourses-page .main-body .right-region .sort-view-subscribe .subscribe div { float: left; }
+.resourses-page .main-body .right-region .sort-view-subscribe .subscribe .image a { display: block; margin-left: 8px; width: 15px; height: 15px; font-size: 0; line-height: 0; background: url(../images/blog-subscribe.png) no-repeat 0 0; }
+
+
 
 /* Work Page */
 .work_page .projects { margin-top: 35px; }
@@ -316,68 +407,6 @@ p { margin: 0; }
 .privacy_policy_page #privacy_policy .thumbnail { margin: 0 0 35px 0; padding: 0; width: 100%; }
 .privacy_policy_page #breadcrumb { margin-top: 55px; }
 
-/* Careers */
-.careers_page { padding-bottom: 100px; }
-.careers_page .focal-slideshow { padding: 12px 0 21px; background: url(../images/divider.png) repeat-x 0 bottom; }
-.careers_page .incentives { padding-top: 30px; }
-.careers_page .incentives .left-region { width: 175px; margin-right: 20px; }
-.careers_page .incentives .center-region { width: 367px; }
-.careers_page .incentives .center-region .text { margin-top: -6px; font: 25px/140% "plantin", Georgia, serif; letter-spacing: -1px; }
-.careers_page .incentives .right-region { float: right; width: 368px; }
-.careers_page .incentives .right-region .image { font-size: 0; line-height: 0; }
-.careers_page .benefits { padding: 32px 0 44px; background: url(../images/divider.png) repeat-x 0 bottom; }
-.careers_page .benefits > .inside { float: right; width: 755px; }
-.careers_page .related { padding: 34px 0 0; }
-.careers_page .related .left-region { margin-right: 20px; width: 175px; }
-.careers_page .related .right-region { float: right; width: 755px; }
-
-/* Careers - Opportunities */
-.opportunities-page { padding-bottom: 100px; }
-.opportunities-page .opportunities { padding: 34px 0 44px; background: url(../images/divider.png) repeat-x 0 bottom; }
-.opportunities-page .opportunities .left-region { margin-right: 20px; width: 175px; }
-.opportunities-page .opportunities .left-region .sub-title { padding-bottom: 18px; background: url(../images/divider.png) repeat-x 0 bottom; }
-.opportunities-page .opportunities .left-region .tax-menu { padding-top: 10px; }
-.opportunities-page .opportunities .left-region .tax-menu ul li { background: url(../images/menu-back.png) no-repeat 153px 16px; }
-.opportunities-page .opportunities .left-region .tax-menu ul li a { display: block; padding: 9px 0 6px; color: #000; background: url(../images/divider.png) repeat-x 0 bottom; }
-.opportunities-page .opportunities .left-region .tax-menu ul li a.active { font-weight: bold; }
-.opportunities-page .opportunities .left-region .tax-menu ul li ul { display: none; padding: 12px 0; background: url(../images/divider.png) repeat-x 0 bottom; }
-.opportunities-page .opportunities .left-region .tax-menu ul li ul li { background: none; }
-.opportunities-page .opportunities .left-region .tax-menu ul li ul li a { padding: 0 0 0 19px; background: none; }
-.opportunities-page .opportunities .right-region { float: right; width: 755px; }
-.opportunities-page .related { padding-top: 34px; }
-
-/* Blogs Page */
-.blogs_page .main_body { margin: 30px 0; }
-.blogs_page #blog_archive { margin: 35px 0; }
-.blogs_page #blog_archive .view-header { margin-bottom: 10px; }
-.blogs_page #blog_archive li { margin: 0 5px 0 0; }
-.blogs_page #blog_archive a { border-bottom: 1px dotted #ccc; color: #f05a28; }
-.blogs_page #blog_archive a:hover { color: #000; }
-.blogs_page .full_blogs>div { margin: 0 20px !important; }
-.blogs_page #bottom_divider { margin-bottom: 20px; }
-.blogs_page #follow_us { margin-bottom: 25px; }
-.blogs_page #blog_featured { margin: 20px 0 35px; }
-.blogs_page .full_node a { color: #f05a28; }
-.blogs_page .full_node a:hover { color: #000; }
-.blogs_page .full_node #node_title { font-size: 40px; line-height: 56px; letter-spacing: -3px; }
-.blogs_page .full_node #main_categories { float: left; width: 45%; margin-bottom: 30px; }
-.blogs_page .full_node #main_categories .pane-title { float: left; font-weight: bold; font-style: italic; color: #000; font-size: 12px; line-height: 21px; letter-spacing: 0; }
-.blogs_page .full_node #main_categories .pane-content .field-item { float: left; margin-left: 5px; }
-.blogs_page .full_node #tags .pane-title { float: left; font-weight: bold; font-style: italic; color: #000; font-size: 12px; line-height: 21px; letter-spacing: 0; }
-.blogs_page .full_node #tags .pane-content .field-item { float: left; margin-left: 5px; }
-.blogs_page .full_node #summary { margin: 24px 0 15px 80px; font-size: 24px; line-height: 30px; letter-spacing: -1px; }
-.blogs_page .full_node #body { margin: 0 0 60px 80px; }
-.blogs_page .full_node #body h3 { margin-left: -80px; }
-.blogs_page .full_node #body p { margin: 12px 0; }
-.blogs_page .full_node #comment_form .pane-title { margin: 45px 0 10px; color: #f05a28; font-size: 17px; letter-spacing: -1px; }
-.blogs_page .full_node #comment_form label { margin-bottom: 15px; font-family: Georgia; font-size: 17px; font-weight: bold; font-style: italic; letter-spacing: -1px; }
-.blogs_page .full_node #comment_form .form-text { border: 1px dotted #111; }
-.blogs_page .full_node #comment_form .form-textarea { position: relative; margin: -34px 0 15px 0; width: 498px; height: 200px; border: 1px dotted #111; }
-.blogs_page .full_node #comment_form .filter-wrapper { margin: 0; padding: 0; border: 0 none; color: #888; }
-.blogs_page .full_node #comment_form .filter-help { float: right; padding: 0 18px 6px; }
-.blogs_page .full_node #comment_form .filter-help a { border-bottom: 1px dotted #ccc; }
-.blogs_page .full_node #comment_form .description { margin-left: 0; }
-
 /* Contact Page */
 .contact_page .page_leadline { margin: 20px 0; font-size: 40px; font-weight: bold; }
 .contact_page .body_row { margin-top: 25px; }
@@ -388,7 +417,7 @@ p { margin: 0; }
 .contact_page .webform-component { clear:both; }
 .contact_page .form-text { position: relative; clear: both; float: left; margin: -34px 0 20px; padding: 0 0 0 145px; width: 355px; height: 50px; color: #888888; border-color: -moz-use-text-color -moz-use-text-color #949494; border-style: none none dotted; border-width: medium medium 1px; font-family: Arial,Helvetica,sans-serif; }
 .contact_page .form-textarea { position: relative; clear: both; float: left; margin: -34px 0 15px 145px; padding-top: 17px; width: 354px; height: 200px; font: 12px/18px Arial,Helvetica,sans-serif; color: #888888; border-color: -moz-use-text-color -moz-use-text-color #949494; border-style: none none dotted; border-width: medium medium 1px; }
-.contact_page label { position: relative; z-index: 400; margin: 0; width: 132px; color: #000000; font: bold italic 17px Georgia; letter-spacing: -1px; }
+.contact_page label { position: relative; z-index: 400; margin: 0; width: 132px; color: #000; font: bold italic 17px Georgia; letter-spacing: -1px; }
 .contact_page .grippie { display: none; }
 .contact_page .form-submit { float: right; margin-bottom: 30px; padding-bottom: 3px; width: 80px; height: 80px; color: #fff; border: 0 none; border-radius: 80px; font-size: 12px; background-color: #F05A28; cursor: pointer; }
 .contact_page #offices .thumbnail { margin: 0; }

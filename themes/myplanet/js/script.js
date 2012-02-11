@@ -91,6 +91,14 @@
 		function() { $(this).stop().animate({ backgroundPositionX: "153px" }, 250); }
 	);
 	
+	/* Front Page Items */
+	$(".resources-view .thumbnail").hover(
+		function() { $(this).find(".link").stop().animate({ backgroundPositionX: "14px" }, 850, "easeOutElastic");	}, 
+		function() { $(this).find(".link").stop().animate({ backgroundPositionX: "10px" }, 250); }
+	);
+	
+	
+	
 	/* Blog Topics */
 	$("#blog_topics a").hover(
 		function() { $(this).stop().animate({ backgroundPositionX: "149px" }, openspeed, easingtype); }, 

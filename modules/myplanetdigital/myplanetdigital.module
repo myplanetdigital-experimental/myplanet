@@ -43,3 +43,65 @@ function invoice_payment_form_output() {
 	
 	return $output;
 }
+
+function show_resources_top() {
+	$output = '';
+	
+	$sort_fields = array('date' => 'Date', 'comments' => 'Comments');
+	
+	if (arg(2) == '') {
+		$sort_field = 'date';
+		$sort_type = 'desc';
+		$other_sort_type = 'asc';
+	} else {
+		$sort = explode('-', arg(2));
+		$sort_field = $sort[1]; 
+		$sort_type = $sort[2];
+		$other_sort_type = $sort_type == 'asc' ? 'desc' : 'asc';
+	}
+	
+	$output .= '<ul class="sort">';
+	
+	foreach ($sort_fields as $sf_name => $sf_title) {
+		$url = request_path();
+		$new_sort = 'sort-' . $sf_name . '-' . ($sf_name != $sort_field ? 'desc' : $other_sort_type);
+		if (mb_strpos($url, 'sort-') !== false) {
+			$new_url = '';
+			foreach (explode('/', $url) as $url_section) {
+				$new_url[] = mb_strpos($url_section, 'sort-') !== false ? $new_sort : $url_section;
+			}
+			$new_url = implode('/', $new_url);
+		} else {
+			$new_url = $url . '/grid-2/' . $new_sort;
+		}
+		$classes = array($sf_name, $sort_type);
+		if ($sf_name == $sort_field) {
+			$classes[] = 'active';
+		}
+		$output .= '  <li>' . l($sf_title, $new_url, array('attributes' => array('class' => $classes))) . '</li>';
+	}
+	
+	$output .= '</ul>';
+	
+	$output .= '<div class="subscribe">';
+	$output .= '  <div class="orange">Subscribe</div>';
+	$output .= '  <div class="image">' . l('', 'resources/rss') . '</div>';
+	$output .= '</div>';
+	
+	$url = request_path();
+	if (($pos = mb_strpos($url, 'grid-')) === false) {
+		$grid2_url = $url . '/grid-2/sort-date-desc';
+		$grid4_url = $url . '/grid-4/sort-date-desc';
+	} else {
+		$grid2_url = mb_substr($url, 0, $pos) . 'grid-2' . mb_substr($url, mb_strpos($url, '/', $pos));
+		$grid4_url = mb_substr($url, 0, $pos) . 'grid-4' . mb_substr($url, mb_strpos($url, '/', $pos));
+	}
+	
+	$output .= '<div class="view">';
+	$output .= '  <div class="orange">View</div>';
+	$output .= '  <div class="grid-2">' . l('', $grid2_url) . '</div>';
+	$output .= '  <div class="grid-4">' . l('', $grid4_url) . '</div>';
+	$output .= '</div>';
+	
+	return $output;
+}
