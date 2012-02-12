@@ -112,11 +112,15 @@
 		function() { $(this).find(".layer, .layer > .field-content > a").stop().animate({ opacity: 0 }, 800, "easeOutCubic"); }
 	);
 	
-	/* Front Page Items */
-	$(".front-items-view .thumbnail").hover(
-		function() { $(this).find(".link2").stop().animate({ backgroundPositionX: "24px" }, 850, "easeOutElastic");	}, 
-		function() { $(this).find(".link2").stop().animate({ backgroundPositionX: "20px" }, 250); }
-	);
+	/* Front Page */
+	if ($(".front-page").html() !== null) {
+		add_custom_classes($(".front-items-view"));
+		
+		$(".front-items-view .thumbnail").hover(
+			function() { $(this).find(".link2").stop().animate({ backgroundPositionX: "24px" }, 850, "easeOutElastic");	}, 
+			function() { $(this).find(".link2").stop().animate({ backgroundPositionX: "20px" }, 250); }
+		);
+	}
 	
 	/* About - Our Story Page */
 	if ($(".ourstory_page").html() !== null) {
