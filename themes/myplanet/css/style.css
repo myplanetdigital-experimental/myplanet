@@ -239,7 +239,15 @@ p { margin: 0; }
 .job-posts-view .title2 { font-size: 13px; font-weight: bold; }
 .job-posts-view .summary { margin-top: 10px; }
 .job-posts-view .link { position: absolute; bottom: 15px; width: 100px; height: 20px; font-weight: bold; }
+.job-posts-menu-view {  }
+.job-posts-menu-view ul li { background: url(../images/menu-back.png) no-repeat 153px 16px; }
+.job-posts-menu-view ul li a { display: block; padding: 9px 0 6px; color: #000; background: url(../images/divider.png) repeat-x 0 bottom; }
+.job-posts-menu-view ul li a.active { font-weight: bold; }
+.job-posts-menu-view ul li ul { display: none; padding: 12px 0; background: url(../images/divider.png) repeat-x 0 bottom; }
+.job-posts-menu-view ul li ul li { background: none; }
+.job-posts-menu-view ul li ul li a { padding: 0 0 0 19px; background: none; }
 .resources-view {  }
+.resources-view .hidden { display: none; }
 .resources-view .views-row.grid-2 { margin: 0 21px 22px 0; width: 368px; height: 278px; background-color: #f1f1f1; }
 .resources-view .grid-2 .image { float: left; font-size: 0; line-height: 0; }
 .resources-view .grid-2 .main-category { margin: 15px 0 0 130px; font-weight: bold; color: #f05a28; }
@@ -251,23 +259,22 @@ p { margin: 0; }
 .resources-view .grid-2 .leadline .postdate { margin-right: 8px; }
 .resources-view .grid-2 .body2 { margin-top: 16px; }
 .resources-view .grid-2 .link { position: absolute; right: 13px; bottom: 19px; width: 100px; height: 20px; font-weight: bold; background: url(../images/mp_sprite.png) no-repeat 10px -47px; }
-.resources-view .views-row.grid-4 { margin: 0 20px 22px 0; width: 174px; height: 274px; background-color: #f1f1f1; }
+.resources-view .views-row.grid-4 { display: none; margin: 0 20px 22px 0; width: 174px; height: 274px; background-color: #f1f1f1; }
 .resources-view .grid-4 .image { font-size: 0; line-height: 0; }
 .resources-view .grid-4 .main-category { margin: 14px 17px 0; font-weight: bold; color: #f05a28; }
 .resources-view .grid-4 .title { margin: 8px 17px 0; font: 17px/103% "plantin", Georgia, serif; letter-spacing: -1px; }
 .resources-view .pager { padding-top: 20px; }
 .resources-main-category-menu-view {  }
 .resources-main-category-menu-view .views-row { float: none; width: 100%; height: 35px; background: url(../images/divider.png) repeat-x 0 bottom; }
-.resources-main-category-menu-view .title a { display: block; padding: 6px 0 0 17px; color: #141414; font-weight: normal; background: url(../images/blog-filter.png) no-repeat 1px 11px; }
-.resources-main-category-menu-view .title a.active { background: url(../images/blog-filter-active.png) no-repeat 1px 11px; }
+.resources-main-category-menu-view .title { display: block; padding: 6px 0 0 17px; cursor: pointer; color: #141414; font-weight: normal; background: url(../images/blog-filter.png) no-repeat 1px 11px; }
+.resources-main-category-menu-view .title.active { background: url(../images/blog-filter-active.png) no-repeat 1px 11px; }
 .resources-second-category-menu-view {  }
 .resources-second-category-menu-view .views-row { float: none; width: 100%; height: 35px; background: url(../images/divider.png) repeat-x 0 bottom; }
-.resources-second-category-menu-view .title a { display: block; padding: 6px 0 0 17px; color: #141414; font-weight: normal; background: url(../images/blog-filter.png) no-repeat 1px 11px; }
-.resources-second-category-menu-view .title a.active { background: url(../images/blog-filter-active.png) no-repeat 1px 11px; }
+.resources-second-category-menu-view .title { display: block; padding: 6px 0 0 17px; cursor: pointer; color: #141414; font-weight: normal; background: url(../images/blog-filter.png) no-repeat 1px 11px; }
+.resources-second-category-menu-view .title.active { background: url(../images/blog-filter-active.png) no-repeat 1px 11px; }
 .resources-tags-menu-view {  }
 .resources-tags-menu-view .views-row { float: none; width: 100%; height: 35px; background: url(../images/divider.png) repeat-x 0 bottom; }
-.resources-tags-menu-view .title { float: left; }
-.resources-tags-menu-view .title a { display: block; padding-top: 6px; color: #141414; font-weight: normal; }
+.resources-tags-menu-view .title { float: left; padding-top: 6px; cursor: pointer; color: #141414; font-weight: normal; }
 .resources-tags-menu-view .count { float: right; padding-top: 6px; color: #b4b4b4; }
 .resources-archive-menu-view .views-summary li { float: none; padding-top: 6px; width: 100%; height: 29px; text-align: right; color: #b4b4b4; font-weight: normal; background: url(../images/divider.png) repeat-x 0 bottom; }
 .resources-archive-menu-view .views-summary li a { float: left; color: #141414; }
@@ -277,7 +284,22 @@ p { margin: 0; }
 .front-page { padding-bottom: 100px; }
 .front-page .front-items-view { padding-top: 496px; }
 
-/* Careers - Work at Myplanet */
+/* Our Story Page */
+.ourstory_page { padding-bottom: 50px; }
+.ourstory_page .about-our-team { padding: 33px 0 44px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.ourstory_page .about-our-team .left-region { width: 172px; margin-right: 20px; }
+.ourstory_page .about-our-team .left-region .sticker { margin: 17px 0 0 1px; width: 126px; height: 126px; font-size: 0; line-height: 0; text-indent: -1000px; overflow: hidden; background: url(../images/about-our-team-sticker.png) no-repeat 0 0; }
+.ourstory_page .about-our-team .center-region { width: 370px; }
+.ourstory_page .about-our-team .center-region .text { margin-top: -6px; font: 25px/140% "plantin", Georgia, serif; letter-spacing: -1px; }
+.ourstory_page .about-our-team .right-region { float: right; width: 360px; }
+.ourstory_page .about-our-team .right-region .text { margin-top: -3px; font: 14px/164% Arial, serif; }
+.ourstory_page .meet-the-team { padding: 33px 0 44px; }
+.ourstory_page .meet-the-team .left-region { width: 172px; }
+.ourstory_page .meet-the-team .left-region .sub-title { padding-bottom: 20px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.ourstory_page .meet-the-team .left-region .team-categories-view { padding-top: 20px; }
+.ourstory_page .meet-the-team .right-region { float: right; width: 755px; }
+
+/* Careers Page */
 .careers_page { padding-bottom: 100px; }
 .careers_page .focal-slideshow { padding: 12px 0 21px; background: url(../images/divider.png) repeat-x 0 bottom; }
 .careers_page .incentives { padding-top: 30px; }
@@ -292,18 +314,12 @@ p { margin: 0; }
 .careers_page .related .left-region { margin-right: 20px; width: 175px; }
 .careers_page .related .right-region { float: right; width: 755px; }
 
-/* Careers - Our Company */
+/* Careers - Our Company Page */
 .opportunities-page { padding-bottom: 100px; }
 .opportunities-page .opportunities { padding: 34px 0 44px; background: url(../images/divider.png) repeat-x 0 bottom; }
 .opportunities-page .opportunities .left-region { width: 175px; }
 .opportunities-page .opportunities .left-region .sub-title { padding-bottom: 18px; background: url(../images/divider.png) repeat-x 0 bottom; }
-.opportunities-page .opportunities .left-region .tax-menu { padding-top: 10px; }
-.opportunities-page .opportunities .left-region .tax-menu ul li { background: url(../images/menu-back.png) no-repeat 153px 16px; }
-.opportunities-page .opportunities .left-region .tax-menu ul li a { display: block; padding: 9px 0 6px; color: #000; background: url(../images/divider.png) repeat-x 0 bottom; }
-.opportunities-page .opportunities .left-region .tax-menu ul li a.active { font-weight: bold; }
-.opportunities-page .opportunities .left-region .tax-menu ul li ul { display: none; padding: 12px 0; background: url(../images/divider.png) repeat-x 0 bottom; }
-.opportunities-page .opportunities .left-region .tax-menu ul li ul li { background: none; }
-.opportunities-page .opportunities .left-region .tax-menu ul li ul li a { padding: 0 0 0 19px; background: none; }
+.opportunities-page .opportunities .left-region .job-posts-menu-view { padding-top: 10px; }
 .opportunities-page .opportunities .right-region { float: right; width: 755px; }
 .opportunities-page .related { padding-top: 34px; }
 
@@ -322,18 +338,25 @@ p { margin: 0; }
 .resourses-page .main-body .right-region .sort-view-subscribe .sort { float: left; }
 .resourses-page .main-body .right-region .sort-view-subscribe .view { float: right; padding-top: 6px; font: italic 12px/133% Georgia, Arial, sans-serif; }
 .resourses-page .main-body .right-region .sort-view-subscribe .subscribe { float: right; padding: 6px 0 0 15px; font: italic 12px/133% Georgia, Arial, sans-serif; }
-.resourses-page .main-body .right-region .sort-view-subscribe .sort li { float: left; }
-.resourses-page .main-body .right-region .sort-view-subscribe .sort li a { display: block; margin-right: 24px; padding: 4px 0 5px; color: #000; }
-.resourses-page .main-body .right-region .sort-view-subscribe .sort li a.active { padding: 4px 30px 5px 14px; color: #fff; background-color: #000; }
-.resourses-page .main-body .right-region .sort-view-subscribe .sort li a.date.active { background: #000 url(../images/mp_sprite.png) no-repeat -15px -561px; }
-.resourses-page .main-body .right-region .sort-view-subscribe .sort li a.date.active.desc { background-position: -15px -465px; }
-.resourses-page .main-body .right-region .sort-view-subscribe .sort li a.comments.active { background: #000 url(../images/mp_sprite.png) no-repeat 20px -561px; }
-.resourses-page .main-body .right-region .sort-view-subscribe .sort li a.comments.active.desc { background-position: 20px -465px; }
-.resourses-page .main-body .right-region .sort-view-subscribe .view div { float: left; }
-.resourses-page .main-body .right-region .sort-view-subscribe .view .grid-2 a { display: block; margin-left: 10px; width: 15px; height: 15px; font-size: 0; line-height: 0; background: url(../images/blog-view-types.png) no-repeat 0 0; }
-.resourses-page .main-body .right-region .sort-view-subscribe .view .grid-4 a { display: block; margin-left: 4px; width: 15px; height: 15px; font-size: 0; line-height: 0; background: url(../images/blog-view-types.png) no-repeat -15px 0; }
+.resourses-page .main-body .right-region .sort-view-subscribe .sort li { float: left; margin-right: 24px; padding: 4px 0 5px; cursor: pointer; color: #000; }
+.resourses-page .main-body .right-region .sort-view-subscribe .sort li.active { padding: 4px 30px 5px 14px; color: #fff; background-color: #000; }
+.resourses-page .main-body .right-region .sort-view-subscribe .sort li.date.active { background: #000 url(../images/mp_sprite.png) no-repeat -15px -561px; }
+.resourses-page .main-body .right-region .sort-view-subscribe .sort li.date.active.desc { background-position: -15px -465px; }
+.resourses-page .main-body .right-region .sort-view-subscribe .sort li.comments.active { background: #000 url(../images/mp_sprite.png) no-repeat 20px -561px; }
+.resourses-page .main-body .right-region .sort-view-subscribe .sort li.comments.active.desc { background-position: 20px -465px; }
+.resourses-page .main-body .right-region .sort-view-subscribe .view div { float: left; cursor: pointer; }
+.resourses-page .main-body .right-region .sort-view-subscribe .view .grid-2 { margin-left: 10px; width: 15px; height: 15px; font-size: 0; line-height: 0; background: url(../images/blog-view-types.png) no-repeat 0 0; }
+.resourses-page .main-body .right-region .sort-view-subscribe .view .grid-4 { margin-left: 4px; width: 15px; height: 15px; font-size: 0; line-height: 0; background: url(../images/blog-view-types.png) no-repeat -15px 0; }
 .resourses-page .main-body .right-region .sort-view-subscribe .subscribe div { float: left; }
 .resourses-page .main-body .right-region .sort-view-subscribe .subscribe .image a { display: block; margin-left: 8px; width: 15px; height: 15px; font-size: 0; line-height: 0; background: url(../images/blog-subscribe.png) no-repeat 0 0; }
+
+/* Article Page */
+.article-page { padding-bottom: 100px; }
+.article-page .top-image { background: url(../images/divider.png) repeat-x 0 bottom; }
+.article-page .top-image .pane-content { margin-left: -21px; width: 971px; height: 116px; font-size: 0; line-height: 0; text-indent: -1000px; background: url(../images/resources.png) no-repeat 0 0; }
+
+
+
 
 
 
@@ -362,21 +385,6 @@ p { margin: 0; }
 .about_page #related { float: right; }
 .about_page #related .thumbnail { width: 174px; margin: 0 0 0 20px; }
 .about_page #breadcrumb { margin-top: 27px; }
-
-/* Our Story Page */
-.ourstory_page { padding-bottom: 50px; }
-.ourstory_page .about-our-team { padding: 33px 0 44px; background: url(../images/divider.png) repeat-x 0 bottom; }
-.ourstory_page .about-our-team .left-region { width: 172px; margin-right: 20px; }
-.ourstory_page .about-our-team .left-region .sticker { margin: 17px 0 0 1px; width: 126px; height: 126px; font-size: 0; line-height: 0; text-indent: -1000px; overflow: hidden; background: url(../images/about-our-team-sticker.png) no-repeat 0 0; }
-.ourstory_page .about-our-team .center-region { width: 370px; }
-.ourstory_page .about-our-team .center-region .text { margin-top: -6px; font: 25px/140% "plantin", Georgia, serif; letter-spacing: -1px; }
-.ourstory_page .about-our-team .right-region { float: right; width: 360px; }
-.ourstory_page .about-our-team .right-region .text { margin-top: -3px; font: 14px/164% Arial, serif; }
-.ourstory_page .meet-the-team { padding: 33px 0 44px; }
-.ourstory_page .meet-the-team .left-region { width: 172px; }
-.ourstory_page .meet-the-team .left-region .sub-title { padding-bottom: 20px; background: url(../images/divider.png) repeat-x 0 bottom; }
-.ourstory_page .meet-the-team .left-region .team-categories-view { padding-top: 20px; }
-.ourstory_page .meet-the-team .right-region { float: right; width: 755px; }
 
 /* Values Page */
 .values_page .description { margin: 35px 0; }
