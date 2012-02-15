@@ -80,6 +80,9 @@ p { margin: 0; }
 .views-row.my-col-last { float: right; margin-right: 0 !important; }
 .views-row.my-row-last { margin-bottom: 0 !important; }
 .sub-title { color: #f05a28; font: bold italic 17px/100% "plantin", Georgia, serif; }
+ul.pager { position: absolute; }
+ul.pager li { float: left; padding: 0 10px; cursor: pointer; }
+ul.pager li.active { font-weight: bold; }
 
 /* Page Title */
 .page-title { background: url(../images/divider.png) repeat-x 0 bottom; }
@@ -263,7 +266,6 @@ p { margin: 0; }
 .resources-view .grid-4 .image { font-size: 0; line-height: 0; }
 .resources-view .grid-4 .main-category { margin: 14px 17px 0; font-weight: bold; color: #f05a28; }
 .resources-view .grid-4 .title { margin: 8px 17px 0; font: 17px/103% "plantin", Georgia, serif; letter-spacing: -1px; }
-.resources-view .pager { padding-top: 20px; }
 .resources-main-category-menu-view {  }
 .resources-main-category-menu-view .views-row { float: none; width: 100%; height: 35px; background: url(../images/divider.png) repeat-x 0 bottom; }
 .resources-main-category-menu-view .title { display: block; padding: 6px 0 0 17px; cursor: pointer; color: #141414; font-weight: normal; background: url(../images/blog-filter.png) no-repeat 1px 11px; }
@@ -336,7 +338,7 @@ p { margin: 0; }
 .resourses-page .main-body .left-region .resources-tags-menu-view { padding-bottom: 34px; }
 .resourses-page .main-body .right-region .sort-view-subscribe { padding-bottom: 14px; height: 29px; }
 .resourses-page .main-body .right-region .sort-view-subscribe .sort { float: left; }
-.resourses-page .main-body .right-region .sort-view-subscribe .view { float: right; padding-top: 6px; font: italic 12px/133% Georgia, Arial, sans-serif; }
+.resourses-page .main-body .right-region .sort-view-subscribe .view-grid { float: right; padding-top: 6px; font: italic 12px/133% Georgia, Arial, sans-serif; }
 .resourses-page .main-body .right-region .sort-view-subscribe .subscribe { float: right; padding: 6px 0 0 15px; font: italic 12px/133% Georgia, Arial, sans-serif; }
 .resourses-page .main-body .right-region .sort-view-subscribe .sort li { float: left; margin-right: 24px; padding: 4px 0 5px; cursor: pointer; color: #000; }
 .resourses-page .main-body .right-region .sort-view-subscribe .sort li.active { padding: 4px 30px 5px 14px; color: #fff; background-color: #000; }
@@ -344,11 +346,11 @@ p { margin: 0; }
 .resourses-page .main-body .right-region .sort-view-subscribe .sort li.date.active.desc { background-position: -15px -465px; }
 .resourses-page .main-body .right-region .sort-view-subscribe .sort li.comments.active { background: #000 url(../images/mp_sprite.png) no-repeat 20px -561px; }
 .resourses-page .main-body .right-region .sort-view-subscribe .sort li.comments.active.desc { background-position: 20px -465px; }
-.resourses-page .main-body .right-region .sort-view-subscribe .view div { float: left; cursor: pointer; }
-.resourses-page .main-body .right-region .sort-view-subscribe .view .grid-2 { margin-left: 10px; width: 15px; height: 15px; font-size: 0; line-height: 0; background: url(../images/blog-view-types.png) no-repeat 0 0; }
-.resourses-page .main-body .right-region .sort-view-subscribe .view .grid-4 { margin-left: 4px; width: 15px; height: 15px; font-size: 0; line-height: 0; background: url(../images/blog-view-types.png) no-repeat -15px 0; }
-.resourses-page .main-body .right-region .sort-view-subscribe .subscribe div { float: left; }
-.resourses-page .main-body .right-region .sort-view-subscribe .subscribe .image a { display: block; margin-left: 8px; width: 15px; height: 15px; font-size: 0; line-height: 0; background: url(../images/blog-subscribe.png) no-repeat 0 0; }
+.resourses-page .main-body .right-region .sort-view-subscribe .view-grid div { float: left; }
+.resourses-page .main-body .right-region .sort-view-subscribe .view-grid .grid-2 { margin-left: 10px; width: 15px; height: 15px; cursor: pointer; font-size: 0; line-height: 0; background: url(../images/blog-view-types.png) no-repeat 0 0; }
+.resourses-page .main-body .right-region .sort-view-subscribe .view-grid .grid-4 { margin-left: 4px; width: 15px; height: 15px; cursor: pointer; font-size: 0; line-height: 0; background: url(../images/blog-view-types.png) no-repeat -15px 0; }
+.resourses-page .main-body .right-region .sort-view-subscribe .subscribe a { display: block; padding-right: 23px; background: url(../images/blog-subscribe.png) no-repeat right -1px; }
+.resourses-page .main-body .right-region .pane-content > .resources-view { display: none; }
 
 /* Article Page */
 .article-page { padding-bottom: 100px; }

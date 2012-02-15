@@ -22,45 +22,97 @@
 		});
 	};
 	
-	var add_isotope = function(obj, speed, effect, sort_type, sort_field) {
-		var full_width = obj.width();
-		var items_count = obj.find(".views-row:visible").length;
+	var add_isotope = function(obj, visible_items, items_on_page, cur_page, sort_type, sort_field, speed, effect) {
+		obj.find(".views-row").each(function() {
+			$(this).css("display", "none");
+		});
+
+		var items_count = 0;
+		if (items_on_page === false || cur_page === false) {
+			items_count = visible_items.length;
+		} else {
+			items_count = visible_items.length >= items_on_page ? items_on_page : visible_items.length;
+		}
 		
-		var item_width = obj.find(".views-row:visible").width();
-		var margins_width = parseInt(obj.find(".views-row:visible").css("margin-left")) + parseInt(obj.find(".views-row:visible").css("margin-right")) + parseInt(obj.find(".views-row:visible").css("padding-left")) + parseInt(obj.find(".views-row:visible").css("padding-right"));
+		var item_width = visible_items[0].width();
+		var margins_width = parseInt(visible_items[0].css("margin-left")) + parseInt(visible_items[0].css("margin-right")) + parseInt(visible_items[0].css("padding-left")) + parseInt(visible_items[0].css("padding-right"));
 		
-		var item_height = obj.find(".views-row").height();
-		var margins_height = parseInt(obj.find(".views-row:visible").css("margin-top")) + parseInt(obj.find(".views-row:visible").css("margin-bottom")) + parseInt(obj.find(".views-row:visible").css("padding-top")) + parseInt(obj.find(".views-row:visible").css("padding-bottom"));
+		var item_height = visible_items[0].height();
+		var margins_height = parseInt(visible_items[0].css("margin-top")) + parseInt(visible_items[0].css("margin-bottom")) + parseInt(visible_items[0].css("padding-top")) + parseInt(visible_items[0].css("padding-bottom"));
 		
-		var columns_count = Math.floor((full_width + margins_width) / (item_width + margins_width));
+		var columns_count = Math.floor((obj.width() + margins_width) / (item_width + margins_width));
 		var rows_count = Math.ceil(items_count / columns_count);
 		
 		obj.css("position", "relative");
-		obj.css("height", rows_count * (item_height + margins_height) + "px");
+		obj.height(rows_count * (item_height + margins_height));
 		
-		var items = [];
-		obj.find(".views-row:visible").each(function(index) {
-			items.push([index, $(this).find("." + sort_field + " .field-content").html()]);
-		});
+		var sorted_items = [];
+		for (var i = 0; i < visible_items.length; i++) {
+			if (sort_type === false || sort_field === false) {
+				sorted_items.push([i]);
+			} else {
+				sorted_items.push([i, visible_items[i].find("." + sort_field + " .field-content").html()]);
+			}
+		}
 		
-		items.sort(function(a, b) {
-			return sort_type == "asc" ? (a[1] - b[1]) : (b[1] - a[1]);
-		});
+		if (sort_type !== false && sort_field !== false) {
+			sorted_items.sort(function(a, b) {
+				return sort_type == "asc" ? (a[1] - b[1]) : (b[1] - a[1]);
+			});
+		}
 	
 		var row = 0;
 		var column = 0;
+		var random_width = (columns_count - 1) * (item_width + margins_width) + 1;
+		var random_height = (rows_count - 1) * (item_height + margins_height) + 1;
 		
-		for (var i = 0; i < items.length; i++) {
-			var item = obj.find(".views-row:visible").eq(items[i][0]);
+		for (var i = 0; i < sorted_items.length; i++) {
+			var item = visible_items[sorted_items[i][0]];
 			
+			if (items_on_page !== false && cur_page !== false &&
+				(i < (cur_page - 1) * items_on_page || i >= cur_page * items_on_page)
+			) {
+				continue;
+			}
+			
+			item.css("display", "list-item");
 			item.css("position", "absolute");
+			item.css("top", Math.floor(Math.random() * random_height));
+			item.css("left", Math.floor(Math.random() * random_width));
 			
 			item.animate({ top : row * (item_height + margins_height), left : column * (item_width + margins_width) }, speed, effect);
-				
+			
 			column++;
 			if (column == columns_count) {
 				column = 0;
 				row++;
+			}
+		}
+		
+		if (items_on_page !== false && cur_page !== false) {
+			obj.find("ul.pager").remove();
+			
+			var pages_count = Math.ceil(visible_items.length / items_on_page);
+			
+			if (pages_count > 1) {
+				var pager = "";
+				
+				pager += '<ul class="pager">';
+				for (var i = 0; i < pages_count; i++) {
+					pager += '<li' + (i == cur_page - 1 ? ' class="active"' : '') + '>' + (i + 1) + '</li>';
+				}
+				pager += '</ul>';
+				
+				obj.append(pager);
+				
+				obj.find("ul.pager").css("top", Math.floor(Math.random() * random_height));
+				obj.find("ul.pager").css("left", Math.floor(Math.random() * random_width));
+				
+				obj.find("ul.pager").animate({ top : obj.height(), left : Math.round((obj.width() - obj.find("ul.pager").width()) / 2) }, speed, effect);
+				
+				obj.find("ul.pager li").bind("click", function() {
+					add_isotope(obj, visible_items, items_on_page, $(this).html(), sort_type, sort_field, speed, effect);
+				});
 			}
 		}
 	};
@@ -154,15 +206,23 @@
 
 	/* Resources Page */
 	if ($(".resourses-page").html() !== null) {
+		var root_view = $(".pane-content > .resources-view");
+		var visible_items = [];
+		var items_on_page = 4;
 		var sort_type = "desc";
 		var sort_field = "h-date";
 		var grid_type = "grid-2";
 		var mc_filters = [];
 		var sc_filters = [];
 		
-		add_isotope($(".resources-view"), 850, "easeOutCubic", sort_type, sort_field);
+		root_view.css("display", "block");
+		$(".pane-content > .resources-view .views-row:visible").each(function() {
+			visible_items.push($(this));
+		});
 
-		$(".resources-view .thumbnail.grid-2").hover(
+		add_isotope(root_view, visible_items, items_on_page , 1, sort_type, sort_field, 850, "easeInOutExpo");
+
+		root_view.find(".thumbnail.grid-2").hover(
 			function() { $(this).find(".link").stop().animate({ backgroundPositionX: "14px" }, 850, "easeOutElastic");	}, 
 			function() { $(this).find(".link").stop().animate({ backgroundPositionX: "10px" }, 250); }
 		);
@@ -191,12 +251,13 @@
 			$("ul.sort li.active").removeClass("active");
 			$(this).addClass("active");
 			
-			add_isotope($(".resources-view"), 850, "easeOutCubic", sort_type, sort_field);
+			add_isotope(root_view, visible_items, items_on_page , 1, sort_type, sort_field, 850, "easeInOutExpo");
 		});
 		
 		var apply_filters = function() {
 			mc_filters = [];
 			sc_filters = [];
+			visible_items = [];
 			
 			$(".resources-main-category-menu-view .views-row .title.active").each(function() {
 				mc_filters.push($(this).find(".field-content").html());
@@ -206,7 +267,7 @@
 				sc_filters.push($(this).find(".field-content").html());
 			});
 
-			$(".resources-view .views-row." + grid_type).each(function() {
+			root_view.find(".views-row." + grid_type).each(function() {
 				var mc_visible = false;
 				var sc_visible = false;
 				var cur_mc = $(this).find(".h-mc .field-content").html();
@@ -233,9 +294,7 @@
 				}
 				
 				if (mc_visible === true && sc_visible === true) {
-					$(this).css("display", "list-item");
-				} else {
-					$(this).css("display", "none");
+					visible_items.push($(this));
 				}
 			});
 		};
@@ -258,7 +317,7 @@
 			}
 			
 			apply_filters();
-			add_isotope($(".resources-view"), 850, "easeOutCubic", sort_type, sort_field);
+			add_isotope(root_view, visible_items, items_on_page , 1, sort_type, sort_field, 850, "easeInOutExpo");
 		});
 		
 		$(".resources-second-category-menu-view .views-row .title").click(function() {			
@@ -269,18 +328,15 @@
 			}
 			
 			apply_filters();
-			add_isotope($(".resources-view"), 850, "easeOutCubic", sort_type, sort_field);
+			add_isotope(root_view, visible_items, items_on_page , 1, sort_type, sort_field, 850, "easeInOutExpo");
 		});
 		
 		$(".resources-tags-menu-view .views-row .title").click(function() {
 			reset_filters();
-			
-			$(".resources-view .views-row." + grid_type).each(function() {
-				$(this).css("display", "list-item");
-			});
+			visible_items = [];
 			
 			var cur_tag = $(this).find(".field-content").html();
-			$(".resources-view .views-row." + grid_type).each(function() {
+			root_view.find(".views-row." + grid_type).each(function() {
 				var tags = ($(this).find(".h-tags .field-content").html()).split("+");
 				
 				var tags_visible = false;
@@ -291,59 +347,55 @@
 				}
 				
 				if (tags_visible === true) {
-					$(this).css("display", "list-item");
-				} else {
-					$(this).css("display", "none");
+					visible_items.push($(this));
 				}
 			});
 
-			add_isotope($(".resources-view"), 850, "easeOutCubic", sort_type, sort_field);
+			add_isotope(root_view, visible_items, items_on_page , 1, sort_type, sort_field, 850, "easeInOutExpo");
 		});
 		
 		$(".resources-archive-menu-view .views-summary a").click(function() {
 			reset_filters();
-			
-			$(".resources-view .views-row." + grid_type).each(function() {
-				$(this).css("display", "list-item");
-			});
-			
+			visible_items = [];
+
 			var cur_date = $(this).html();
-			$(".resources-view .views-row." + grid_type).each(function() {
+			root_view.find(".views-row." + grid_type).each(function() {
 				if ($(this).find(".h-archive .field-content").html() == cur_date) {
-					$(this).css("display", "list-item");
-				} else {
-					$(this).css("display", "none");
+					visible_items.push($(this));
 				}
 			});
 			
-			add_isotope($(".resources-view"), 850, "easeOutCubic", sort_type, sort_field);
+			add_isotope(root_view, visible_items, items_on_page , 1, sort_type, sort_field, 850, "easeInOutExpo");
 			return false;
 		});
 		
-		$(".view .grid-2").click(function() {
-			grid_type = "grid-2";
+		var grid_clone_items = function(new_grid_type) {
+			var new_visible_items = [];
 			
-			$(".resources-view .views-row.grid-4").each(function(index) {
-				if ($(this).css("display") != "none") {
-					$(this).css("display", "none");
-					$(".resources-view .views-row.grid-2").eq(index).css("display", "list-item");
-				}
-			});
+			for (var i = 0; i < visible_items.length; i++) {
+				var cur_nid = visible_items[i].find(".nid .field-content").html();
+				
+				root_view.find(".views-row." + new_grid_type).each(function() {
+					if ($(this).find(".nid .field-content").html() == cur_nid) {
+						new_visible_items.push($(this));
+					}
+				});
+			}
 			
-			add_isotope($(".resources-view"), 850, "easeOutCubic", sort_type, sort_field);
+			grid_type = new_grid_type;
+			visible_items = new_visible_items;
+		};
+		
+		$(".view-grid .grid-2").click(function() {
+			items_on_page = 4;
+			grid_clone_items("grid-2");
+			add_isotope(root_view, visible_items, items_on_page , 1, sort_type, sort_field, 850, "easeInOutExpo");
 		});
 		
-		$(".view .grid-4").click(function() {
-			grid_type = "grid-4";
-			
-			$(".resources-view .views-row.grid-2").each(function(index) {
-				if ($(this).css("display") != "none") {
-					$(this).css("display", "none");
-					$(".resources-view .views-row.grid-4").eq(index).css("display", "list-item");
-				}
-			});
-			
-			add_isotope($(".resources-view"), 850, "easeOutCubic", sort_type, sort_field);
+		$(".view-grid .grid-4").click(function() {
+			items_on_page = 8;
+			grid_clone_items("grid-4");
+			add_isotope(root_view, visible_items, items_on_page , 1, sort_type, sort_field, 850, "easeInOutExpo");
 		});
 	}
 	
