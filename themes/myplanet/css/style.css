@@ -230,6 +230,8 @@ ul.pager li.active { font-weight: bold; }
 .about-page .main-body .center-region .text { font: 25px/140% "plantin", Georgia, serif; letter-spacing: -1px; }
 .about-page .main-body .right-region .text { font: 14px/164% Arial, serif; }
 .about-page .related { padding-top: 35px; }
+.about-page .related .left-region { margin-right: 20px; width: 175px; }
+.about-page .related .right-region { float: right; width: 755px; }
 
 /* About - Our Story Page */
 .our-story-page { padding-bottom: 50px; }
@@ -245,6 +247,28 @@ ul.pager li.active { font-weight: bold; }
 .our-story-page .meet-the-team .left-region .sub-title { padding-bottom: 20px; background: url(../images/divider.png) repeat-x 0 bottom; }
 .our-story-page .meet-the-team .left-region .team-categories-view { padding-top: 20px; }
 .our-story-page .meet-the-team .right-region { float: right; width: 755px; }
+
+/* Contact Page */
+.contact-page { padding-bottom: 100px; }
+.contact-page .top-title { padding-top: 7px; font: bold 47px/191% "plantin", Georgia, serif; letter-spacing: -2px; }
+.contact-page .main-body { padding-top: 9px; }
+.contact-page .main-body .left-region { width: 175px; }
+.contact-page .main-body .left-region .sub-title { padding-bottom: 18px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.contact-page .main-body .left-region .text { padding-top: 17px; font-size: 12px; line-height: 192%; }
+.contact-page .main-body .left-region .sticker { margin-top: 10px; width: 126px; height: 126px; font-size: 0; line-height: 0; background: url(../images/contact-toronto-sticker.png) no-repeat 0 0; }
+.contact-page .main-body .right-region { float: right; width: 754px; }
+.contact-page .main-body .right-region .map { width: 754px; height: 454px; }
+.contact-page .get-in-touch { padding: 55px 0 55px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.contact-page .get-in-touch .left-region { margin-right: 20px; width: 175px; }
+.contact-page .get-in-touch .region-1 { margin-right: 23px; width: 236px; }
+.contact-page .get-in-touch .region-2 { width: 236px; }
+.contact-page .get-in-touch .region-3 { float: right; width: 236px; }
+.contact-page .get-in-touch .region-1 .text { padding-top: 16px; }
+.contact-page .get-in-touch .region-2 .text { padding-top: 16px; }
+.contact-page .get-in-touch .region-3 .text { padding-top: 16px; }
+.contact-page .related { padding-top: 35px; }
+.contact-page .related .left-region { margin-right: 20px; width: 175px; }
+.contact-page .related .right-region { float: right; width: 755px; }
 
 /* Careers Page */
 .careers-page { padding-bottom: 100px; }
@@ -269,6 +293,8 @@ ul.pager li.active { font-weight: bold; }
 .openings-page .opportunities .left-region .job-posts-menu-view { padding-top: 10px; }
 .openings-page .opportunities .right-region { float: right; width: 755px; }
 .openings-page .related { padding-top: 34px; }
+.openings-page .related .left-region { margin-right: 20px; width: 175px; }
+.openings-page .related .right-region { float: right; width: 755px; }
 
 /* Resources Page */
 .resources-page { padding-bottom: 100px; }
@@ -348,3 +374,5 @@ ul.pager li.active { font-weight: bold; }
 .job-post-page .main-body .right-region .read-more { padding: 31px 0 8px; background: url(../images/divider.png) repeat-x 0 bottom; }
 .job-post-page .main-body .right-region .read-more a { display: block; color: #000; background: url(../images/arrow_right_nobg.png) no-repeat 141px -6px; }
 .job-post-page .related { padding-top: 34px; }
+.job-post-page .related .left-region { margin-right: 20px; width: 175px; }
+.job-post-page .related .right-region { float: right; width: 755px; }
