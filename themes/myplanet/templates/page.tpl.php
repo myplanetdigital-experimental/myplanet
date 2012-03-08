@@ -9,6 +9,7 @@
       <?php print $messages; ?>
       <div id="content-center"><?php print render($page['content']); ?></div>
       <div id="content-bottom"><?php print render($page['content_bottom']); ?></div>
+      <div id="breadcrumb"><?php print $breadcrumb; ?></div>
     </div></div>
     <div id="content-back-bottom"></div>
   </div>

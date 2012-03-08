@@ -38,6 +38,9 @@ var add_custom_classes = function(obj) {
 		function() { $(this).stop().animate({ backgroundPositionY: "-6px" }, 250); }
 	);
 	
+	/* Breadcrumb */
+	$(".breadcrumb a:last").css("background", "none");
+	
 	/* Footer */
 	$(".footer .footer-4 .email a").hover(
 		function() { $(this).stop().animate({ opacity: 0.5 }, 100, "easeOutCubic"); },

@@ -57,12 +57,9 @@ ul.pager li.active { font-weight: bold; }
 .content-top .menu-region .main-menu ul.menu li { float: left; }
 .content-top .menu-region .main-menu ul.menu li a { float: left; padding: 0 18px 18px; font: bold 20px/140% "plantin", Georgia, serif; color: black; letter-spacing: -1px; background: transparent url(../images/circle.png) no-repeat center -6px; }
 
-/* Content Bottom */
-.content-bottom { padding-bottom: 24px; background: url(../images/divider.png) repeat-x 0 bottom; }
-.content-bottom .breadcrumb { padding-bottom: 1px; }
-.content-bottom .breadcrumb ul.menu li { float: left; }
-.content-bottom .breadcrumb ul.menu li a { float: left; padding-right: 35px; color: #000; background: url(../images/arrow_right_nobg.png) no-repeat right -8px; }
-.content-bottom .breadcrumb ul.menu li.last a { background: none;z }
+/* Breadcrumb */
+.breadcrumb { padding-bottom: 25px; text-indent: -1000px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.breadcrumb a { float: left; padding-right: 35px; text-indent: 0; color: #000; background: url(../images/arrow_right_nobg.png) no-repeat right -7px; }
 
 /* Footer */
 .footer {  }
@@ -86,14 +83,14 @@ ul.pager li.active { font-weight: bold; }
 .footer .footer-5 .links .link-6 { background-position: -66px -33px; margin-right: 0; }
 
 /* Page Title */
-.page-title { background: url(../images/divider.png) repeat-x 0 bottom; }
-.page-title .title { position: absolute; z-index: 20; padding-top: 4px; width: 80%; font: bold 100px/100% "tradegothic", Arial, serif; letter-spacing: -5px; }
-.page-title .menu { position: relative; z-index: 25; float: right; width: 80%; }
-.page-title .menu ul { margin-right: -18px; padding-top: 73px; width: auto; }
-.page-title .menu ul li { float: left; }
-.page-title .menu ul li a { float: left; display: block; margin: 0 18px; padding-bottom: 15px; font: bold 20px/140% "plantin", Georgia, serif; color: black; letter-spacing: -1px; }
-.page-title .menu ul li a:hover { color: #f05a28; }
-.page-title .menu ul li a.active { font-style: italic; background: url(../images/sub-menu-back.png) no-repeat center 30px; }
+.page-title { position: relative; height: 116px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.page-title .title { position: absolute; z-index: 20; left: 0; top: 0; padding-top: 4px; font: bold 100px/100% "tradegothic", Arial, serif; letter-spacing: -5px; }
+.page-title .menu-region { position: absolute; z-index: 25; right: 0; top: 73px; }
+.page-title .menu-region ul { float: right; margin-right: -18px; }
+.page-title .menu-region ul li { float: left; }
+.page-title .menu-region ul li a { float: left; display: block; margin: 0 18px; padding-bottom: 15px; font: bold 20px/140% "plantin", Georgia, serif; color: black; letter-spacing: -1px; }
+.page-title .menu-region ul li a:hover { color: #f05a28; }
+.page-title .menu-region ul li a.active { font-style: italic; background: url(../images/sub-menu-back.png) no-repeat center 30px; }
 
 /* Focal Slideshow */
 .focal-slideshow { position: relative; width: 950px; height: 495px; }
@@ -107,7 +104,7 @@ ul.pager li.active { font-weight: bold; }
 .focal-slideshow .focal-next:hover { background-position: -208px -18px; }
 .slideshow { position: relative; }
 .slideshow a { display: block; font-size: 0; line-height: 0; }
-.views-slideshow-controls-text span { position: absolute; z-index: 500; display: block; bottom: 10px; width: 78px; height: 78px; background: url(../images/mp_sprite.png) no-repeat; cursor: pointer; text-indent: -1000px; overflow: hidden; }
+.views-slideshow-controls-text span { position: absolute; z-index: 500; display: block; bottom: 15px; width: 78px; height: 78px; background: url(../images/mp_sprite.png) no-repeat; cursor: pointer; text-indent: -1000px; overflow: hidden; }
 .views-slideshow-controls-text span.views-slideshow-controls-text-previous { background-position: -28px -143px; right: 92px; }
 .views-slideshow-controls-text span.views-slideshow-controls-text-previous:hover { background-position: -208px -143px; }
 .views-slideshow-controls-text span.views-slideshow-controls-text-pause { display: none; }
@@ -215,11 +212,27 @@ ul.pager li.active { font-weight: bold; }
 .testimonials-job-post-page-view .views-row { float: none; margin-bottom: 36px; }
 .testimonials-job-post-page-view .image { font-size: 0; line-height: 0; }
 .testimonials-job-post-page-view .title { padding: 22px 19px 17px; font: normal 16px/125% "plantin", Georgia, serif; letter-spacing: -1px; background: #f1f1f1 url(../images/testimonial-back.png) no-repeat 12px 11px; }
+.work-slideshow-view {  }
+.work-slideshow-view .views-slideshow-cycle-main-frame { font-size: 0; line-height: 0; }
+.work-slideshow-view .views-slideshow-cycle-main-frame-row { height: 460px; }
+.projects-view {  }
+.projects-view .views-row { margin: 0 22px 20px 0; width: 236px; }
+.projects-view .image { font-size: 0; line-height: 0; }
+.projects-view .title { padding-top: 11px; }
+.projects-view .leadline { padding-bottom: 8px; font: italic 12px/100% Georgia, Arial, sans-serif; color: #333; }
+.projects-view .layer a { position: absolute; display: block; padding: 33px 33px 0 28px; left: 0; right: 0; top: 0; bottom: 0; opacity: 0; filter: alpha(opacity=0); color: #fff; background-color: #000; }
+.projects-view .title2 { font-size: 13px; line-height: 115%; font-weight: bold; }
+.projects-view .summary { padding-top: 13px; font-size: 12px; line-height: 150%; }
+.projects-view .link { position: absolute; bottom: 23px; width: 100px; height: 20px; font-weight: bold; background: url(../images/mp_sprite.png) no-repeat 15px -47px; }
+.clients-view {  }
+.clients-view .views-row { margin: 0 20px 50px 0; padding-bottom: 6px; width: 236px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.clients-view .image { font-size: 0; line-height: 0; }
 
 /* Front Page */
 .front #content-back { background: url(../images/front-page.png) no-repeat center 0; }
-.front-page { padding-bottom: 100px; }
+.front-page { padding-bottom: 124px; }
 .front-page .front-items-view { padding-top: 496px; }
+.front-page { background: url(../images/divider.png) repeat-x 0 bottom; }
 
 /* About Page */
 .about-page { padding-bottom: 100px; }
@@ -233,11 +246,43 @@ ul.pager li.active { font-weight: bold; }
 .about-page .related .left-region { margin-right: 20px; width: 175px; }
 .about-page .related .right-region { float: right; width: 755px; }
 
+/* About - Our Company Page */
+.our-company-page { padding-bottom: 100px; }
+.our-company-page .our-company { padding: 34px 0 51px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.our-company-page .our-company .left-region { width: 175px; margin-right: 20px; }
+.our-company-page .our-company .center-region { width: 370px; }
+.our-company-page .our-company .right-region { float: right; width: 366px; }
+.our-company-page .our-company .left-region .sub-title { padding-top: 7px; }
+.our-company-page .our-company .left-region .sticker { margin: 23px 0 0 1px; width: 126px; height: 126px; font-size: 0; line-height: 0; text-indent: -1000px; overflow: hidden; background: url(../images/our-company-sticker.png) no-repeat 0 0; }
+.our-company-page .our-company .center-region .text { padding-top: 7px; font: 25px/140% "plantin", Georgia, serif; letter-spacing: -1px; }
+.our-company-page .our-company .right-region .sub-title { width: 366px; background: #f1f1f1 url(../images/our-company-panel-corner.png) no-repeat right 0; }
+.our-company-page .our-company .right-region .sub-title .pane-content { padding: 33px 30px 0; }
+.our-company-page .our-company .right-region .text { background-color: #f1f1f1; }
+.our-company-page .our-company .right-region .text .pane-content { padding: 24px 32px 34px; }
+.our-company-page .our-company .right-region .image1 { float: left; padding-top: 22px; font-size: 0; line-height: 0; }
+.our-company-page .our-company .right-region .image2 { float: right; padding-top: 22px; font-size: 0; line-height: 0; }
+.our-company-page .our-approach { padding: 34px 0 51px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.our-company-page .our-approach .left-region { width: 175px; margin-right: 20px; }
+.our-company-page .our-approach .center-region { width: 370px; }
+.our-company-page .our-approach .right-region { float: right; width: 366px; }
+.our-company-page .our-approach .left-region .sub-title { padding-top: 7px; }
+.our-company-page .our-approach .left-region .sticker { margin: 23px 0 0 1px; width: 126px; height: 126px; font-size: 0; line-height: 0; text-indent: -1000px; overflow: hidden; background: url(../images/our-company-sticker.png) no-repeat 0 0; }
+.our-company-page .our-approach .center-region .text { padding-top: 7px; font: 25px/140% "plantin", Georgia, serif; letter-spacing: -1px; }
+.our-company-page .our-approach .right-region .sub-title { width: 366px; background: #f1f1f1 url(../images/our-company-panel-corner.png) no-repeat right 0; }
+.our-company-page .our-approach .right-region .sub-title .pane-content { padding: 33px 30px 0; }
+.our-company-page .our-approach .right-region .text { background-color: #f1f1f1; }
+.our-company-page .our-approach .right-region .text .pane-content { padding: 24px 32px 34px; }
+.our-company-page .our-approach .right-region .image1 { float: left; padding-top: 22px; font-size: 0; line-height: 0; }
+.our-company-page .our-approach .right-region .image2 { float: right; padding-top: 22px; font-size: 0; line-height: 0; }
+.our-company-page .related { padding-top: 35px; }
+.our-company-page .related .left-region { margin-right: 20px; width: 175px; }
+.our-company-page .related .right-region { float: right; width: 755px; }
+
 /* About - Our Story Page */
 .our-story-page { padding-bottom: 50px; }
 .our-story-page .about-our-team { padding: 33px 0 44px; background: url(../images/divider.png) repeat-x 0 bottom; }
 .our-story-page .about-our-team .left-region { width: 172px; margin-right: 20px; }
-.our-story-page .about-our-team .left-region .sticker { margin: 17px 0 0 1px; width: 126px; height: 126px; font-size: 0; line-height: 0; text-indent: -1000px; overflow: hidden; background: url(../images/about-our-team-sticker.png) no-repeat 0 0; }
+.our-story-page .about-our-team .left-region .sticker { margin: 17px 0 0 1px; width: 126px; height: 126px; font-size: 0; line-height: 0; text-indent: -1000px; overflow: hidden; background: url(../images/our-team-sticker.png) no-repeat 0 0; }
 .our-story-page .about-our-team .center-region { width: 370px; }
 .our-story-page .about-our-team .center-region .text { margin-top: -6px; font: 25px/140% "plantin", Georgia, serif; letter-spacing: -1px; }
 .our-story-page .about-our-team .right-region { float: right; width: 360px; }
@@ -376,3 +421,36 @@ ul.pager li.active { font-weight: bold; }
 .job-post-page .related { padding-top: 34px; }
 .job-post-page .related .left-region { margin-right: 20px; width: 175px; }
 .job-post-page .related .right-region { float: right; width: 755px; }
+
+/* Work Page */
+.work-page { padding-bottom: 100px; }
+.work-page .work-slideshow-view { padding-top: 10px; }
+.work-page .main-body { padding: 35px 0 21px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.work-page .main-body .left-region { width: 175px; }
+.work-page .main-body .right-region { float: right; width: 752px; }
+.work-page .related { padding-top: 34px; }
+.work-page .related .left-region { margin-right: 20px; width: 175px; }
+.work-page .related .right-region { float: right; width: 755px; }
+
+/* Work - Clients Page */
+.clients-page { padding-bottom: 100px; }
+.clients-page .top-title { padding-top: 9px; font: bold 40px/120% Georgia,"Times New Roman",Times,serif; letter-spacing: -2px; }
+.clients-page .main-body { padding-top: 48px; }
+.clients-page .main-body .left-region { width: 175px; }
+.clients-page .main-body .right-region { float: right; width: 748px; }
+
+/* Work - Project Page */
+.project-page { padding-bottom: 100px; }
+.project-page .project-slideshow-view { padding-top: 10px; }
+.project-page .main-body { padding-top: 31px; }
+.project-page .main-body .left-region { width: 175px; margin-right: 20px; }
+.project-page .main-body .center-region { width: 368px; }
+.project-page .main-body .right-region { float: right; width: 368px; }
+.project-page .main-body .left-region .sub-title { padding-bottom: 12px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.project-page .main-body .left-region .url { padding-top: 10px; }
+.project-page .main-body .left-region .url a { padding-bottom: 3px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.project-page .main-body .center-region .body { font: 25px/128% "plantin", Georgia, serif; letter-spacing: -1px; }
+.project-page .main-body .right-region .sub-title { padding-bottom: 21px; }
+.project-page .main-body .right-region .discover { padding-bottom: 42px; }
+.project-page .main-body .right-region .plan { padding-bottom: 42px; }
+.project-page .main-body .right-region .execute { padding-bottom: 42px; }
