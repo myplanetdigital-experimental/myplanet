@@ -39,6 +39,8 @@ var add_custom_classes = function(obj) {
 	);
 	
 	/* Breadcrumb */
+	var temp_breadcrumb = $(".breadcrumb").html().replace(/ \» /g, "");
+	$(".breadcrumb").html(temp_breadcrumb);
 	$(".breadcrumb a:last").css("background", "none");
 	
 	/* Footer */
