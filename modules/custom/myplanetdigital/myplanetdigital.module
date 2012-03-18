@@ -1,5 +1,15 @@
 <?php
 
+function myplanetdigital_init() {
+	if (arg(0) == 'admin' && arg(1) == 'structure' && arg(2) == 'pages') {
+		$bue_id = 1;
+	    bueditor_settle($bue_id);
+	    $bue_setting['BUE']['preset']['edit-body'] = "e$bue_id";
+	    drupal_add_js($bue_setting, 'setting');
+	    drupal_add_css('.bue-popup{z-index: 1001 !important}', array('type' => 'inline'));
+	}
+}
+
 function myplanetdigital_custom_theme() {
 	$path_alias = drupal_get_path_alias();
 	$url = explode('/', $path_alias);
@@ -15,11 +25,6 @@ function myplanetdigital_form_alter(&$form, &$form_state, $form_id) {
 			$form['customer_profile_billing']['commerce_customer_address'][LANGUAGE_NONE][0]['name_block']['name_line']['#title'] = 'Name';
 			break;
 	}
-}
-
-function show_image($nid, $image_style) {
-	$node = node_load($nid);
-	echo theme('image_style', array('path' => $node->field_ig_image[LANGUAGE_NONE][0]['uri'], 'style_name' => $image_style));
 }
 
 function invoice_payment_form_output() {

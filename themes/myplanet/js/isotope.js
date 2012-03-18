@@ -40,7 +40,7 @@ var add_isotope = function(obj, old_visible_items, new_visible_items, items_on_p
 			
 			obj.find("ul.pager li").bind("click", function() {
 				jQuery.cookies.set(page_prefix + "_page", jQuery(this).html());
-				add_isotope(obj, new_visible_items, new_visible_items, items_on_page, jQuery(this).html(), sort_type, sort_field, fade_out_speed, fade_out_effect, fade_in_speed, fade_in_effect, move_speed, move_effect);
+				add_isotope(obj, new_visible_items, new_visible_items, items_on_page, jQuery(this).html(), page_prefix, fade_out_speed, fade_out_effect, fade_in_speed, fade_in_effect, move_speed, move_effect);
 			});
 		}
 	}

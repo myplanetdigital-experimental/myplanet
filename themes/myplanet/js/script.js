@@ -96,4 +96,16 @@ var add_custom_classes = function(obj) {
 		//constant : true, 			// constant speed
 	});
 	
+	// Images
+	$("img").click(function() {
+		if ($(this).attr("src").indexOf("files/styles") == -1) return;
+		
+		var original_path = "";
+		
+		if ($(this).attr("src").indexOf("files/styles") != -1) {
+			//original_path($(this).attr("src").)
+		}
+		
+	});
+	
 }); })(jQuery);
