@@ -223,8 +223,8 @@ $("document").ready(function() {
 	$(".resources-second-category-menu-view .views-row").eq(0).before('<li class="views-row"><div class="title all active"><div class="field-content">All Themes</div></div></li>');
 	
 	$(".pane-content > .resources-view .thumbnail.grid-2").hover(
-		function() { $(this).find(".link").stop().animate({ backgroundPositionX: "14px" }, 850, "easeOutElastic"); }, 
-		function() { $(this).find(".link").stop().animate({ backgroundPositionX: "10px" }, 250); }
+		function() { $(this).find(".link").stop().animate({ backgroundPosition: "15px -47px" }, 850, "easeOutElastic"); }, 
+		function() { $(this).find(".link").stop().animate({ backgroundPosition: "5px -47px" }, 250); }
 	);
 	
 	init_category_filters(mc_filters, $(".resources-main-category-menu-view"));

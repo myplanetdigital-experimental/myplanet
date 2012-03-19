@@ -14,13 +14,13 @@ $("document").ready(function() {
 	}
 	
 	$(".job-posts-menu-view ul li").hover(
-		function() { $(this).stop().animate({ backgroundPositionX: "163px" }, 850, "easeOutElastic"); }, 
-		function() { $(this).stop().animate({ backgroundPositionX: "153px" }, 250); }
+		function() { $(this).stop().animate({ backgroundPosition: "163px 16px" }, 850, "easeOutElastic"); }, 
+		function() { $(this).stop().animate({ backgroundPosition: "153px 16px" }, 250); }
 	);
 	
 	$(".main-body .right-region .read-more a").hover(
-		function() { $(this).stop().animate({ backgroundPositionX: "151px" }, 850, "easeOutElastic"); }, 
-		function() { $(this).stop().animate({ backgroundPositionX: "141px" }, 250); }
+		function() { $(this).stop().animate({ backgroundPosition: "151px -6px" }, 850, "easeOutElastic"); }, 
+		function() { $(this).stop().animate({ backgroundPosition: "141px -6px" }, 250); }
 	);
 	
 });

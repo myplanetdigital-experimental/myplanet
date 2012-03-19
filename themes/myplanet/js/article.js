@@ -46,8 +46,8 @@ $("document").ready(function() {
 	});
 	
 	$(".resources-realated-view .layer a").hover(
-		function() { $(this).find(".link").stop().animate({ backgroundPositionX: "21px" }, 850, "easeOutElastic"); }, 
-		function() { $(this).find(".link").stop().animate({ backgroundPositionX: "11px" }, 250); }
+		function() { $(this).find(".link").stop().animate({ backgroundPosition: "21px -47px" }, 850, "easeOutElastic"); }, 
+		function() { $(this).find(".link").stop().animate({ backgroundPosition: "11px -47px" }, 250); }
 	);
 	
 });

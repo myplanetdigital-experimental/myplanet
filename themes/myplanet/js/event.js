@@ -8,8 +8,8 @@ $("document").ready(function() {
 	$(".events-calendar-view .calendar-calendar td.has-events a").click(function() { return false; });
 	
 	$(".main-body .right-region .link").hover(
-		function() { $(this).find("a").stop().animate({ backgroundPositionX: "150px" }, 850, "easeOutElastic");	}, 
-		function() { $(this).find("a").stop().animate({ backgroundPositionX: "140px" }, 250); }
+		function() { $(this).find("a").stop().animate({ backgroundPosition: "150px -6px" }, 850, "easeOutElastic");	}, 
+		function() { $(this).find("a").stop().animate({ backgroundPosition: "140px -6px" }, 250); }
 	);
 	
 	var latlng = $(".main-body .center-region .latlng p").html().split(", ");
