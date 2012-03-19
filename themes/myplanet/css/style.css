@@ -56,7 +56,7 @@ img { cursor: pointer; }
 .image-viewer .close:hover { width: 76px; height: 76px; background: url(../images/white-circle-76.png) no-repeat 0 0; }
 .image-viewer .close .pane-content { padding-top: 28px; color: #fff; text-align: center; }
 .image-viewer .close:hover .pane-content { color: #000; }
-.image-viewer .title { position: fixed; padding: 20px 20px; left: 166px; right: 166px; bottom: 20px; color: #fff; background: #000 url(../images/divider.png) repeat-x 0 bottom; font: bold italic 17px/100% "plantin", Georgia, serif; letter-spacing: -1px; }
+.image-viewer .title { position: fixed; padding: 20px 20px 23px; height: 35px; left: 0; right: 0; bottom: 0; color: #fff; background: #000 url(../images/divider.png) repeat-x 0 60px; font: bold italic 17px/100% "plantin", Georgia, serif; letter-spacing: -1px; }
 .image-viewer .title .pane-content { display: inline; }
 .image-viewer .summary { position: fixed; left: 166px; right: 166px; bottom: 37px; color: #fff; }
 
