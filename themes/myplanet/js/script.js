@@ -97,15 +97,78 @@ var add_custom_classes = function(obj) {
 	});
 	
 	// Images
+	var images = [];
+	var cur_image_index = -1;
+	
 	$("img").click(function() {
-		if ($(this).attr("src").indexOf("files/styles") == -1) return;
+		images = [];
+		var cur_image_path = $(this).attr("src");
 		
-		var original_path = "";
+		var index = 0;
+		$("img").each(function() {
+			if ($(this).hasClass("no-img")) return;
+			
+			var original_path = $(this).attr("src");
+			files_path = original_path.substr(0, original_path.indexOf("files") + 5);
+			
+			if (original_path == cur_image_path) {
+				cur_image_index = index;
+			}
+			
+			if ($(this).attr("src").indexOf("files/styles") != -1) {
+				original_path = $(this).attr("src");
+				original_path = original_path.substr(original_path.indexOf("/public/") + 8);
+				original_path = files_path + "/" + original_path;
+			}
+			
+			if ($(this).attr("src").indexOf("files/resize") != -1) {
+				original_path = $(this).attr("src");
+				original_path = original_path.substr(original_path.indexOf("files/resize") + 13);
+				original_path = original_path.substr(0, original_path.lastIndexOf("-")) + original_path.substr(original_path.lastIndexOf("."));
+				original_path = files_path + "/" + original_path;
+			}
+			
+			images.push({ obj : $(this), path : original_path });
+			index++;
+		});
+
+		$("#layer-wrapper").css("display", "block");
+		$(".image-viewer").css("padding-top", $(window).scrollTop());
+		update_image_viewer_image();
+		$("#layer-wrapper").fadeIn(500, "easeOutCubic");
 		
-		if ($(this).attr("src").indexOf("files/styles") != -1) {
-			//original_path($(this).attr("src").)
+		return false;
+	});
+	
+	var update_image_viewer_image = function() {
+		$(".image-viewer .image").html("<img class='no-img' src='" + images[cur_image_index]["path"] + "' />");
+		$(".image-viewer .title .pane-content").html(images[cur_image_index]["obj"].attr("title"));
+		$(".image-viewer .summary .pane-content").html(images[cur_image_index]["obj"].attr("alt"));
+		$(".image-viewer .summary").css("padding-left", ($(".image-viewer .title").offset().left + 4) + "px");
+	};
+	
+	$(".image-viewer .back, .image-viewer .image, .image-viewer .close").click(function() {
+		$("#layer-wrapper").fadeOut(800, "easeOutCubic");
+	});
+	
+	$(".image-viewer .previous").click(function() {
+		cur_image_index--;
+		
+		if (cur_image_index == -1) {
+			cur_image_index = images.length - 1;
 		}
 		
+		update_image_viewer_image();
+	});
+	
+	$(".image-viewer .next").click(function() {
+		cur_image_index++;
+		
+		if (cur_image_index == images.length) {
+			cur_image_index = 0;
+		}
+		
+		update_image_viewer_image();
 	});
 	
 }); })(jQuery);

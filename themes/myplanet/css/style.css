@@ -22,6 +22,8 @@ p { margin: 0; }
 .sub-title.black { color: #000; }
 
 /* Cascade */
+#page-wrapper { position: relative; }
+#layer-wrapper { position: absolute; display: none; z-index: 1000; left: 0; right: 0; top: 0; bottom: 0; }
 #header-wrapper { height: 67px; background-color: #000; color: #888; }
 #header { margin: 0 auto; padding-top: 13px; width: 990px; }
 #content-wrapper { position: relative; }
@@ -35,12 +37,29 @@ p { margin: 0; }
 #footer { margin: 0 auto; padding-top: 35px; width: 950px; color: #777; font-size: 12px; line-height: 183%; }
 #footer a { color: #777; }
 
+/* Layer */
+img { cursor: pointer; }
+#layer .block { position: inherit; }
+.image-viewer { position: absolute; left: 0; right: 0; top: 0; bottom: 0; }
+.image-viewer .back { position: absolute; left: 0; right: 0; top: 0; bottom: 0; text-indent: -1000px; overflow: hidden; background-color: #000; }
+.image-viewer .image { position: relative; font-size: 0; line-height: 0; }
+.image-viewer .image img { display: block; margin: 0 auto; }
+.image-viewer .previous { position: absolute; margin: -36px 0 0 206px; left: 50%; width: 76px; height: 76px; text-indent: -1000px; overflow: hidden; cursor: pointer; background: url(../images/white-circle-76.png) no-repeat 0 0; }
+.image-viewer .previous .pane-content { height: 76px; background: url(../images/arrow_left_nobg.png) no-repeat 20px 20px; }
+.image-viewer .next { position: absolute; margin: -36px 0 0 302px; left: 50%; width: 76px; height: 76px; text-indent: -1000px; overflow: hidden; cursor: pointer; background: url(../images/white-circle-76.png) no-repeat 0 0; }
+.image-viewer .next .pane-content { height: 76px; background: url(../images/arrow_right_nobg.png) no-repeat 20px 20px; }
+.image-viewer .close { position: absolute; margin: -36px 0 0 400px; left: 50%; width: 77px; height: 77px; overflow: hidden; cursor: pointer; background: url(../images/orange-circle-77.png) no-repeat 0 0; }
+.image-viewer .close .pane-content { padding-top: 28px; color: #fff; text-align: center; }
+.image-viewer .title { position: relative; margin: 31px auto 0; padding-bottom: 20px; width: 1093px; color: #fff; background: url(../images/divider.png) repeat-x 0 bottom; font: bold italic 17px/100% "plantin", Georgia, serif; letter-spacing: -1px; }
+.image-viewer .title .pane-content { display: inline; }
+.image-viewer .summary { position: relative; margin: -38px auto 0; width: 1093px; color: #fff; }
+
 /* Header */
 .header {  }
 .header .top-menu { float: right; }
 .header .top-menu ul.menu li { float: left; }
 .header .top-menu ul.menu li a { float: left; padding: 15px 17px; font-size: 12px; line-height: 233%; color: #888; }
-.header .to-top { position: fixed; z-index: 1000; display: none; bottom: 20px; right: 20px; width: 77px; height: 77px; text-align: center; cursor: pointer; background: url(../images/to-top.png) no-repeat 0 0; }
+.header .to-top { position: fixed; z-index: 2000; display: none; bottom: 20px; right: 20px; width: 77px; height: 77px; text-align: center; cursor: pointer; background: url(../images/to-top.png) no-repeat 0 0; }
 .header .to-top .pane-content { padding: 36px 29px; color: #fff; text-decoration: none; background: url(../images/arrow_up.png) no-repeat 24px 12px; }
 
 /* Content Top */

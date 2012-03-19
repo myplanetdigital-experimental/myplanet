@@ -1,4 +1,5 @@
 <div id="page-wrapper"><div id="page">
+  <div id="layer-wrapper"><div id="layer"><?php print render($page['layer']); ?></div></div>
   <div id="header-wrapper"><div id="header"><?php print render($page['header']); ?></div></div>
   <div id="content-wrapper">
     <div id="content-back-top"></div>
