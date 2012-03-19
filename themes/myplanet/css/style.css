@@ -44,15 +44,15 @@ img { cursor: pointer; }
 .image-viewer .back { position: absolute; left: 0; right: 0; top: 0; bottom: 0; text-indent: -1000px; overflow: hidden; background-color: #000; }
 .image-viewer .image { position: relative; font-size: 0; line-height: 0; }
 .image-viewer .image img { display: block; margin: 0 auto; }
-.image-viewer .previous { position: absolute; margin: -36px 0 0 206px; left: 50%; width: 76px; height: 76px; text-indent: -1000px; overflow: hidden; cursor: pointer; background: url(../images/white-circle-76.png) no-repeat 0 0; }
+.image-viewer .previous { position: absolute; margin-top: -36px; right: 431px; width: 76px; height: 76px; text-indent: -1000px; overflow: hidden; cursor: pointer; background: url(../images/white-circle-76.png) no-repeat 0 0; }
 .image-viewer .previous .pane-content { height: 76px; background: url(../images/arrow_left_nobg.png) no-repeat 20px 20px; }
-.image-viewer .next { position: absolute; margin: -36px 0 0 302px; left: 50%; width: 76px; height: 76px; text-indent: -1000px; overflow: hidden; cursor: pointer; background: url(../images/white-circle-76.png) no-repeat 0 0; }
+.image-viewer .next { position: absolute; margin-top: -36px; right: 335px; width: 76px; height: 76px; text-indent: -1000px; overflow: hidden; cursor: pointer; background: url(../images/white-circle-76.png) no-repeat 0 0; }
 .image-viewer .next .pane-content { height: 76px; background: url(../images/arrow_right_nobg.png) no-repeat 20px 20px; }
-.image-viewer .close { position: absolute; margin: -36px 0 0 400px; left: 50%; width: 77px; height: 77px; overflow: hidden; cursor: pointer; background: url(../images/orange-circle-77.png) no-repeat 0 0; }
+.image-viewer .close { position: absolute; margin-top: -36px; right: 236px; width: 77px; height: 77px; overflow: hidden; cursor: pointer; background: url(../images/orange-circle-77.png) no-repeat 0 0; }
 .image-viewer .close .pane-content { padding-top: 28px; color: #fff; text-align: center; }
-.image-viewer .title { position: relative; margin: 31px auto 0; padding-bottom: 20px; width: 1093px; color: #fff; background: url(../images/divider.png) repeat-x 0 bottom; font: bold italic 17px/100% "plantin", Georgia, serif; letter-spacing: -1px; }
+.image-viewer .title { position: relative; margin: 31px 166px 0; padding-bottom: 20px; color: #fff; background: url(../images/divider.png) repeat-x 0 bottom; font: bold italic 17px/100% "plantin", Georgia, serif; letter-spacing: -1px; }
 .image-viewer .title .pane-content { display: inline; }
-.image-viewer .summary { position: relative; margin: -38px auto 0; width: 1093px; color: #fff; }
+.image-viewer .summary { position: relative; margin: -38px 166px 0; color: #fff; }
 
 /* Header */
 .header {  }

@@ -27,6 +27,10 @@ var add_custom_classes = function(obj) {
 
 	$(function() { $(".to-top").css("display", "block").scrollToTop(); });
 	
+	$(window).resize(function() {
+		$(".image-viewer .image img").css("max-width", $(window).width());
+	});
+	
 	$(".to-top .pane-content").hover(
 		function() { $(this).stop().animate({ backgroundPositionY: "5px" }, 850, "easeOutElastic"); }, 
 		function() { $(this).stop().animate({ backgroundPositionY: "12px" }, 250); }
@@ -145,6 +149,7 @@ var add_custom_classes = function(obj) {
 		$(".image-viewer .title .pane-content").html(images[cur_image_index]["obj"].attr("title"));
 		$(".image-viewer .summary .pane-content").html(images[cur_image_index]["obj"].attr("alt"));
 		$(".image-viewer .summary").css("padding-left", ($(".image-viewer .title").offset().left + 4) + "px");
+		$(".image-viewer .image img").css("max-width", $(window).width());
 	};
 	
 	$(".image-viewer .back, .image-viewer .image, .image-viewer .close").click(function() {
