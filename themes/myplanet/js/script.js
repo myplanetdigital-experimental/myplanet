@@ -176,4 +176,14 @@ var add_custom_classes = function(obj) {
 		update_image_viewer_image();
 	});
 	
+	$(".image-viewer .previous").hover(
+		function() { $(this).find(".pane-content").stop().animate({ backgroundPositionX: "10px" }, 850, "easeOutElastic"); }, 
+		function() { $(this).find(".pane-content").stop().animate({ backgroundPositionX: "20px" }, 250); }
+	);
+	
+	$(".image-viewer .next").hover(
+		function() { $(this).find(".pane-content").stop().animate({ backgroundPositionX: "30px" }, 850, "easeOutElastic"); }, 
+		function() { $(this).find(".pane-content").stop().animate({ backgroundPositionX: "20px" }, 250); }
+	);
+	
 }); })(jQuery);
