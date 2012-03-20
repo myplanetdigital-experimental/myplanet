@@ -1,0 +1,208 @@
+<?php
+/**
+ * @file
+ * This module creates a Views Slideshow Xtra content type and
+ * example slide nodes.
+ */
+
+/**
+ * Implements hook_init().
+ */
+function views_slideshow_xtra_example_init () {
+  drupal_add_css(drupal_get_path("module", "views_slideshow_xtra_example")."/views_slideshow_xtra_example.css");
+}
+
+/**
+ * Implements hook_menu().
+ */
+function views_slideshow_xtra_example_menu() {
+  $items['admin/config/views-slideshow-xtra'] = array(
+    'title' => 'Views Slideshow Xtra',
+    'description' => 'Create an Example Views Slideshow Xtra Slideshow.',
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('access administration pages'),
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+  );
+  $items['admin/config/views-slideshow-xtra/example_nodes'] = array(
+    'title' => 'Example Nodes',
+    'description' => 'Generate and Delete VSX Example Nodes.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('views_slideshow_xtra_example_admin_form'),
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+    'weight' => 0,
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_help().
+ */
+function views_slideshow_xtra_example_help($path, $arg) {
+  switch ($path) {
+    case 'views_slideshow_xtra_example':
+      return "<p>" . t("This module provides an example node type and nodes for Views Slideshow Xtra slides.") . "</p>";
+  }
+}
+
+/**
+ * Create three example slide nodes with image and overlay elements.
+ */
+function views_slideshow_xtra_example_nodes() {
+  
+  // Slide 1
+  $node1 = new stdClass();
+  $node1->type = 'views_slideshow_xtra';
+  node_object_prepare($node1);
+  $node1->title    = 'Views Slideshow Xtra Example Slide 1 ' . date('c');
+  $node1->language = LANGUAGE_NONE;
+  
+  // Slide 1 Overlay Elements
+  $node1->views_slideshow_xtra[$node1->language][0]['value']=
+       '{"type":"text", "top": 25, "left": 50, "text":"Slide 1 Text Element 1", "styles":"color: yellow", "vsx_example":"true"}';
+  $node1->views_slideshow_xtra[$node1->language][1]['value']=
+       '{"type":"text", "top": 75, "left": 50, "text":"Slide 1 Text Element 2", "classes":"big-red-text", "vsx_example":"true"}';
+  $node1->views_slideshow_xtra[$node1->language][2]['value']=
+       '{"type":"link", "top": 20, "left": 300, "text":"Lightbox Link to Drupal.org", "url": "http://drupal.org", "lightbox": "true", "width": 500, "height": 350, "vsx_example":"true"}';
+  $src = drupal_get_path('module', 'views_slideshow_xtra_example').'/images/drop.png';
+  $node1->views_slideshow_xtra[$node1->language][3]['value']=
+       '{"type":"image", "top": 80, "left": 350, "src": "' . $src . '", "url": "http://drupal.org", "target": "_blank", "vsx_example":"true"}';
+  
+  // Slide 1 Image
+  $image_directory = drupal_get_path('module', 'views_slideshow_xtra_example') . '/images/';
+  $filepath = drupal_realpath($image_directory . 'vsx-slide-four-mile.jpg'); // Create a File object
+  $file = (object) array(
+            'uid' => 1,
+            'uri' => $filepath,
+            'filemime' => file_get_mimetype($filepath),
+            'status' => 1,
+   );
+  $file = file_copy($file, 'public://'); // Save the file to the root of the files directory. You can specify a subdirectory, for example, 'public://images' 
+  $node1->views_slideshow_image[LANGUAGE_NONE][0] = (array)$file; //associate the file object with the image field:
+  node_save($node1);
+
+  // Slide 2
+  $node2 = new stdClass();
+  $node2->type = 'views_slideshow_xtra';
+  node_object_prepare($node2);
+  $node2->title    = 'Views Slideshow Xtra Example Slide 2 ' . date('c');
+  $node2->language = LANGUAGE_NONE;
+  
+  // Slide 2 Overlay Elements
+  $node2->views_slideshow_xtra[$node2->language][0]['value']=
+       '{"type":"text", "top": 50, "left": 50, "text":"Slide 2 Text Element 1", "vsx_example":"true"}';
+  $node2->views_slideshow_xtra[$node2->language][1]['value']=
+       '{"type":"text", "top": 100, "left": 50, "text":"Slide 2 Text Element 2", "vsx_example":"true"}';
+  $node2->views_slideshow_xtra[$node2->language][2]['value']=
+       '{"type":"link", "top": 50, "left": 250, "text":"Link to Google.com", "url": "http://google.com", "classes":"red-link-example", "vsx_example":"true"}';
+  $node2->views_slideshow_xtra[$node2->language][3]['value']=
+       '{"type":"link", "top": 100, "left": 250, "text":"Link to Yahoo.com", "url": "http://yahoo.com", "classes":"green-link-example",  "vsx_example":"true"}';
+  
+  // Slide 2 Image
+  $image_directory = drupal_get_path('module', 'views_slideshow_xtra_example') . '/images/';
+  $filepath = drupal_realpath($image_directory . 'vsx-slide-mount-princeton.jpg'); // Create a File object
+  $file = (object) array(
+            'uid' => 1,
+            'uri' => $filepath,
+            'filemime' => file_get_mimetype($filepath),
+            'status' => 1,
+  );
+  $file = file_copy($file, 'public://'); // Save the file to the root of the files directory. You can specify a subdirectory, for example, 'public://images' 
+  $node2->views_slideshow_image[LANGUAGE_NONE][0] = (array)$file; //associate the file object with the image field:
+  node_save($node2);
+
+  // Slide 3
+  $node3 = new stdClass();
+  $node3->type = 'views_slideshow_xtra';
+  node_object_prepare($node3);
+  $node3->title    = 'Views Slideshow Xtra Example Slide 3 ' . date('c');
+  $node3->language = LANGUAGE_NONE;
+  
+  // Slide 3 Overlay Elements
+  $node3->views_slideshow_xtra[$node3->language][0]['value']=
+       '{"type":"text", "top": 50, "left": 100, "text":"Slide 3 Text Element 1", "vsx_example":"true"}';
+  $node3->views_slideshow_xtra[$node3->language][1]['value']=
+       '{"type":"text", "top": 80, "left": 140, "text":"Slide 3 Text Element 2", "vsx_example":"true"}';
+  
+  // Slide 3 Image
+  $image_directory = drupal_get_path('module', 'views_slideshow_xtra_example') . '/images/';
+  $filepath = drupal_realpath($image_directory . 'vsx-slide-mount-yale-treeline.jpg'); // Create a File object
+  $file = (object) array(
+            'uid' => 1,
+            'uri' => $filepath,
+            'filemime' => file_get_mimetype($filepath),
+            'status' => 1,
+   );
+  $file = file_copy($file, 'public://'); // Save the file to the root of the files directory. You can specify a subdirectory, for example, 'public://images' 
+  $node3->views_slideshow_image[LANGUAGE_NONE][0] = (array)$file; //associate the file object with the image field:
+  node_save($node3);
+  
+}
+
+/**
+ * Admin form.
+ */
+function views_slideshow_xtra_example_admin_form() {
+
+  $form = array();
+  
+	// Generate Nodes Button
+	$form['generate_nodes'] = array(
+  '#type' => 'submit',
+  '#value' => t('Generate Example Nodes'),
+	);
+  
+	// Delete Nodes Button
+	$form['delete_nodes'] = array(
+  '#type' => 'submit',
+  '#value' => t('Delete Example Nodes'),
+	);
+
+	return $form;
+}
+
+/**
+ * Admin form submit.
+ */
+function views_slideshow_xtra_example_admin_form_submit($form, &$form_state) {
+
+  if($form_state['clicked_button']['#value'] == $form_state['values']['generate_nodes']) {
+    views_slideshow_xtra_example_nodes();
+    drupal_set_message(t('Example nodes generated.')); 
+  }
+
+  if($form_state['clicked_button']['#value'] == $form_state['values']['delete_nodes']) {
+    $results = db_select('node', 'n')
+    ->fields('n', array('nid'))
+    ->condition('type', array('views_slideshow_xtra'), 'IN')
+    ->execute();
+    foreach ($results as $result) {
+      $nids[] = $result->nid;
+    }
+
+    if (!empty($nids)) {
+      foreach($nids as $nid) {
+        $node = node_load($nid);
+        $vsx_field_values = $node->views_slideshow_xtra['und'];
+        $is_example_value = FALSE;
+        foreach($vsx_field_values as $value) {
+          $json_str = $value['value'];
+          $vsx = drupal_json_decode($json_str);
+          if(!empty($vsx) && array_key_exists('vsx_example', $vsx)) {
+            if($vsx['vsx_example']='true') {
+              $is_example_value = TRUE;
+            }
+          }
+        }
+        if(!$is_example_value) {
+          unset($nids[array_search($nid,$nids)]);
+        }
+      }
+      node_delete_multiple($nids);
+    }
+    drupal_set_message(t('Deleted %count example nodes.', 
+        empty($nids) ? array('%count' => 0) : array('%count' => count($nids))));
+	}
+}
+

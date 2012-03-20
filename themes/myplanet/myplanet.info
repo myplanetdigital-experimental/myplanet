@@ -6,8 +6,6 @@ stylesheets[all][] = css/style.css
 
 scripts[] = js/jquery.corner.js
 scripts[] = js/jquery.easing.min.js
-scripts[] = js/jquery.scrollTo.min.js
-scripts[] = js/jquery.serialScroll.min.js
 scripts[] = js/jquery.cookies.min.js
 scripts[] = js/script.js
 scripts[] = js/isotope.js

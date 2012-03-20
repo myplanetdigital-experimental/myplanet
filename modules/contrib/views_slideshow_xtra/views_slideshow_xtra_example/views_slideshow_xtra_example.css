@@ -1,0 +1,24 @@
+/**
+ * Views Slideshow Xtra Example CSS. 
+ */
+div.views-slideshow-xtra-text.big-red-text {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: red;
+}
+
+div.views-slideshow-xtra-link.red-link-example a {  
+  color: red;
+}
+
+div.views-slideshow-xtra-link.green-link-example a {  
+  color: green;
+}
+
+div.views-slideshow-xtra-link.red-link-example a:hover {  
+  color: green;
+}
+
+div.views-slideshow-xtra-link.green-link-example a:hover {  
+  color: red;
+}
