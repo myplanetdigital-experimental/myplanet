@@ -69,6 +69,33 @@ var add_custom_classes = function(obj) {
 		function() { $(this).stop().animate({ backgroundPosition: "50% -6px" }, 250); }
 	);
 	
+	/* Resources Mega Menu */
+	var mouse_over_megamenu = false;
+	$(".content-top .menu-region .main-menu ul.menu li a:last").hover(
+		function() {
+			$(".resources-mega-menu").height("auto");
+			$(".resources-mega-menu").css("padding-top", "20px");
+			$(".resources-mega-menu").css("padding-bottom", "33px");
+			$(".resources-mega-menu").stop().slideDown(500, "easeOutCubic");
+		},
+		function() {
+			setTimeout(function() {
+				if (mouse_over_megamenu === false) {
+					$(".resources-mega-menu").stop().slideUp(100, "easeOutCubic");
+				}
+			}, 100);
+		}
+	);
+	$(".resources-mega-menu").hover(
+			function() {
+				mouse_over_megamenu = true;
+			},
+			function() {
+				mouse_over_megamenu = false;
+				$(".resources-mega-menu").stop().slideUp(200, "easeOutCubic");
+			}
+	);
+	
 	/* Breadcrumb */
 	if ($(".breadcrumb").html() !== null) {
 		var temp_breadcrumb = $(".breadcrumb").html().replace(/ \» /g, "");

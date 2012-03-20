@@ -4,7 +4,9 @@
   <div id="content-wrapper">
     <div id="content-back-top"></div>
     <div id="content-menu-divider"></div>
+    <div id="content-menu-divider-2"></div>
     <div id="content-back"></div>
+    <div id="sub-menu"><?php print render($page['sub_menu']); ?></div>
     <div id="content"><div id="content-inner">
       <div id="content-top"><?php print render($page['content_top']); ?></div>
       <?php print $messages; ?>
