@@ -375,6 +375,7 @@ img { cursor: pointer; }
 .our-space-page .main-body .left-region { width: 175px; margin-right: 20px; }
 .our-space-page .main-body .center-region { width: 375px; }
 .our-space-page .main-body .right-region { float: right; width: 365px; }
+.our-space-page .main-body .left-region .sticker { margin-top: 18px; width: 126px; height: 126px; font-size: 0; line-height: 0; background: url(../images/our-space-sticker.png) no-repeat 0 0; }
 .our-space-page .main-body .center-region .text { margin-top: -10px; font: 25px/140% "plantin", Georgia, serif; letter-spacing: -1px; }
 .our-space-page .main-body .right-region .text { font-size: 14px; line-height: 164%; }
 .our-space-page .related { padding-top: 35px; }
