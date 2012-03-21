@@ -63,15 +63,58 @@ var add_custom_classes = function(obj) {
 		function() { $(this).stop().animate({ backgroundPosition: "24px 12px" }, 250); }
 	);
 	
-	/* Main Menu */
-	$(".main-menu ul.menu li a").hover(
+	/* Log In */
+	var mouse_over_loginbox = false;
+	if ($("#block-user-login").html() !== null) {
+		$("#block-menu-menu-top-menu ul.menu li a:last").click(function() { return false; });
+		
+		$("#block-menu-menu-top-menu ul.menu li a:last").hover(
+			function() {
+				$("#block-user-login").height(128);
+				$("#block-user-login").stop().slideDown(500, "easeOutElastic");
+			},
+			function() {
+				setTimeout(function() {
+					if (mouse_over_loginbox === false) {
+						$("#block-user-login").stop().slideUp(100, "easeOutCubic");
+					}
+				}, 1);
+			}
+		);
+		
+		$("#block-user-login").hover(
+			function() {
+				mouse_over_loginbox = true;
+			},
+			function() {
+				mouse_over_loginbox = false;
+				$("#block-user-login").stop().slideUp(200, "easeOutCubic");
+			}
+		);
+		
+		$("#block-user-login input[name='name']").attr("value", "");
+		$("#block-user-login input[name='name']").attr("placeholder", "Username");
+		$("#block-user-login input[name='name']").placeholder();
+		
+		$("#block-user-login input[name='pass']").attr("value", "");
+		$("#block-user-login input[name='pass']").attr("placeholder", "Password");
+		$("#block-user-login input[name='pass']").placeholder();
+		
+		$("#block-user-login input.form-text").hover(
+			function() { $(this).stop().animate({ backgroundPosition: "-5px -7px" }, 500, "easeOutElastic"); },
+			function() { $(this).stop().animate({ backgroundPosition: "-10px -7px" }, 500, "easeOutElastic"); }
+		);
+	}
+	
+	/* Main Site Menu */
+	$("#block-menu-menu-main-site-menu ul.menu li a").hover(
 		function() { $(this).stop().animate({ backgroundPosition: "50% -20px" }, 850, "easeOutElastic"); }, 
 		function() { $(this).stop().animate({ backgroundPosition: "50% -6px" }, 250); }
 	);
 	
 	/* Resources Mega Menu */
 	var mouse_over_megamenu = false;
-	$(".content-top .menu-region .main-menu ul.menu li a:last").hover(
+	$("#block-menu-menu-main-site-menu ul.menu li a:last").hover(
 		function() {
 			$(".resources-mega-menu").height("auto");
 			$(".resources-mega-menu").css("padding-top", "20px");
@@ -83,7 +126,7 @@ var add_custom_classes = function(obj) {
 				if (mouse_over_megamenu === false) {
 					$(".resources-mega-menu").stop().slideUp(100, "easeOutCubic");
 				}
-			}, 100);
+			}, 1);
 		}
 	);
 	$(".resources-mega-menu").hover(
