@@ -107,7 +107,9 @@ img { cursor: pointer; }
 
 /* Breadcrumb */
 .breadcrumb { padding-bottom: 46px; background: url(../images/divider.png) repeat-x 0 bottom; }
-.breadcrumb a { float: left; padding-right: 35px; color: #000; background: url(../images/arrow_right_nobg.png) no-repeat right -7px; }
+.breadcrumb a { display: block; float: left; color: #000; }
+.breadcrumb a:hover { border-bottom: 1px dotted #ddd; color: #f05a28; }
+.breadcrumb .arrow { float: left; width: 35px; height: 20px; background: url(../images/arrow_right_nobg.png) no-repeat 0 -7px; }
 
 /* Footer */
 .footer {  }
@@ -193,10 +195,10 @@ img { cursor: pointer; }
 .related-view .title .field-content { padding: 21px 25px; }
 .related-view .leadline { padding-top: 11px; font: italic 11px/150% Georgia, Arial, sans-serif; color: #333; }
 .related-view .leadline div { display: inline; }
-.related-view .layer a { position: absolute; display: block; padding: 20px 20px 0; left: 0; right: 0; top: 0; bottom: 0; opacity: 0; filter: alpha(opacity=0); color: #fff; background-color: #000; }
+.related-view .layer a { position: absolute; display: block; padding: 25px 30px 0; left: 0; right: 0; top: 0; bottom: 0; opacity: 0; filter: alpha(opacity=0); color: #fff; background-color: #000; }
 .related-view .title2 { font-size: 13px; font-weight: bold; }
-.related-view .summary { margin-top: 10px; }
-.related-view .link { position: absolute; bottom: 15px; width: 100px; height: 20px; font-weight: bold; }
+.related-view .summary { margin-top: 10px; font-size: 12px; line-height: 150%; }
+.related-view .link { position: absolute; padding-right: 35px; bottom: 15px; height: 25px; font-weight: bold; background: url(../images/arrow_right_nobg_white.png) no-repeat 70px -7px; }
 .job-posts-view {  }
 .job-posts-view .views-row { margin: 0 23px 25px 0; width: 236px; }
 .job-posts-view .title { height: 167px; font: 25px/140% "plantin", Georgia, serif; letter-spacing: -1px; background: url(../images/job-post-back.png) no-repeat 0 0; }
@@ -337,12 +339,12 @@ img { cursor: pointer; }
 
 /* Front Page */
 .front #content-back { background: url(../images/front-page.png) no-repeat center 0; }
-.front-page { padding-bottom: 124px; }
+.front-page { padding-bottom: 40px; }
 .front-page .front-items-view { padding-top: 496px; }
 .front-page { background: url(../images/divider.png) repeat-x 0 bottom; }
 
 /* About Page */
-.about-page { padding-bottom: 100px; }
+.about-page { padding-bottom: 40px; }
 .about-page .main-body { padding: 35px 0; background: url(../images/divider.png) repeat-x 0 bottom; }
 .about-page .main-body .left-region { width: 175px; margin-right: 20px; }
 .about-page .main-body .center-region { width: 368px; }
@@ -354,7 +356,7 @@ img { cursor: pointer; }
 .about-page .related .right-region { float: right; width: 755px; }
 
 /* About - Our Company Page */
-.our-company-page { padding-bottom: 100px; }
+.our-company-page { padding-bottom: 40px; }
 .our-company-page .our-company { padding: 34px 0 51px; background: url(../images/divider.png) repeat-x 0 bottom; }
 .our-company-page .our-company .left-region { width: 175px; margin-right: 20px; }
 .our-company-page .our-company .center-region { width: 370px; }
@@ -386,7 +388,7 @@ img { cursor: pointer; }
 .our-company-page .related .right-region { float: right; width: 755px; }
 
 /* About - Our Story Page */
-.our-story-page { padding-bottom: 50px; }
+.our-story-page { padding-bottom: 40px; }
 .our-story-page .about-our-team { padding: 33px 0 44px; background: url(../images/divider.png) repeat-x 0 bottom; }
 .our-story-page .about-our-team .left-region { width: 172px; margin-right: 20px; }
 .our-story-page .about-our-team .left-region .sticker { margin: 17px 0 0 1px; width: 126px; height: 126px; font-size: 0; line-height: 0; text-indent: -1000px; overflow: hidden; background: url(../images/our-team-sticker.png) no-repeat 0 0; }
@@ -401,7 +403,7 @@ img { cursor: pointer; }
 .our-story-page .meet-the-team .right-region { float: right; width: 755px; }
 
 /* About - Our Space Page */
-.our-space-page { padding-bottom: 100px; }
+.our-space-page { padding-bottom: 40px; }
 .our-space-page .top-title { padding-bottom: 7px; }
 .our-space-page .main-body { padding: 53px 0 61px; background: url(../images/divider.png) repeat-x 0 bottom; }
 .our-space-page .main-body .left-region { width: 175px; margin-right: 20px; }
@@ -415,7 +417,7 @@ img { cursor: pointer; }
 .our-space-page .related .right-region { float: right; width: 755px; }
 
 /* Contact Page */
-.contact-page { padding-bottom: 100px; }
+.contact-page { padding-bottom: 40px; }
 .contact-page .main-body { padding-top: 9px; }
 .contact-page .main-body .left-region { width: 175px; }
 .contact-page .main-body .left-region .sub-title { padding-bottom: 18px; background: url(../images/divider.png) repeat-x 0 bottom; }
@@ -436,7 +438,7 @@ img { cursor: pointer; }
 .contact-page .related .right-region { float: right; width: 755px; }
 
 /* Careers Page */
-.careers-page { padding-bottom: 100px; }
+.careers-page { padding-bottom: 40px; }
 .careers-page .careers-slideshow-view { padding: 12px 0 21px; background: url(../images/divider.png) repeat-x 0 bottom; }
 .careers-page .incentives { padding-top: 30px; }
 .careers-page .incentives .left-region { width: 175px; margin-right: 20px; }
@@ -451,7 +453,7 @@ img { cursor: pointer; }
 .careers-page .related .right-region { float: right; width: 755px; }
 
 /* Careers - Openings Page */
-.openings-page { padding-bottom: 100px; }
+.openings-page { padding-bottom: 40px; }
 .openings-page .opportunities { padding: 34px 0 44px; background: url(../images/divider.png) repeat-x 0 bottom; }
 .openings-page .opportunities .left-region { width: 175px; }
 .openings-page .opportunities .left-region .sub-title { padding-bottom: 18px; background: url(../images/divider.png) repeat-x 0 bottom; }
@@ -462,7 +464,7 @@ img { cursor: pointer; }
 .openings-page .related .right-region { float: right; width: 755px; }
 
 /* Resources Page */
-.resources-page { padding-bottom: 100px; }
+.resources-page { padding-bottom: 40px; }
 .resources-page .top-image { background: url(../images/divider.png) repeat-x 0 bottom; }
 .resources-page .top-image .pane-content { margin-left: -21px; width: 971px; height: 116px; font-size: 0; line-height: 0; text-indent: -1000px; background: url(../images/resources-header.png) no-repeat 0 0; }
 .resources-page .main-body { padding-top: 27px; }
@@ -488,9 +490,9 @@ img { cursor: pointer; }
 .resources-page .main-body .right-region .sort-view-subscribe .subscribe a { display: block; padding-right: 23px; background: url(../images/blog-subscribe.png) no-repeat right -1px; }
 
 /* Resources - Article Page */
-.article-page { padding-bottom: 100px; }
+.article-page { padding-bottom: 40px; }
 .article-page .top-image { background: url(../images/divider.png) repeat-x 0 bottom; }
-.article-page .top-image .pane-content { margin-left: -21px; width: 971px; height: 116px; font-size: 0; line-height: 0; text-indent: -1000px; background: url(../images/resources.png) no-repeat 0 0; }
+.article-page .top-image .pane-content { margin-left: -21px; width: 971px; height: 116px; font-size: 0; line-height: 0; text-indent: -1000px; background: url(../images/resources-header.png) no-repeat 0 0; }
 .article-page .main-body { padding-top: 32px; }
 .article-page .main-body .left-region { width: 175px; margin-right: 20px; }
 .article-page .main-body .center-region { float: left; width: 496px; }
@@ -524,7 +526,7 @@ img { cursor: pointer; }
 .article-page .bottom-links .next a { padding-right: 18px; background: url(../images/arrow_right_nobg.png) no-repeat 334px -7px; }
 
 /* Careers - Opportunities - Job Post Page */
-.job-post-page { padding-bottom: 100px; }
+.job-post-page { padding-bottom: 40px; }
 .job-post-page .main-body { padding: 32px 0 46px; background: url(../images/divider.png) repeat-x 0 bottom; }
 .job-post-page .main-body .left-region { width: 175px; margin-right: 20px; }
 .job-post-page .main-body .center-region { width: 496px; }
@@ -543,7 +545,7 @@ img { cursor: pointer; }
 .job-post-page .related .right-region { float: right; width: 755px; }
 
 /* Work Page */
-.work-page { padding-bottom: 100px; }
+.work-page { padding-bottom: 40px; }
 .work-page .work-slideshow-view { padding-top: 10px; }
 .work-page .main-body { padding: 35px 0 21px; background: url(../images/divider.png) repeat-x 0 bottom; }
 .work-page .main-body .left-region { width: 175px; }
@@ -553,14 +555,14 @@ img { cursor: pointer; }
 .work-page .related .right-region { float: right; width: 755px; }
 
 /* Work - Clients Page */
-.clients-page { padding-bottom: 100px; }
+.clients-page { padding-bottom: 40px; }
 .clients-page .top-title { padding-top: 9px; font: bold 40px/120% Georgia,"Times New Roman",Times,serif; letter-spacing: -2px; }
 .clients-page .main-body { padding-top: 48px; }
 .clients-page .main-body .left-region { width: 175px; }
 .clients-page .main-body .right-region { float: right; width: 748px; }
 
 /* Work - Project Page */
-.project-page { padding-bottom: 100px; }
+.project-page { padding-bottom: 40px; }
 .project-page .project-slideshow-view { padding-top: 10px; }
 .project-page .main-body { padding-top: 31px; }
 .project-page .main-body .left-region { width: 175px; margin-right: 20px; }
@@ -576,7 +578,7 @@ img { cursor: pointer; }
 .project-page .main-body .right-region .execute { padding-bottom: 42px; }
 
 /* Events Page */
-.events-page { padding-bottom: 100px; }
+.events-page { padding-bottom: 40px; }
 .events-page .top-image { background: url(../images/divider.png) repeat-x 0 bottom; }
 .events-page .top-image .image { margin-left: -21px; width: 971px; height: 116px; font-size: 0; line-height: 0; text-indent: -1000px; background: url(../images/events-header.png) no-repeat 0 0; }
 .events-page .main-body { padding: 34px 0 41px; background: url(../images/divider.png) repeat-x 0 bottom; }
@@ -587,7 +589,7 @@ img { cursor: pointer; }
 .events-page .related .right-region { float: right; width: 755px; }
 
 /* Event Page */
-.event-page { padding-bottom: 100px; }
+.event-page { padding-bottom: 40px; }
 .event-page .top-image { background: url(../images/divider.png) repeat-x 0 bottom; }
 .event-page .top-image .image { margin-left: -21px; width: 971px; height: 116px; font-size: 0; line-height: 0; text-indent: -1000px; background: url(../images/events-header.png) no-repeat 0 0; }
 .event-page .main-body { padding: 34px 0 41px; background: url(../images/divider.png) repeat-x 0 bottom; }
