@@ -26,7 +26,7 @@ p { margin: 0; }
 #page-wrapper { position: relative; }
 #layer-wrapper { position: absolute; display: none; z-index: 1000; left: 0; right: 0; top: 0; bottom: 0; }
 #header-wrapper { height: 92px; background-color: #000; color: #888; }
-#header { margin: 0 auto; padding-top: 13px; width: 990px; }
+#header { margin: 0 auto; padding-top: 46px; width: 990px; }
 #content-wrapper { position: relative; }
 #content-back-top { position: absolute; left: 0; right: 0; top: 0; height: 328px; background: url(../images/top.gif) repeat-x center -248px; }
 #content-menu-divider { position: absolute; z-index: 15; left: 0; right: 0; top: 149px; height: 1px; background: url(../images/divider.png) repeat-x 0 bottom; }
@@ -66,7 +66,7 @@ img { cursor: pointer; }
 .header {  }
 .header .top-menu { float: right; }
 .header .top-menu ul.menu li { float: left; }
-.header .top-menu ul.menu li a { float: left; padding: 15px 17px; font-size: 12px; line-height: 233%; color: #888; }
+.header .top-menu ul.menu li a { float: left; padding: 0 17px; font-size: 12px; line-height: 233%; color: #888; }
 .header .to-top { position: fixed; z-index: 500; display: none; bottom: 20px; right: 20px; width: 77px; height: 77px; text-align: center; cursor: pointer; background: url(../images/to-top.png) no-repeat 0 0; }
 .header .to-top .pane-content { padding: 36px 29px; color: #fff; text-decoration: none; background: url(../images/arrow_up.png) no-repeat 24px 12px; }
 
@@ -89,9 +89,9 @@ img { cursor: pointer; }
 .resources-mega-menu .right-region { float: right; width: 554px; }
 .resources-mega-menu .title.pane-custom { font: italic 12px/250% Georgia, serif; }
 .resources-mega-menu .resources-main-category-menu-view .views-row { background: none; height: auto; }
-.resources-mega-menu .resources-main-category-menu-view .title { padding: 0; background: none; font-weight: bold; font-size: 13px; line-height: 292%; }
+.resources-mega-menu .resources-main-category-menu-view .title { padding: 0; background: none; cursor: auto; font-weight: bold; font-size: 13px; line-height: 292%; }
 .resources-mega-menu .resources-second-category-menu-view .views-row { background: none; height: auto; }
-.resources-mega-menu .resources-second-category-menu-view .title { padding: 0; background: none; font-weight: bold; font-size: 13px; line-height: 292%; }
+.resources-mega-menu .resources-second-category-menu-view .title { padding: 0; background: none; cursor: auto; font-weight: bold; font-size: 13px; line-height: 292%; }
 
 /* Breadcrumb */
 .breadcrumb { padding-bottom: 46px; background: url(../images/divider.png) repeat-x 0 bottom; }
