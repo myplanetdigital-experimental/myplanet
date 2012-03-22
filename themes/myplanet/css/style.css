@@ -170,13 +170,15 @@ img { cursor: pointer; }
 .front-items-view .link a { position: absolute; display: block; bottom: 16px; right: 24px; width: 50px; height: 50px; background: url(../images/arrow-orange.png) no-repeat 0 0; }
 .front-items-view .layer a { position: absolute; display: block; padding: 25px 40px 0; left: 0; right: 0; top: 0; bottom: 0; opacity: 0; filter: alpha(opacity=0); color: #fff; background-color: #000; }
 .front-items-view .title2 { font-size: 13px; font-weight: bold; }
-.front-items-view .summary { margin-top: 10px; }
-.front-items-view .link2 { position: absolute; bottom: 25px; width: 100px; height: 20px; font-weight: bold; background: url(../images/mp_sprite.png) no-repeat 15px -47px; }
-.team-categories-view {  }
-.team-categories-view .views-row { float: none; margin-bottom: 5px; }
-.team-categories-view a { color: #000; }
+.front-items-view .summary { margin-top: 10px; font-size: 12px; line-height: 150%; }
+.front-items-view .link2 { position: absolute; bottom: 25px; width: 100px; height: 20px; font-weight: bold; background: url(../images/mp_sprite.png) no-repeat 5px -47px; }
+.our-team-categories-menu-view {  }
+.our-team-categories-menu-view .views-row { float: none; margin-bottom: 5px; }
+.our-team-categories-menu-view .title { font-weight: normal; cursor: pointer; }
+.our-team-categories-menu-view .title:hover { color: #f05a28; }
 .our-team-view {  }
 .our-team-view .views-row { margin-right: 15px; margin-bottom: 27px; width: 139px; height: 174px; }
+.our-team-view .hidden { display: none; }
 .our-team-view .image { font-size: 0; line-height: 0; }
 .our-team-view .layer { position: absolute; display: block; padding: 15px 15px 0; left: 0; right: 0; top: 0; bottom: 0; opacity: 0; filter: alpha(opacity=0); color: #fff; background-color: #000; }
 .our-team-view .full-name { font-size: 13px; font-weight: bold; }
@@ -199,24 +201,25 @@ img { cursor: pointer; }
 .related-view .layer a { position: absolute; display: block; padding: 25px 30px 0; left: 0; right: 0; top: 0; bottom: 0; opacity: 0; filter: alpha(opacity=0); color: #fff; background-color: #000; }
 .related-view .title2 { font-size: 13px; font-weight: bold; }
 .related-view .summary { margin-top: 10px; font-size: 12px; line-height: 150%; }
-.related-view .link { position: absolute; padding-right: 35px; bottom: 15px; height: 25px; font-weight: bold; background: url(../images/arrow_right_nobg_white.png) no-repeat 70px -7px; }
+.related-view .link { position: absolute; padding-right: 35px; bottom: 15px; height: 25px; font-weight: bold; background: url(../images/arrow_right_nobg_white.png) no-repeat 50px -7px; }
 .job-posts-view {  }
 .job-posts-view .views-row { margin: 0 23px 25px 0; width: 236px; }
+.job-posts-view .hidden { display: none; }
 .job-posts-view .title { height: 167px; font: 25px/140% "plantin", Georgia, serif; letter-spacing: -1px; background: url(../images/job-post-back.png) no-repeat 0 0; }
 .job-posts-view .title .field-content { padding: 21px 25px; }
 .job-posts-view .leadline { padding-top: 8px; font: italic 11px/150% Georgia, Arial, sans-serif; color: #333; }
 .job-posts-view .leadline div { display: inline; }
 .job-posts-view .layer a { position: absolute; display: block; padding: 20px 20px 0; left: 0; right: 0; top: 0; bottom: 0; opacity: 0; filter: alpha(opacity=0); color: #fff; background-color: #000; }
 .job-posts-view .title2 { font-size: 13px; font-weight: bold; }
-.job-posts-view .summary { margin-top: 10px; }
-.job-posts-view .link { position: absolute; bottom: 15px; width: 100px; height: 20px; font-weight: bold; }
-.job-posts-menu-view {  }
-.job-posts-menu-view ul li { background: url(../images/menu-back.png) no-repeat 153px 16px; }
-.job-posts-menu-view ul li a { display: block; padding: 9px 0 6px; color: #000; background: url(../images/divider.png) repeat-x 0 bottom; }
-.job-posts-menu-view ul li a.active { font-weight: bold; }
-.job-posts-menu-view ul li ul { display: none; padding: 12px 0; background: url(../images/divider.png) repeat-x 0 bottom; }
-.job-posts-menu-view ul li ul li { background: none; }
-.job-posts-menu-view ul li ul li a { padding: 0 0 0 19px; background: none; }
+.job-posts-view .summary { margin-top: 10px; font-size: 12px; line-height: 150%; }
+.job-posts-view .link { position: absolute; bottom: 15px; width: 100px; height: 20px; font-weight: bold; background: url(../images/arrow_right_nobg_white.png) no-repeat 50px -7px; }
+.job-posts-categories-menu-view {  }
+.job-posts-categories-menu-view ul li { background: url(../images/menu-back.png) no-repeat 153px 16px; }
+.job-posts-categories-menu-view ul li .title { display: block; padding: 9px 0 6px; color: #000; cursor: pointer; font-weight: normal; background: url(../images/divider.png) repeat-x 0 bottom; }
+.job-posts-categories-menu-view ul li .title:hover { color: #f05a28; }
+.job-posts-categories-menu-view ul li ul { padding: 12px 0; background: url(../images/divider.png) repeat-x 0 bottom; }
+.job-posts-categories-menu-view ul li ul li { background: none; }
+.job-posts-categories-menu-view ul li ul li .title { padding: 0 0 0 19px; background: none; }
 .resources-view {  }
 .resources-view .hidden { display: none; }
 .resources-view .views-row.grid-2 { margin: 0 21px 22px 0; width: 368px; height: 278px; background-color: #f1f1f1; }
@@ -400,7 +403,7 @@ img { cursor: pointer; }
 .our-story-page .meet-the-team { padding: 33px 0 44px; }
 .our-story-page .meet-the-team .left-region { width: 172px; }
 .our-story-page .meet-the-team .left-region .sub-title { padding-bottom: 20px; background: url(../images/divider.png) repeat-x 0 bottom; }
-.our-story-page .meet-the-team .left-region .team-categories-view { padding-top: 20px; }
+.our-story-page .meet-the-team .left-region .our-team-categories-menu-view { padding-top: 20px; }
 .our-story-page .meet-the-team .right-region { float: right; width: 755px; }
 
 /* About - Our Space Page */
@@ -458,7 +461,7 @@ img { cursor: pointer; }
 .openings-page .opportunities { padding: 34px 0 44px; background: url(../images/divider.png) repeat-x 0 bottom; }
 .openings-page .opportunities .left-region { width: 175px; }
 .openings-page .opportunities .left-region .sub-title { padding-bottom: 18px; background: url(../images/divider.png) repeat-x 0 bottom; }
-.openings-page .opportunities .left-region .job-posts-menu-view { padding-top: 10px; }
+.openings-page .opportunities .left-region .job-posts-categories-menu-view { padding-top: 10px; }
 .openings-page .opportunities .right-region { float: right; width: 755px; }
 .openings-page .related { padding-top: 34px; }
 .openings-page .related .left-region { margin-right: 20px; width: 175px; }
@@ -533,7 +536,7 @@ img { cursor: pointer; }
 .job-post-page .main-body .center-region { width: 496px; }
 .job-post-page .main-body .right-region { float: right; width: 175px; }
 .job-post-page .main-body .left-region .sub-title.opportunities { padding-bottom: 18px; background: url(../images/divider.png) repeat-x 0 bottom; }
-.job-post-page .main-body .left-region .job-posts-menu-view { padding-top: 10px; }
+.job-post-page .main-body .left-region .job-posts-categories-menu-view { padding-top: 10px; }
 .job-post-page .main-body .left-region .sub-title.join-us { padding-top: 49px; }
 .job-post-page .main-body .left-region .text.join-us { padding-top: 18px; }
 .job-post-page .main-body .center-region .title { clear: both; margin-top: -2px; padding-bottom: 43px; font: 41px/100% "plantin", Georgia, serif; background: url(../images/divider.png) repeat-x 0 bottom; }
