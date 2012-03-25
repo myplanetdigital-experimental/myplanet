@@ -53,6 +53,22 @@ ul li, ul.menu li { margin: 0; padding: 0; list-style: none; }
 .fellow-blogs-view .title { width: 100%; height: 145px; font: 20px/115% "planit", georgia, serif; letter-spacing: -1px; background-color: #ededed; }
 .fellow-blogs-view .title .field-content { padding: 16px 19px; }
 .fellow-blogs-view .leadline { margin-top: 8px; color: #272727; font: italic 11px/164% "planit", georgia, serif; }
+.fellow-front-items-view .views-row { position: relative; float: left; margin: 0 19px 0 0; padding: 19px 25px 25px; width: 210px; height: 245px; background-color: #ededed; }
+.fellow-front-items-view .views-row-last { margin-right: 0; }
+.fellow-front-items-view .title { float: left; width: 100%; font: bold 36px/106% "tradegothic", Arial, serif; letter-spacing: -2px; }
+.fellow-front-items-view .body { float: left; margin: 12px 0 0; width: 100%; }
+.fellow-front-items-view .url a { position: absolute; left: 130px; bottom: -60px; }
+.fellow-google-forms-view { float: left; margin: 57px 0 75px; width: 100%; }
+.fellow-google-forms-view .views-row { position: relative; float: left; margin: 0 25px 0 0; width: 256px; height: 438px; }
+.fellow-google-forms-view .views-row-last { margin-right: 0; }
+.fellow-google-forms-view .title { font: 22px/109% "tradegothic", Arial, serif; }
+.fellow-google-forms-view .title span { font: bold italic 35px "planit", georgia, serif; }
+.fellow-google-forms-view .body { margin-top: 21px; font-size: 12px; }
+.fellow-google-forms-view .body p { margin-bottom: 20px; }
+.fellow-google-forms-view .image { position: absolute; bottom: 0; width: 281px; height: 79px; background: url(../images/white-dots.png) repeat-x 1px 78px; }
+.fellow-google-forms-view .views-row-last .image { width: 100%; }
+.fellow-google-forms-view .image img { margin-left: 60px; }
+.fellow-google-forms-view .url a { position: absolute; left: 130px; bottom: -40px; }
 
 /* About Us Block */
 .about-us-block { background-color: #ededed; }
@@ -64,24 +80,8 @@ ul li, ul.menu li { margin: 0; padding: 0; list-style: none; }
 .fellow-front-page {  }
 .fellow-front-page .front-items { margin-top: 89px; float: left; width: 100%; }
 .fellow-front-page .front-items .fellow-page-title { float: left; padding-bottom: 25px; width: 100%; font: 39px/98% "plantin", Arial, serif; letter-spacing: -2px; background: url(../images/dots-bg.png) repeat-x 0 bottom; }
-.fellow-front-page .front-items .items { float: left; margin: 30px 0 0; width: 100%; }
-.fellow-front-page .front-items .items .views-row { position: relative; float: left; margin: 0 19px 0 0; padding: 19px 25px 25px; width: 210px; height: 245px; background-color: #ededed; }
-.fellow-front-page .front-items .items .views-row-last { margin-right: 0; }
-.fellow-front-page .front-items .items .title { float: left; width: 100%; font: bold 36px/106% "tradegothic", Arial, serif; letter-spacing: -2px; }
-.fellow-front-page .front-items .items .body { float: left; margin: 12px 0 0; width: 100%; }
-.fellow-front-page .front-items .items .url a { position: absolute; left: 130px; bottom: -60px; }
+.fellow-front-page .front-items .fellow-front-items-view { float: left; margin: 30px 0 0; width: 100%; }
 .fellow-front-page .pink-panel { margin-top: 50px; }
-.fellow-front-page .pink-panel .google-forms { float: left; margin: 57px 0 75px; width: 100%; }
-.fellow-front-page .pink-panel .google-forms .views-row { position: relative; float: left; margin: 0 25px 0 0; width: 256px; height: 438px; }
-.fellow-front-page .pink-panel .google-forms .views-row-last { margin-right: 0; }
-.fellow-front-page .pink-panel .google-forms .title { font: 22px/109% "tradegothic", Arial, serif; }
-.fellow-front-page .pink-panel .google-forms .title span { font: bold italic 35px "planit", georgia, serif; }
-.fellow-front-page .pink-panel .google-forms .body { margin-top: 21px; font-size: 12px; }
-.fellow-front-page .pink-panel .google-forms .body p { margin-bottom: 20px; }
-.fellow-front-page .pink-panel .google-forms .image { position: absolute; bottom: 0; width: 281px; height: 79px; background: url(../images/white-dots.png) repeat-x 1px 78px; }
-.fellow-front-page .pink-panel .google-forms .views-row-last .image { width: 100%; }
-.fellow-front-page .pink-panel .google-forms .image img { margin-left: 60px; }
-.fellow-front-page .pink-panel .google-forms .url a { position: absolute; left: 130px; bottom: -40px; }
 .fellow-front-page .blogs { float: left; margin: 50px 0 100px; width: 100%; }
 .fellow-front-page .blogs > .inside { background: url(../images/home-blog-bg.png) no-repeat 30px bottom; }
 .fellow-front-page .blogs .left-region { width: 150px; }
