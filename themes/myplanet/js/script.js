@@ -20,7 +20,8 @@
 	$(".logo > .pane-content, .footer-columns .footer-columns-1 .image").click(function() {
 		window.location = Drupal.settings.basePath;
 	});
-	  
+	
+	/*
 	var oldAnim = $.fn.animate;
 	var oldBackPos = "";
     $.fn.animate = function(prop) {
@@ -52,6 +53,7 @@
 		function() { $(this).stop().animate({ backgroundPosition: "24px 5px" }, 850, "easeOutElastic"); }, 
 		function() { $(this).stop().animate({ backgroundPosition: "24px 12px" }, 250); }
 	);
+	*/
 	
 	/* Log In */
 	$(".user-login input.form-submit").attr("value", "Go");
@@ -120,11 +122,8 @@
 	var mouse_over_megamenu = false;
 	$(".main-site-menu .pane-content ul li a:last").hover(
 		function() {
-			$(".resources-mega-menu").height("215px");
-			$(".resources-mega-menu").css("padding-top", "20px");
-			$(".resources-mega-menu").css("padding-bottom", "33px");
-			$(".resources-mega-menu").stop().slideDown(500, "easeOutCubic", function() {
-				$(".resources-mega-menu > .inside").stop().fadeIn(500, "easeOutCubic");
+			$(".resources-mega-menu").stop().height(215).css("padding-top", "20px").css("padding-bottom", "33px").slideDown(500, "easeOutCubic", function() {
+				$(".resources-mega-menu > .inside").stop().css("opacity", 1).fadeIn(500, "easeOutCubic");
 			});
 		},
 		function() {
