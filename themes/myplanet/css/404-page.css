@@ -1,0 +1,6 @@
+.e404-page .content-back { height: 950px; background: url(../images/404-page-back.png) no-repeat center 0; }
+.e404-page .content { padding: 152px 0 0; min-height: 950px; }
+.e404-page .left-region { width: 190px; }
+.e404-page .center-region { width: 375px; }
+.e404-page .right-region { float: right; width: 0; }
+.e404-page .center-region .text { padding: 6px 0 0; font: 25px/35px "plantin", Georgia, serif; letter-spacing: -1px; }
