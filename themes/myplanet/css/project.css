@@ -1,0 +1,15 @@
+.project-page .project-slideshow-view { padding: 10px 0 0; }
+.project-page .project-slideshow-view .view-content { position: relative; width: 950px; height: 460px; }
+.project-page .project-slideshow-view .views-slideshow-cycle-main-frame { font-size: 0; line-height: 0; }
+.project-page .main-content { padding-top: 31px; }
+.project-page .main-content .left-region { width: 175px; margin-right: 20px; }
+.project-page .main-content .center-region { width: 368px; }
+.project-page .main-content .right-region { float: right; width: 368px; }
+.project-page .main-content .left-region .sub-title { padding: 0 0 12px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.project-page .main-content .left-region .url { padding: 10px 0 0; }
+.project-page .main-content .left-region .url a { padding: 0 0 3px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.project-page .main-content .center-region .body { font: 25px/128% "plantin", Georgia, serif; letter-spacing: -1px; }
+.project-page .main-content .right-region .sub-title { padding: 0 0 21px; }
+.project-page .main-content .right-region .discover { padding: 0 0 42px; }
+.project-page .main-content .right-region .plan { padding: 0 0 42px; }
+.project-page .main-content .right-region .execute { padding: 0 0 42px; }

@@ -1,0 +1,17 @@
+.services-page .disciplines { padding: 36px 0 41px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.services-page .disciplines .left-region { width: 175px; }
+.services-page .disciplines .right-region { float: right; width: 754px; }
+.services-page .disciplines .left-region .sub-title { padding-top: 6px; }
+.services-page .expertise { padding-top: 42px; }
+.services-page .expertise .left-region { width: 175px; }
+.services-page .expertise .right-region { float: right; width: 754px; }
+
+.disciplines-view .views-row { margin: 0 19px 36px 0; width: 174px; }
+.disciplines-view .title { width: 138px; height: 138px; text-align: center; background: url(../images/black-circle-138.png) no-repeat 0 0; }
+.disciplines-view .title .field-content { padding-top: 61px; color: #fff; font: bold italic 18px/100% "plantin", Georgia, serif; }
+.disciplines-view .body { padding-top: 51px; }
+
+.areas-of-expertise-view .views-row { margin: 0 19px 23px 0; width: 174px; height: 232px; background: #fff url(../images/divider.png) repeat-x 0 bottom; }
+.areas-of-expertise-view .views-row.my-row-last { background: none; }
+.areas-of-expertise-view .title { font: bold italic 20px/105% "plantin", Georgia, serif; letter-spacing: -1px; }
+.areas-of-expertise-view .body { padding-top: 18px; }

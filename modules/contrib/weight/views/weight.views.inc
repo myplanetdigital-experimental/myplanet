@@ -4,6 +4,34 @@
  * Implements hook_views_data().
  */
 function weight_views_data() {
+  $data['weight_weights']['table'] = array(
+    'group' => t('Weight'),
+    'join' => array(
+      'node' => array(
+        'left_field' => 'nid',
+        'field' => 'entity_id',
+      ),
+    ),
+  );
+
+  $data['weight_weights']['weight'] = array(
+    'title' => t('Weight'),
+    'help' => t('The weight of the node.'),
+    'field' => array(
+      'handler' => 'weight_handler_field_weight',
+      'click sortable' => TRUE,
+    ),
+    'filter' => array(
+      'handler' => 'views_handler_filter_numeric',
+    ),
+    'sort' => array(
+      'handler' => 'views_handler_sort',
+    ),
+    'argument' => array(
+      'handler' => 'views_handler_argument_numeric',
+    ),
+  );
+
   $data['weight_settings']['table']['join']['node'] = array(
     'left_field' => 'type',
     'field' => 'type',
@@ -22,15 +50,6 @@ function weight_views_data() {
 }
 
 /**
- * Implements hook_views_data_alter().
- */
-function weight_views_data_alter(&$data) {
-  $data['field_data_weight']['weight']['group'] = t('Weight');
-  $data['field_data_weight']['weight']['field']['handler'] = 'weight_handler_field_weight';
-  $data['field_data_weight']['weight_value']['group'] = t('Weight');
-}
-
-/**
  * Implements of hook_views_handlers().
  */
 function weight_views_handlers() {
@@ -40,7 +59,7 @@ function weight_views_handlers() {
     ),
     'handlers' => array(
       'weight_handler_field_weight' => array(
-        'parent' => 'views_handler_field_field',
+        'parent' => 'views_handler_field',
       ),
       'weight_handler_filter_weight_enabled' => array(
         'parent' => 'views_handler_filter',

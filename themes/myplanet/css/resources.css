@@ -1,0 +1,57 @@
+.resources-page .top-image { background: url(../images/divider.png) repeat-x 0 bottom; }
+.resources-page .top-image > .pane-content { margin-left: -21px; width: 971px; height: 116px; font-size: 0; line-height: 0; text-indent: -1000px; background: url(../images/resources-header.png) no-repeat 0 0; }
+.resources-page .resources { padding-top: 27px; }
+.resources-page .resources .left-region { width: 175px; }
+.resources-page .resources .right-region { float: right; width: 757px; }
+.resources-page .resources .left-region .sub-title { height: 37px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.resources-page .resources .left-region .resources-main-category-menu { padding-bottom: 34px; }
+.resources-page .resources .left-region .resources-second-category-menu { padding-bottom: 34px; }
+.resources-page .resources .left-region .resources-tags-menu-view { padding-bottom: 34px; }
+.resources-page .resources .right-region .sort-view-subscribe { padding-bottom: 14px; height: 29px; }
+.resources-page .resources .right-region .sort-view-subscribe .sort { float: left; }
+.resources-page .resources .right-region .sort-view-subscribe .view-grid { float: right; padding-top: 6px; font: italic 12px/133% Georgia, Arial, sans-serif; }
+.resources-page .resources .right-region .sort-view-subscribe .subscribe { float: right; padding: 6px 0 0 15px; font: italic 12px/133% Georgia, Arial, sans-serif; }
+.resources-page .resources .right-region .sort-view-subscribe .sort li { float: left; margin-right: 24px; padding: 4px 0 5px; cursor: pointer; color: #000; }
+.resources-page .resources .right-region .sort-view-subscribe .sort li.active { padding: 4px 30px 5px 14px; color: #fff; background-color: #000; }
+.resources-page .resources .right-region .sort-view-subscribe .sort li.date.active { background: #000 url(../images/mp_sprite.png) no-repeat -15px -561px; }
+.resources-page .resources .right-region .sort-view-subscribe .sort li.date.active.desc { background-position: -15px -465px; }
+.resources-page .resources .right-region .sort-view-subscribe .sort li.comments.active { background: #000 url(../images/mp_sprite.png) no-repeat 20px -561px; }
+.resources-page .resources .right-region .sort-view-subscribe .sort li.comments.active.desc { background-position: 20px -465px; }
+.resources-page .resources .right-region .sort-view-subscribe .view-grid div { float: left; }
+.resources-page .resources .right-region .sort-view-subscribe .view-grid .grid-2 { margin-left: 10px; width: 15px; height: 15px; cursor: pointer; font-size: 0; line-height: 0; background: url(../images/blog-view-types.png) no-repeat 0 0; }
+.resources-page .resources .right-region .sort-view-subscribe .view-grid .grid-4 { margin-left: 4px; width: 15px; height: 15px; cursor: pointer; font-size: 0; line-height: 0; background: url(../images/blog-view-types.png) no-repeat -15px 0; }
+.resources-page .resources .right-region .sort-view-subscribe .subscribe a { display: block; padding-right: 23px; background: url(../images/blog-subscribe.png) no-repeat right -1px; }
+
+.resources-view .hidden { display: none; }
+.resources-view .views-row.grid-2 { margin: 0 21px 22px 0; width: 368px; height: 278px; background-color: #f1f1f1; }
+.resources-view .grid-2 .image { float: left; font-size: 0; line-height: 0; }
+.resources-view .grid-2 .main-category { margin: 15px 0 0 130px; font-weight: bold; color: #f05a28; }
+.resources-view .grid-2 .title { margin-left: 130px; font: 25px/108% "plantin", Georgia, serif; letter-spacing: -1px; }
+.resources-view .grid-2 .body { margin: 10px 22px 0 130px; }
+.resources-view .grid-2 .layer a { position: absolute; display: block; padding: 33px 35px 0; left: 0; right: 0; top: 0; bottom: 0; opacity: 0; filter: alpha(opacity=0); line-height: 18px; color: #fff; background-color: #000; }
+.resources-view .grid-2 .title2 { font: 25px/108% "plantin", Georgia, serif; letter-spacing: -1px; }
+.resources-view .grid-2 .leadline { margin-top: 10px; font-weight: bold; }
+.resources-view .grid-2 .leadline .postdate { margin-right: 8px; }
+.resources-view .grid-2 .body2 { margin-top: 16px; }
+.resources-view .grid-2 .link { position: absolute; padding-right: 35px; right: 13px; bottom: 19px; height: 25px; font-weight: bold; line-height: 175%; background: url(../images/arrow_right_nobg_white.png) no-repeat 50px -7px; }
+.resources-view .views-row.grid-4 { margin: 0 20px 22px 0; width: 174px; height: 274px; background-color: #f1f1f1; }
+.resources-view .grid-4 .image { font-size: 0; line-height: 0; }
+.resources-view .grid-4 .main-category { margin: 14px 17px 0; font-weight: bold; color: #f05a28; }
+.resources-view .grid-4 .title { margin: 8px 17px 0; font: 17px/103% "plantin", Georgia, serif; letter-spacing: -1px; }
+.resources-view ul.pager { position: absolute; }
+.resources-view ul.pager li { float: left; padding: 0 10px; cursor: pointer; }
+.resources-view ul.pager li.active { font-weight: bold; }
+
+.resources-main-category-menu .item-list ul li { float: none !important; width: 100%; height: 35px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.resources-main-category-menu .title { display: block; padding: 6px 0 0 17px; cursor: pointer; color: #141414; font-weight: normal; background: url(../images/blog-filter.png) no-repeat 1px 11px; }
+.resources-main-category-menu .title.active { background: url(../images/blog-filter-active.png) no-repeat 1px 11px; }
+
+.resources-second-category-menu .item-list ul li { float: none !important; width: 100%; height: 35px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.resources-second-category-menu .title { display: block; padding: 6px 0 0 17px; cursor: pointer; color: #141414; font-weight: normal; background: url(../images/blog-filter.png) no-repeat 1px 11px; }
+.resources-second-category-menu .title.active { background: url(../images/blog-filter-active.png) no-repeat 1px 11px; }
+
+.resources-tags-menu-view .item-list ul li { float: none !important; width: 100%; height: 35px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.resources-tags-menu-view .title { float: left; padding-top: 6px; cursor: pointer; color: #141414; font-weight: normal; }
+.resources-tags-menu-view .count { float: right; padding-top: 6px; color: #b4b4b4; }
+.resources-archive-menu-view .views-summary li { float: none; padding-top: 6px; width: 100%; height: 29px; text-align: right; color: #b4b4b4; font-weight: normal; background: url(../images/divider.png) repeat-x 0 bottom; }
+.resources-archive-menu-view .views-summary li a { float: left; color: #141414; }

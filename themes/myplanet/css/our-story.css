@@ -1,0 +1,25 @@
+.our-story-page .about-our-team { padding: 33px 0 44px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.our-story-page .about-our-team .left-region { width: 172px; margin-right: 20px; }
+.our-story-page .about-our-team .left-region .sticker { margin: 17px 0 0 1px; font-size: 0; line-height: 0; }
+.our-story-page .about-our-team .center-region { width: 370px; }
+.our-story-page .about-our-team .center-region .text { margin-top: -6px; font: 25px/140% "plantin", Georgia, serif; letter-spacing: -1px; }
+.our-story-page .about-our-team .right-region { float: right; width: 360px; }
+.our-story-page .about-our-team .right-region .text { margin-top: -3px; font: 14px/164% Arial, serif; }
+.our-story-page .meet-the-team { padding: 33px 0 44px; }
+.our-story-page .meet-the-team .left-region { width: 172px; }
+.our-story-page .meet-the-team .left-region .sub-title { padding-bottom: 20px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.our-story-page .meet-the-team .left-region .our-team-categories-menu { padding-top: 20px; }
+.our-story-page .meet-the-team .right-region { float: right; width: 755px; }
+
+.our-team-categories-menu .item-list ul li { float: none !important; margin-bottom: 5px; }
+.our-team-categories-menu .item-list ul li .title { font-weight: normal; cursor: pointer; }
+.our-team-categories-menu .item-list ul li .title:hover { color: #f05a28; }
+
+.our-team-view .views-row { margin-right: 15px; margin-bottom: 27px; width: 139px; height: 174px; }
+.our-team-view .hidden { display: none; }
+.our-team-view .image { font-size: 0; line-height: 0; }
+.our-team-view .layer { position: absolute; display: block; padding: 15px 15px 0; left: 0; right: 0; top: 0; bottom: 0; opacity: 0; filter: alpha(opacity=0); color: #fff; background-color: #000; }
+.our-team-view .full-name { font-size: 13px; font-weight: bold; }
+.our-team-view .leadline { margin-top: 10px; }
+.our-team-view .twitter { position: absolute; bottom: 15px; font-weight: bold; }
+.our-team-view .twitter a:hover { color: #fff !important; }

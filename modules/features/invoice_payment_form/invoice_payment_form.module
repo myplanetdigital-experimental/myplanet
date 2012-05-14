@@ -1,0 +1,35 @@
+<?php
+
+function invoice_payment_form_init_order() {
+	global $user;
+
+	$order = commerce_cart_order_load($user->uid);
+
+	if ($order === false) {
+		$order = commerce_cart_order_new($user->uid);
+		$order = commerce_cart_order_load($user->uid);
+	}
+
+	if (!isset($order->commerce_line_items) || count($order->commerce_line_items) == 0) {
+		$product = commerce_product_load_by_sku('invoice');
+		$line_item = commerce_product_line_item_new($product, 1, 0, array(), 'invoice');
+		commerce_cart_product_add($user->uid, $line_item);
+		unset($_SESSION['messages']['status']);
+	}
+
+	drupal_goto('checkout');
+}
+
+function invoice_payment_form_commerce_checkout_pane_info() {
+	$checkout_panes = array();
+	$weight = 0;
+
+	$checkout_panes['invoice_payment'] = array(
+	    'title' => t('Invoice Payment'),
+	    'file' => 'invoice_payment_form.checkout_pane.inc',
+	    'base' => 'invoice_payment_form_invoice_payment_pane',
+	    'fieldset' => FALSE,
+	);
+	
+	return $checkout_panes;
+}

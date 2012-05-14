@@ -1,0 +1,26 @@
+.openings-page .opportunities { padding: 34px 0 44px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.openings-page .opportunities .left-region { width: 175px; }
+.openings-page .opportunities .left-region .sub-title { padding-bottom: 18px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.openings-page .opportunities .left-region .job-posts-categories-menu { padding-top: 10px; }
+.openings-page .opportunities .right-region { float: right; width: 755px; }
+.openings-page .related { padding-top: 34px; }
+.openings-page .related .left-region { margin-right: 20px; width: 175px; }
+.openings-page .related .right-region { float: right; width: 755px; }
+
+.job-posts-categories-menu ul li { float: none !important; background: url(../images/menu-back.png) no-repeat 153px 16px; }
+.job-posts-categories-menu ul li .title { display: block; padding: 9px 0 6px; color: #000; cursor: pointer; font-weight: normal; background: url(../images/divider.png) repeat-x 0 bottom; }
+.job-posts-categories-menu ul li .title:hover { color: #f05a28; }
+.job-posts-categories-menu ul li ul { padding: 12px 0; background: url(../images/divider.png) repeat-x 0 bottom; }
+.job-posts-categories-menu ul li ul li { float: none; background: none; }
+.job-posts-categories-menu ul li ul li .title { padding: 0 0 0 19px; background: none; }
+
+.job-posts-view .views-row { margin: 0 23px 25px 0; width: 236px; }
+.job-posts-view .hidden { display: none; }
+.job-posts-view .title { height: 167px; font: 25px/140% "plantin", Georgia, serif; letter-spacing: -1px; background: url(../images/job-post-back.png) no-repeat 0 0; }
+.job-posts-view .title .field-content { padding: 21px 25px; }
+.job-posts-view .leadline { padding-top: 8px; font: italic 11px/150% Georgia, Arial, sans-serif; color: #333; }
+.job-posts-view .leadline div { display: inline; }
+.job-posts-view .layer a { position: absolute; display: block; padding: 20px 20px 0; left: 0; right: 0; top: 0; bottom: 0; opacity: 0; filter: alpha(opacity=0); color: #fff; background-color: #000; }
+.job-posts-view .title2 { font-size: 13px; font-weight: bold; }
+.job-posts-view .summary { margin-top: 10px; font-size: 12px; line-height: 150%; }
+.job-posts-view .link { position: absolute; bottom: 15px; width: 100px; height: 20px; font-weight: bold; background: url(../images/arrow_right_nobg_white.png) no-repeat 50px -7px; }

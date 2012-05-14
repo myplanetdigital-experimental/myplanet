@@ -1,0 +1,6 @@
+.fellow-blogs-page .centered { padding: 129px 0 100px; }
+.fellow-blogs-page .centered .left-region { width: 150px; }
+.fellow-blogs-page .centered .right-region { float: right; width: 655px; }
+.fellow-blogs-page .centered .left-region .blogs-link { float: left; width: 100%; }
+.fellow-blogs-page .centered .left-region .blogs-link a { display: block; font: bold italic 26px/108% "plantin", Georgia, serif; background: url(../images/fellow-blog-heading.png) no-repeat right 0; }
+.fellow-blogs-page .centered .left-region .blogs-summary { float: left; margin-top: 15px; width: 100%; color: #aaa; font-size: 11px; line-height: 145%; }

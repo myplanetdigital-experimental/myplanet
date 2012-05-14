@@ -67,19 +67,19 @@ function calendar_tooltips_preprocess_calendar_datebox(&$vars) {
            Choose the "Block view" display, and check out
            the "Fields" section.
         */
-        $field_count = 0;
         foreach ($view->field as $name => $field) {
           if (!$field->options['exclude']) {
-            if ($field->options['label'] != "")
+            if ($field->options['label'] != "" &&
+              ($result['rendered_fields'][$name] != "" ||
+              empty($field->options['hide_empty'])))
               $bt_text .= "<div class=\"calendar_tooltips-" . $name .
                 "-label\">" . $field->options['label'] .
                 ($field->options['element_label_colon'] ? ":" : "") .
                 "</div>";
-            if ($result['rendered_fields'][$field_count] != "")
+            if ($result['rendered_fields'][$name] != "")
               $bt_text .= "<div class=\"calendar_tooltips-" . $name .
-                "-value\">" . $result['rendered_fields'][$field_count] .
+                "-value\">" . $result['rendered_fields'][$name] .
                 "</div>";
-            $field_count++;
           }
         }
         $bt_text .= "</li>";
@@ -88,7 +88,11 @@ function calendar_tooltips_preprocess_calendar_datebox(&$vars) {
     $bt_text .= "</ul>";
     $bt_text = "<div class=\"calendar_tooltips\" style=\"display:none\">" .
       $bt_text . "</div>";
-    $vars['link'] = l($vars['day'], $vars['url']) . $bt_text;
+    if (!empty($day_path))
+      $vars['link'] = l($vars['day'], $vars['url']);
+    else
+      $vars['link'] = '<span>' . $vars['day'] . '</span>';
+    $vars['link'] .= $bt_text;
     /*
        The balloon text is appended to the link variable,
        like this: "<a href=...>31</a> <div>balloon text</div>" (see above).
@@ -125,7 +129,8 @@ function calendar_tooltips_preprocess_calendar_datebox(&$vars) {
 function calendar_tooltips_initialize_beautytips() {
   $bt_options['calendar-tooltips'] = array(
     "cssSelect" =>
-      ".calendar-calendar .mini-day-on a, .calendar-calendar .day a",
+      ".calendar-calendar .mini-day-on a, .calendar-calendar .day a, " .
+        ".calendar-calendar .mini-day-on span, .calendar-calendar .day span",
     "contentSelector" => '$(this).next().html()'
   );
   switch (variable_get("calendar_tooltips_whentoclose", "mouseout")) {

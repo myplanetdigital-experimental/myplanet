@@ -1,0 +1,18 @@
+.contact-page .myplanet { padding-top: 9px; }
+.contact-page .myplanet .left-region { width: 175px; }
+.contact-page .myplanet .left-region .sub-title { padding-bottom: 18px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.contact-page .myplanet .left-region .text { padding-top: 17px; font-size: 12px; line-height: 192%; }
+.contact-page .myplanet .left-region .sticker { margin-top: 10px; width: 126px; height: 126px; font-size: 0; line-height: 0; background: url(../images/contact-toronto-sticker.png) no-repeat 0 0; }
+.contact-page .myplanet .right-region { float: right; width: 754px; }
+.contact-page .myplanet .right-region .map { width: 754px; height: 454px; }
+.contact-page .get-in-touch { padding: 55px 0 55px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.contact-page .get-in-touch .left-region { margin-right: 20px; width: 175px; }
+.contact-page .get-in-touch .region-1 { margin-right: 23px; width: 236px; }
+.contact-page .get-in-touch .region-2 { width: 236px; }
+.contact-page .get-in-touch .region-3 { float: right; width: 236px; }
+.contact-page .get-in-touch .region-1 .text { padding-top: 16px; }
+.contact-page .get-in-touch .region-2 .text { padding-top: 16px; }
+.contact-page .get-in-touch .region-3 .text { padding-top: 16px; }
+.contact-page .related { padding-top: 35px; }
+.contact-page .related .left-region { margin-right: 20px; width: 175px; }
+.contact-page .related .right-region { float: right; width: 755px; }

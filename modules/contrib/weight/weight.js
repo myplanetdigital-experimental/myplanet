@@ -3,7 +3,7 @@
 Drupal.behaviors.weight = {
   attach: function (context) {
     // Provide the vertical tab summaries.
-    $('fieldset#edit-weight', context).drupalSetSummary(function(context) {
+    $('fieldset#edit-weight-settings', context).drupalSetSummary(function(context) {
       //var vals = [];
       var enabled, vals = [];
       enabled = $('input:radio[name="weight_enabled"]:checked').val();
@@ -14,8 +14,8 @@ Drupal.behaviors.weight = {
       }
       return vals.join(', ');
     });
-    $('fieldset#edit-weight-form', context).drupalSetSummary(function(context) {
-      return Drupal.t('Weight: !weight', {'!weight' : $('#edit-weight-und-0 option:selected').val()});
+    $('fieldset#edit-weight', context).drupalSetSummary(function(context) {
+      return Drupal.t('Weight: !weight', {'!weight' : $('#edit-weight--2 option:selected').val()});
     });
   }
 };

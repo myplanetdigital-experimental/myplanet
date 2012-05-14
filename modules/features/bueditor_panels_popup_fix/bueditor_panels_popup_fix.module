@@ -1,0 +1,11 @@
+<?php
+
+function bueditor_panels_popup_fix_init() {
+	if (arg(0) == 'admin' && arg(1) == 'structure' && arg(2) == 'pages') {
+		$bue_id = 1;
+		bueditor_settle($bue_id);
+		$bue_setting['BUE']['preset']['edit-body'] = "e$bue_id";
+		drupal_add_js($bue_setting, 'setting');
+		drupal_add_css('.bue-popup{z-index: 1001 !important}', array('type' => 'inline'));
+	}
+}

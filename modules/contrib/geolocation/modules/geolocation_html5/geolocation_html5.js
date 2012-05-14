@@ -30,8 +30,8 @@
 
     // Plot coords on map.
     $('.dot', thisMap).show();
-    $('.dot', thisMap).css('bottom', latpx + 'px');
-    $('.dot', thisMap).css('left', lngpx + 'px');
+    $('.dot', thisMap).css('bottom', latPx + 'px');
+    $('.dot', thisMap).css('left', lngPx + 'px');
   }
 
   function getLocation(widgetParentElement) {

@@ -1,0 +1,7 @@
+.clients-page .top-title { padding: 9px 0 0; font: bold 40px/120% Georgia,"Times New Roman",Times,serif; letter-spacing: -2px; }
+.clients-page .our-clients { padding: 48px 0 0 !important; }
+.clients-page .our-clients .left-region { width: 175px; }
+.clients-page .our-clients .right-region { float: right; width: 748px; }
+
+.clients-view .views-row { margin: 0 20px 50px 0; padding-bottom: 6px; width: 236px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.clients-view .image { font-size: 0; line-height: 0; }

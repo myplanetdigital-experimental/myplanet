@@ -1,7 +1,7 @@
 <?php
 
-class weight_handler_field_weight extends views_handler_field_field {
-  function render_items($items) {
+class weight_handler_field_weight extends views_handler_field {
+  function render($values) {
     return '<!--form-item-' . $this->options['id'] . '--' . $this->view->row_index . '-->';
   }
 
@@ -21,11 +21,12 @@ class weight_handler_field_weight extends views_handler_field_field {
     $form[$field_name] = array(
       '#tree' => TRUE,
     );
+
     // At this point, the query has already been run, so we can access the results
     foreach ($this->view->result as $row_id => $row) {
-      $type = $row->_field_data['nid']['entity']->type;
-      if (!empty($row->field_weight)) {
-        $weight = $row->field_weight[0]['raw'];
+      $type = $this->get_node_type($row->nid);
+      if (!empty($row->weight_weights_weight)) {
+        $weight = $row->weight_weights_weight;
       }
       else {
         if (array_key_exists($type, $settings)) {
@@ -40,8 +41,9 @@ class weight_handler_field_weight extends views_handler_field_field {
         $options = _weight_get_options($settings[$type]['range']);
       }
       else {
-        $options = array(0);
+        $options = array();
       }
+
       $form[$field_name][$row_id][$row->nid] = array(
         '#type' => 'select',
         '#options' =>  $options,
@@ -57,5 +59,12 @@ class weight_handler_field_weight extends views_handler_field_field {
 
     $form['#action'] = request_uri();
     $form['#submit'][] = 'weight_views_submit';
+  }
+
+  function get_node_type($nid) {
+    $type = db_query("SELECT type FROM {node} WHERE nid=:nid",
+      array(':nid' => $nid))->fetchField();
+
+    return $type;
   }
 }

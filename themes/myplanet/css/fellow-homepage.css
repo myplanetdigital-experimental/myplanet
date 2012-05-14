@@ -1,0 +1,27 @@
+.fellow-homepage .fellow-page-title { padding: 89px 0 25px; font: 39px/98% "plantin", Arial, serif; letter-spacing: -2px; background: url(../images/fellow-dots-bg.png) repeat-x 0 bottom; }
+.fellow-homepage .fellow-front-items-view { clear: both; padding: 30px 0 0; }
+.fellow-homepage .pink-panel { margin: 50px 0 0; }
+.fellow-homepage .pink-panel .pink-bottom > .inside { padding: 57px 0 75px; }
+.fellow-homepage .blogs { padding: 50px 0 100px; }
+.fellow-homepage .blogs > .inside { background: url(../images/fellow-home-blog-bg.png) no-repeat 30px bottom; }
+.fellow-homepage .blogs .left-region { width: 150px; }
+.fellow-homepage .blogs .right-region { float: right; width: 655px; }
+.fellow-homepage .blogs .left-region .blogs-link a { display: block; font: bold italic 26px/108% "plantin", Georgia, serif; background: url(../images/fellow-blog-heading.png) no-repeat right 0; }
+.fellow-homepage .blogs .left-region .blogs-summary { margin-top: 15px; color: #aaa; font-size: 11px; line-height: 145%; }
+
+.fellow-front-items-view .views-row { position: relative; float: left; margin: 0 19px 0 0; padding: 19px 25px 25px; width: 210px; height: 245px; background-color: #ededed; }
+.fellow-front-items-view .views-row-last { margin-right: 0; }
+.fellow-front-items-view .title { float: left; width: 100%; font: bold 36px/106% "tradegothic", Arial, serif; letter-spacing: -2px; }
+.fellow-front-items-view .body { float: left; margin: 12px 0 0; width: 100%; }
+.fellow-front-items-view .url a { position: absolute; left: 130px; bottom: -60px; }
+
+.fellow-google-forms-view .views-row { position: relative; float: left; margin: 0 25px 0 0; width: 256px; height: 438px; }
+.fellow-google-forms-view .views-row-last { margin-right: 0; }
+.fellow-google-forms-view .title { font: 22px/109% "tradegothic", Arial, serif; }
+.fellow-google-forms-view .title span { font: bold italic 35px "planit", georgia, serif; }
+.fellow-google-forms-view .body { margin-top: 21px; font-size: 12px; line-height: 18.5px; }
+.fellow-google-forms-view .body p { margin-bottom: 20px; }
+.fellow-google-forms-view .image { position: absolute; bottom: 0; width: 281px; height: 79px; background: url(../images/fellow-white-dots.png) repeat-x 1px 78px; }
+.fellow-google-forms-view .views-row-last .image { width: 100%; }
+.fellow-google-forms-view .image img { margin-left: 60px; }
+.fellow-google-forms-view .url a { position: absolute; left: 130px; bottom: -40px; }

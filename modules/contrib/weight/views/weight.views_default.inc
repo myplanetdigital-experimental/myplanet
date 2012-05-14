@@ -12,7 +12,7 @@ function weight_views_default_views() {
   $view->human_name = 'Weight';
   $view->core = 7;
   $view->api_version = '3.0';
-  $view->disabled = TRUE; /* Edit this to true to make a default view disabled initially */
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
@@ -26,7 +26,6 @@ function weight_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'table';
-  $handler->display->display_options['style_options']['group_rendered'] = 1;
   $handler->display->display_options['style_options']['columns'] = array(
     'title' => 'title',
     'weight' => 'weight',
@@ -69,8 +68,9 @@ function weight_views_default_views() {
   $handler->display->display_options['fields']['title']['link_to_node'] = 1;
   /* Field: Weight: Weight */
   $handler->display->display_options['fields']['weight']['id'] = 'weight';
-  $handler->display->display_options['fields']['weight']['table'] = 'field_data_weight';
+  $handler->display->display_options['fields']['weight']['table'] = 'weight_weights';
   $handler->display->display_options['fields']['weight']['field'] = 'weight';
+  $handler->display->display_options['fields']['weight']['label'] = '';
   $handler->display->display_options['fields']['weight']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['weight']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['weight']['alter']['absolute'] = 0;
@@ -80,18 +80,19 @@ function weight_views_default_views() {
   $handler->display->display_options['fields']['weight']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['weight']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['weight']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['weight']['alter']['more_link'] = 0;
   $handler->display->display_options['fields']['weight']['alter']['strip_tags'] = 0;
   $handler->display->display_options['fields']['weight']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['weight']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['weight']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['weight']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['weight']['element_default_classes'] = 1;
   $handler->display->display_options['fields']['weight']['hide_empty'] = 0;
   $handler->display->display_options['fields']['weight']['empty_zero'] = 0;
   $handler->display->display_options['fields']['weight']['hide_alter_empty'] = 1;
-  /* Sort criterion: Weight: Weight (weight) */
-  $handler->display->display_options['sorts']['weight_value']['id'] = 'weight_value';
-  $handler->display->display_options['sorts']['weight_value']['table'] = 'field_data_weight';
-  $handler->display->display_options['sorts']['weight_value']['field'] = 'weight_value';
+  /* Sort criterion: Weight: Weight */
+  $handler->display->display_options['sorts']['weight']['id'] = 'weight';
+  $handler->display->display_options['sorts']['weight']['table'] = 'weight_weights';
+  $handler->display->display_options['sorts']['weight']['field'] = 'weight';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -99,6 +100,11 @@ function weight_views_default_views() {
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 0;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Weight: Enabled */
+  $handler->display->display_options['filters']['weight_enabled']['id'] = 'weight_enabled';
+  $handler->display->display_options['filters']['weight_enabled']['table'] = 'weight_settings';
+  $handler->display->display_options['filters']['weight_enabled']['field'] = 'weight_enabled';
+  $handler->display->display_options['filters']['weight_enabled']['value'] = '1';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');

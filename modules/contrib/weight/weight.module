@@ -17,22 +17,6 @@ function weight_permission() {
 }
 
 /**
- * Implements hook_menu().
- */
-function weight_menu() {
-  $items['admin/config/content/weight'] = array(
-    'title' => 'Weight',
-    'description' => 'Configure settings for the weight module.',
-    'page callback' => 'drupal_get_form',
-    'page arguments' => array('weight_admin_form'),
-    'access arguments' => array('administer weight'),
-    'file' => 'weight.admin.inc',
-  );
-
-  return $items;
-}
-
-/**
  * Implements hook_menu_alter().
  */
 function weight_menu_alter(&$items) {
@@ -60,12 +44,12 @@ function weight_menu_alter(&$items) {
  */
 function weight_page_default() {
   $select = db_select('node', 'n');
-  $select->join('field_data_weight', 'w', 'w.entity_id = n.nid');
+  $select->join('weight_weights', 'w', 'w.entity_id = n.nid');
   $select->fields('n', array('nid'))
     ->condition('n.promote', 1)
     ->condition('n.status', 1)
     ->orderBy('n.sticky', 'DESC')
-    ->orderBy('w.weight_value', 'ASC')
+    ->orderBy('w.weight', 'ASC')
     ->orderBy('n.created', 'DESC')
     ->extend('PagerDefault')
     ->limit(variable_get('default_nodes_main', 10))
@@ -111,38 +95,47 @@ function weight_page_default() {
  * Implements hook_form_FORM_ID_alter().
  */
 function weight_form_node_admin_content_alter(&$form, &$form_state) {
-  $weight_types = _weight_get_types();
+  if (user_access('assign node weight')) {
+    $weight_types = _weight_get_types();
 
-  foreach ($form['admin']['nodes']['#options'] as $nid => $node) {
-    $node = node_load($nid);
-    if (in_array($node->type, $weight_types)) {
-      $settings = _weight_get_settings($node->type);
-      $options = _weight_get_options($settings['range']);
-      $form['weight'][$nid] = array(
-        '#type' => 'select',
-        '#options' => $options,
-        '#default_value' => $node->weight[LANGUAGE_NONE][0]['value'],
-        '#ajax' => array(
-          'callback' => '_weight_set_ajax',
-        ),
-      );
+    if (!empty($form['admin']['nodes']['#options'])) {
+      $nodes = $form['admin']['nodes']['#options'];
     }
     else {
-      $form['weight'][$nid] = array(
-        '#value' => '',
-      );
+      $nodes = $form['admin']['nodes']['#rows'];
     }
-  }
 
-  $form['#after_build'][] = 'weight_node_admin';
+    foreach ($nodes as $nid => $node) {
+      $node = node_load($nid);
+      if (in_array($node->type, $weight_types)) {
+        $settings = _weight_get_settings($node->type);
+        $options = _weight_get_options($settings['range']);
+        $form['weight'][$nid] = array(
+          '#type' => 'select',
+          '#options' => $options,
+          '#default_value' => $node->weight,
+          '#ajax' => array(
+            'callback' => '_weight_set_ajax',
+          ),
+        );
+      }
+      else {
+        $form['weight'][$nid] = array(
+          '#value' => '',
+        );
+      }
+    }
+
+    $form['#after_build'][] = 'weight_node_admin';
+  }
 }
 
 function _weight_set_ajax($form, $form_state) {
   $nid = $form_state['input']['_triggering_element_name'];
   $weight = $form_state['values'][$nid];
   $node = node_load($nid);
-  $node->weight[LANGUAGE_NONE][0]['value'] = $weight;
-  node_save($node);
+  $node->weight = $weight;
+  _weight_set_weight($node);
 }
 
 /**
@@ -151,8 +144,15 @@ function _weight_set_ajax($form, $form_state) {
 function weight_node_admin($form_element, &$form_state) {
   $form_element['admin']['nodes']['#header']['weight']['data'] = t('Weight');
 
-  foreach ($form_element['admin']['nodes']['#options'] as $nid => $node) {
-    $form_element['admin']['nodes']['#options'][$nid]['weight']['data'] = $form_element['weight'][$nid];
+  if (!empty($form['admin']['nodes']['#options'])) {
+    $key = '#options';
+  }
+  else {
+    $key = '#rows';
+  }
+
+  foreach ($form_element['admin']['nodes'][$key] as $nid => $node) {
+    $form_element['admin']['nodes'][$key][$nid]['weight']['data'] = $form_element['weight'][$nid];
   }
   unset($form_element['weight']);
 
@@ -171,16 +171,16 @@ function weight_form_node_type_form_alter(&$form, &$form_state) {
     $range = 20;
   }
 
-  $form['weight'] = array(
+  $form['weight_settings'] = array(
     '#type' => 'fieldset',
-    '#title' => t('Weight'),
+    '#title' => t('Weight Settings'),
     '#collapsible' => TRUE,
     '#collapsed' => TRUE,
     '#group' => 'additional_settings',
     '#access' => user_access('assign node weight'),
   );
 
-  $form['weight']['weight_enabled'] = array(
+  $form['weight_settings']['weight_enabled'] = array(
     '#type' => 'radios',
     '#title' => t('Enable'),
     '#description' => t('Enable weight for this content type?'),
@@ -188,7 +188,7 @@ function weight_form_node_type_form_alter(&$form, &$form_state) {
     '#default_value' => isset($settings['enabled']) ? $settings['enabled'] : 0,
   );
 
-  $form['weight']['weight_range'] = array(
+  $form['weight_settings']['weight_range'] = array(
     '#type' => 'radios',
     '#title' => t('Weight Range'),
     '#description' => t('This will be the range available when selecting a weight.'),
@@ -201,7 +201,7 @@ function weight_form_node_type_form_alter(&$form, &$form_state) {
     '#default_value' => $range,
   );
 
-  $form['weight']['weight_menu'] = array(
+  $form['weight_settings']['weight_menu'] = array(
     '#type' => 'radios',
     '#title' => t('Use Menu Weight'),
     '#description' => t('Use the menu weight of the node, if it has one.'),
@@ -209,7 +209,7 @@ function weight_form_node_type_form_alter(&$form, &$form_state) {
     '#default_value' => isset($settings['menu_weight']) ? $settings['menu_weight'] : 0,
   );
 
-  $form['weight']['weight_default'] = array(
+  $form['weight_settings']['weight_default'] = array(
     '#type' => 'select',
     '#title' => t('Default Weight'),
     '#description' => t('This weight will be applied to nodes if none is selected.'),
@@ -253,40 +253,9 @@ function weight_node_type_form_submit($form, &$form_state) {
       ->execute();
   }
 
-  $instance = field_info_instance('node', 'weight', $values['type']);
-  if ($values['weight_enabled'] && !$instance) {
-    _weight_create_instance($values['type'], $values['weight_range']);
+  if (!$exists) {
     $default = $values['weight_menu'] ? 'menu' : $values['weight_default'];
     _weight_set_defaults($default, $values['type']);
-  }
-  elseif ($values['weight_enabled'] && $instance) {
-    _weight_update_instance($values['type'], $values['weight_range']);
-    $type = array(':type' => $values['type']);
-    $num_nodes = db_query("SELECT COUNT('nid') FROM node WHERE type=:type", $type)->fetchField();
-    $num_weights = db_query("SELECT COUNT('entity_id') FROM field_data_weight WHERE bundle=:type", $type)->fetchField();
-    if ($num_weights != $num_nodes) {
-      $default = $values['weight_menu'] ? 'menu' : $values['weight_default'];
-      _weight_set_defaults($default, $values['type']);
-    }
-  }
-}
-
-/**
- * Implements hook_form_BASE_FORM_ID_alter().
- */
-function weight_form_node_form_alter(&$form, &$form_state, $form_id) {
-  if (in_array($form['type']['#value'], _weight_get_types())) {
-    $form['weight_form'] = array(
-      '#type' => 'fieldset',
-      '#title' => t('Weight'),
-      '#collapsible' => TRUE,
-      '#collapsed' => TRUE,
-      '#group' => 'additional_settings',
-      '#access' => user_access('assign node weight'),
-      '#attached' => array('js' => array(drupal_get_path('module', 'weight') . '/weight.js')),
-    );
-    $form['weight_form']['weight'] = $form['weight'];
-    $form['weight'] = array('#language' => $form['weight']['#language']);
   }
 }
 
@@ -304,78 +273,56 @@ function weight_form_views_form_alter(&$form, &$form_state, $form_id) {
 }
 
 /**
- * Implements hook_field_info().
+ * Implements hook_field_attach_form().
  */
-function weight_field_info() {
-  return array(
-    'weight_weight' => array(
-      'label' => t('Weight'),
-      'description' => t('Weight Field'),
-      'instance_settings' => array(
-        'range' => 20,
-      ),
-      'default_widget' => 'weight_weight_widget',
-      'default_formatter' => 'number_integer',
-      'no_ui' => TRUE,
-    ),
-  );
-}
+function weight_field_attach_form($entity_type, $entity, &$form, &$form_state, $langcode) {
+  if ($entity_type == 'node') {
+    $settings  = _weight_get_settings($entity->type);
+    if (isset($settings['enabled'])) {
+      $form['weight'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Weight'),
+        '#collapsible' => TRUE,
+        '#collapsed' => TRUE,
+        '#group' => 'additional_settings',
+        '#access' => user_access('assign node weight'),
+        '#attached' => array('js' => array(drupal_get_path('module', 'weight') . '/weight.js')),
+      );
 
-/**
- * Implements hook_field_widget_info().
- */
-function weight_field_widget_info() {
-  return array(
-    'weight_weight_widget' => array(
-      'label' => t('Weight Selector'),
-      'field types' => array('weight_weight'),
-    ),
-  );
-}
-
-/**
- * Implements hook_field_widget_form().
- */
-function weight_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
-  $node = $form_state['node'];
-  $settings  = _weight_get_settings($node->type);
-
-  $element += array(
-    '#type' => 'select',
-    '#title' => t('Weight'),
-    '#options' => _weight_get_options($instance['settings']['range']),
-    '#element_validate' => array('weight_weight_validate'),
-  );
-
-  if ($settings['menu_weight']) {
-    $element['#default_value'] = $node->menu['weight'];
-    $element['#disabled'] = TRUE;
-    $element['#description'] = t('Weight cannot be selected when the menu weight option is in use.');
+      $form['weight']['weight'] = array(
+        '#type' => 'select',
+        '#title' => t('Weight'),
+        '#options' => _weight_get_options($settings['range']),
+        '#default_value' => isset($entity->weight) ? $entity->weight : $settings['default'],
+      );
+    }
   }
-  else {
-    $element['#default_value'] = isset($items[0]) ? $items[0] : 0;
-  }
-
-  return $element;
 }
 
 /**
- * Validation for weight_field_widget_form.
+ * Implements hook_node_load().
  */
-function weight_weight_validate($element, &$form_state) {
-  $item = array('value' => $element['#value']);
-  form_set_value($element, $item, $form_state);
+function weight_node_load($nodes, $type) {
+  foreach ($nodes as $node) {
+    $node->weight = _weight_get_weight($node);
+  }
 }
 
 /**
- * Implements hook_field_is_empty().
+ * Implements hook_node_insert().
  */
-function weight_field_is_empty($item, $field) {
-  if (empty($item)) {
-    return TRUE;
+function weight_node_insert($node) {
+  if (!empty($node->weight)) {
+    _weight_set_weight($node);
   }
-  else {
-    return FALSE;
+}
+
+/**
+ * Implements hook_node_update().
+ */
+function weight_node_update($node) {
+  if (!empty($node->weight)) {
+    _weight_set_weight($node);
   }
 }
 
@@ -399,8 +346,8 @@ function weight_views_submit($form, &$form_state) {
 
   foreach ($values['nids'] as $key => $nid) {
     $node = $nodes[$nid];
-    $node->weight[LANGUAGE_NONE][0]['value'] = $values['weight'][$key];
-    node_save($node);
+    $node->weight = $values['weight'][$key];
+    _weight_set_weight($node);
   }
 
   drupal_set_message(t('Weights saved successfully.'));
@@ -423,6 +370,33 @@ function weight_preprocess_views_view_table(&$variables) {
   $variables['attributes_array']['id'] = 'weight-table';
 
   drupal_add_tabledrag('weight-table', 'order', 'sibling', 'weight-weight');
+}
+
+/**
+ * Set the weight of a node.
+ */
+function _weight_set_weight($node) {
+  db_merge('weight_weights')
+    ->key(array('entity_id' => $node->nid))
+    ->fields(array(
+      'entity_id' => $node->nid,
+      'entity_type' => 'node',
+      'weight' => $node->weight,
+    ))
+    ->updateFields(array(
+      'weight' => $node->weight,
+    ))
+    ->execute();
+}
+
+/**
+ * Get the weight of a node.
+ */
+function _weight_get_weight($node) {
+  $weight = db_query("SELECT weight FROM {weight_weights} WHERE entity_id=:id AND entity_type=:type",
+    array(':id' => $node->nid, ':type' => 'node'))->fetchField();
+
+  return $weight;
 }
 
 /**
@@ -492,7 +466,7 @@ function _weight_get_options($range) {
 function _weight_set_defaults($default, $type) {
   // Get the nodes to work with.
   $select = db_select('node', 'n');
-  $select->fields('n', array('nid', 'vid', 'language'))
+  $select->fields('n', array('nid'))
     ->condition('type', $type);
   $results = $select->execute();
 
@@ -509,9 +483,9 @@ function _weight_set_defaults($default, $type) {
       }
     }
     else {
-      // Get the weight fot this node.
-      $weight = db_select('field_data_weight', 'w');
-      $weight->fields('w', array('weight_value'))
+      // Get the weight for this node.
+      $weight = db_select('weight_weights', 'w');
+      $weight->fields('w', array('weight'))
         ->condition('entity_id', $result->nid);
       $weight = $weight->execute()->fetchField();
       // If there is no weight, set the weight to the default.
@@ -520,77 +494,16 @@ function _weight_set_defaults($default, $type) {
       }
     }
 
-    db_merge('field_data_weight')
+    db_merge('weight_weights')
       ->key(array('entity_id' => $result->nid))
       ->fields(array(
-        'entity_type' => 'node',
-        'bundle' => $type,
         'entity_id' => $result->nid,
-        'revision_id' => $result->vid,
-        'language' => $result->language,
-        'delta' => 0,
-        'weight_value' => $weight,
+        'entity_type' => 'node',
+        'weight' => $weight,
       ))
       ->updateFields(array(
-        'weight_value' => $weight,
+        'weight' => $weight,
       ))
       ->execute();
   }
-}
-
-/**
- * Create a weight field instance.
- */
-function _weight_create_instance($type, $range) {
-  $instance = array(
-    'field_name' => 'weight',
-    'entity_type' => 'node',
-    'label' => t('Weight'),
-    'bundle' => $type,
-    'settings' => array(
-      'range' => $range,
-    ),
-    'widget' => array(
-      'type' => 'weight_weight_widget',
-    ),
-  );
-  field_create_instance($instance);
-}
-
-/**
- * Update a weight field instance.
- */
-function _weight_update_instance($type, $range) {
-  $instance = array(
-    'field_name' => 'weight',
-    'entity_type' => 'node',
-    'label' => t('Weight'),
-    'bundle' => $type,
-    'settings' => array(
-      'range' => $range,
-    ),
-    'widget' => array(
-      'type' => 'weight_weight_widget',
-    ),
-  );
-  field_update_instance($instance);
-}
-
-/**
- * Delete a weight field instance.
- */
-function _weight_delete_instance($type, $range) {
-  $instance = array(
-    'field_name' => 'weight',
-    'entity_type' => 'node',
-    'label' => t('Weight'),
-    'bundle' => $type,
-    'settings' => array(
-      'range' => $range,
-    ),
-    'widget' => array(
-      'type' => 'weight_weight_widget',
-    ),
-  );
-  field_delete_instance($instance);
 }

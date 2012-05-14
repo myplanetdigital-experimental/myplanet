@@ -1,0 +1,19 @@
+.fellow-page .node-item > .inside { padding: 79px 0 71px; background: url(../images/fellow-dots-bg.png) repeat-x 0 bottom; }
+.fellow-page .node-item .left-region { width: 530px; }
+.fellow-page .node-item .right-region { float: right; width: 255px; background-color: #ededed; }
+.fellow-page .node-item .left-region .title { font: 39px/98% "plantin", Arial, serif; letter-spacing: -2px; }
+.fellow-page .node-item .left-region .body { margin: 48px 25px 0 92px; line-height: 150%; }
+.fellow-page .node-item .right-region > .inside { padding: 19px 25px 25px; }
+.fellow-page .node-item .right-region .title { font: bold 36px/106% "tradegothic", Arial, serif; letter-spacing: -2px; }
+.fellow-page .node-item .right-region .body { margin-top: 18px; }
+.fellow-page .pink-panel { margin: 20px 0 100px;  }
+.fellow-page .pink-panel .pink-top { height: 57px; background: url(../images/fellow-planet-t.png) no-repeat center 0; }
+.fellow-page .pink-panel .pink-bottom > .inside { padding: 75px 0; }
+.fellow-page .pink-panel .left-region { width: 150px; }
+.fellow-page .pink-panel .right-region { float: right; width: 655px; }
+.fellow-page .pink-panel .left-region .title { font: bold italic 21px/86% "plantin", Georgia, serif; }
+.fellow-page .pink-panel .left-region .text { margin-top: 15px; font-size: 11px; line-height: 145%; }
+
+.fellow-page .fellow-blogs-view .title { background-color: #000; }
+.fellow-page .fellow-blogs-view .leadline { color: #fff; }
+.fellow-page .fellow-blogs-view a { color: #fff; }

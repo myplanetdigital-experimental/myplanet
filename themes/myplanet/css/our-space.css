@@ -1,0 +1,13 @@
+.our-space-page .top-title { padding-bottom: 7px; }
+.our-space-page .slideshow-view .view-content { position: relative; width: 950px; height: 500px; }
+.our-space-page .slideshow-view .views-slideshow-cycle-main-frame { font-size: 0; line-height: 0; }
+.our-space-page .about-our-space { padding: 53px 0 61px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.our-space-page .about-our-space .left-region { width: 175px; margin-right: 20px; }
+.our-space-page .about-our-space .center-region { width: 375px; }
+.our-space-page .about-our-space .right-region { float: right; width: 365px; }
+.our-space-page .about-our-space .left-region .sticker { margin-top: 18px; font-size: 0; line-height: 0; }
+.our-space-page .about-our-space .center-region .text { margin-top: -10px; font: 25px/140% "plantin", Georgia, serif; letter-spacing: -1px; }
+.our-space-page .about-our-space .right-region .text { font-size: 14px; line-height: 164%; }
+.our-space-page .related { padding-top: 35px; }
+.our-space-page .related .left-region { margin-right: 20px; width: 175px; }
+.our-space-page .related .right-region { float: right; width: 755px; }

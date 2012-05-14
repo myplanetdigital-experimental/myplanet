@@ -4,16 +4,16 @@ $("document").ready(function() {
 	
 	var prev_blog_index = 0;
 	var next_blog_index = 0;
-	var cur_blog_link = $.trim($(".main-body .center-region .link .pane-content").html());
+	var cur_blog_link = $.trim($(".main-content .center-region .link .pane-content").html());
 	cur_blog_link = cur_blog_link.substr(cur_blog_link.indexOf("//") + 2);
 	cur_blog_link = cur_blog_link.substr(cur_blog_link.indexOf("/"));
 	
-	var postdate_string = $.trim($(".main-body .center-region .postdate .pane-content").html());
+	var postdate_string = $.trim($(".main-content .center-region .postdate .pane-content").html());
 	var date_string = postdate_string.substr(postdate_string.indexOf(" ") + 1);
 	date_string = date_string.substr(0, date_string.indexOf(" "));
 	var postdate = new Date(date_string);
 	
-	$(".main-body .center-region .postdate").html(postdate_string.substr(0, postdate_string.indexOf(",")) + " " + postdate.getDate() + ", " + postdate.getFullYear());
+	$(".main-content .center-region .postdate").html(postdate_string.substr(0, postdate_string.indexOf(",")) + " " + postdate.getDate() + ", " + postdate.getFullYear());
 	
 	for (var i = 0; i < new_visible_items.length; i++) {
 		var blog_link = $(".resources-hidden-view .views-row:eq(" + new_visible_items[i] + ") .link a").attr("href");
@@ -25,15 +25,15 @@ $("document").ready(function() {
 		}
 	}
 	
-	$(".article-page .main-body .right-region .links .previous a").attr("href", $(".resources-hidden-view .views-row:eq(" + new_visible_items[prev_blog_index] + ") .link a").attr("href"));
-	$(".article-page .main-body .right-region .links .next a").attr("href", $(".resources-hidden-view .views-row:eq(" + new_visible_items[next_blog_index] + ") .link a").attr("href"));
+	$(".article-page .main-content .right-region .links .previous a").attr("href", $(".resources-hidden-view .views-row:eq(" + new_visible_items[prev_blog_index] + ") .link a").attr("href"));
+	$(".article-page .main-content .right-region .links .next a").attr("href", $(".resources-hidden-view .views-row:eq(" + new_visible_items[next_blog_index] + ") .link a").attr("href"));
 	
 	$(".article-page .bottom-links .previous a").html($(".resources-hidden-view .views-row:eq(" + new_visible_items[prev_blog_index] + ") .title .field-content").html());
 	$(".article-page .bottom-links .next a").html($(".resources-hidden-view .views-row:eq(" + new_visible_items[next_blog_index] + ") .title .field-content").html());
 	$(".article-page .bottom-links .previous a").attr("href", $(".resources-hidden-view .views-row:eq(" + new_visible_items[prev_blog_index] + ") .link a").attr("href"));
 	$(".article-page .bottom-links .next a").attr("href", $(".resources-hidden-view .views-row:eq(" + new_visible_items[next_blog_index] + ") .link a").attr("href"));
 	
-	var body_height = $(".main-body .center-region .body").height() + parseInt($(".main-body .center-region .body").css("margin-top")) + 20;
+	var body_height = $(".main-content .center-region .body").height() + parseInt($(".main-content .center-region .body").css("margin-top")) + 20;
 	var related_margin = parseInt($(".resources-realated-view .views-row").css("margin-bottom"));
 	var related_height = $(".resources-realated-view .views-row").height() + related_margin;
 	var related_count = Math.floor((body_height + related_margin) / related_height);

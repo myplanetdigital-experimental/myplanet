@@ -16,9 +16,21 @@ function geolocation_googlemaps_field_formatter_info() {
       'settings' => array(
         'map_dimensions' => '300x300',
         'map_zoomlevel' => '7',
-        'marker_icon' => '',
         'map_imageformat' => 'png8',
         'map_maptype' => 'roadmap',
+        'marker_icon' => '',
+      ),
+    ),
+    'geolocation_googlemaps_dynamic' => array(
+      'label' => t('Dynamic Google Map'),
+      'field types' => array('geolocation_latlng'),
+      'settings' => array(
+        'map_dimensions' => '300x300',
+        'map_zoomlevel' => '7',
+        'map_imageformat' => 'png8',
+        'map_maptype' => 'roadmap',
+        'marker_icon' => '',
+        'map_scrollwheel' => FALSE,
       ),
     ),
   );
@@ -28,21 +40,21 @@ function geolocation_googlemaps_field_formatter_info() {
  * Implements hook_field_formatter_settings_form().
  */
 function geolocation_googlemaps_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+
   $display = $instance['display'][$view_mode];
+  $type = $display['type'];
   $settings = $display['settings'];
 
   $element = array();
 
   // Implement some configuration options.
   // http://code.google.com/intl/en/apis/maps/documentation/staticmaps/
-
   $element['map_dimensions'] = array(
     '#type' => 'textfield',
     '#title' => t('Map dimensions'),
     '#description' => t('Enter custom map dimensions, default is 300x300.'),
     '#default_value' => $settings['map_dimensions'],
   );
-  
   $element['marker_icon'] = array(
     '#type' => 'textfield',
     '#title' => t('Marker icon'),
@@ -50,19 +62,33 @@ function geolocation_googlemaps_field_formatter_settings_form($field, $instance,
     '#default_value' => $settings['marker_icon'],
   );
 
-  $element['map_imageformat'] = array(
-    '#type' => 'select',
-    '#title' => t('Image format'),
-    '#options' => array(
-      'png8' => '8-bit PNG (default)',
-      'png32' => '32-bit PNG',
-      'gif' => 'GIF',
-      'jpg' => 'JPEG',
-      'jpg-baseline' => 'JPEG (non-progressive)',
-    ),
-    '#description' => t('Choose an Image Format. jpg and jpg-baseline typically provide the smallest image size, though they do so through "lossy" compression which may degrade the image. gif, png8 and png32 provide lossless compression.'),
-    '#default_value' => $settings['map_imageformat'],
-  );
+  // Image format is used only for static maps.
+  switch ($type) {
+    case 'geolocation_googlemaps_static':
+      $element['map_imageformat'] = array(
+        '#type' => 'select',
+        '#title' => t('Image format'),
+        '#options' => array(
+          'png8' => '8-bit PNG (default)',
+          'png32' => '32-bit PNG',
+          'gif' => 'GIF',
+          'jpg' => 'JPEG',
+          'jpg-baseline' => 'JPEG (non-progressive)',
+        ),
+        '#description' => t('Choose an Image Format. jpg and jpg-baseline typically provide the smallest image size, though they do so through "lossy" compression which may degrade the image. gif, png8 and png32 provide lossless compression.'),
+        '#default_value' => $settings['map_imageformat'],
+      );
+      break;
+
+    case 'geolocation_googlemaps_dynamic':
+      $element['map_scrollwheel'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Scroll Zoom'),
+        '#description' => t('By default zooming is done with double click and/or using the map controls to avoid interrupting the normal window scroll. It can optionally be enabled here.'),
+        '#default_value' => $settings['map_scrollwheel'],
+      );
+      break;
+  }
 
   $element['map_maptype'] = array(
     '#type' => 'select',
@@ -112,17 +138,31 @@ function geolocation_googlemaps_field_formatter_settings_form($field, $instance,
  * Implements hook_field_formatter_settings_summary().
  */
 function geolocation_googlemaps_field_formatter_settings_summary($field, $instance, $view_mode) {
+
   $display = $instance['display'][$view_mode];
+  $type = $display['type'];
   $settings = $display['settings'];
 
-  $summary = '<strong>Map:</strong> '. $settings['map_dimensions'] .' ('. $settings['map_imageformat'] .')<br />';
-  $summary .= '<strong>Type:</strong> '. $settings['map_maptype'] .'<br />';
-  $summary .= '<strong>Zoom:</strong> '. $settings['map_zoomlevel'];
-  if ($settings['marker_icon']) {
+  $summary = '<strong>Map:</strong> ' . $settings['map_dimensions'];
+  switch ($type) {
+    case 'geolocation_googlemaps_static':
+      $summary .= ' (' . $settings['map_imageformat'] . ')';
+      $summary .= '<br />';
+      break;
+
+    case 'geolocation_googlemaps_dynamic':
+      $summary .= '<br />';
+      $scrl = $settings['map_scrollwheel'] ? t('Yes') : t('No');
+      $summary .= '<strong>Scrollable:</strong> ' . $scrl . '<br />';
+      break;
+  }
+  $summary .= '<strong>Type:</strong> ' . $settings['map_maptype'] . '<br />';
+  $summary .= '<strong>Zoom:</strong> ' . $settings['map_zoomlevel'];
+  if (!empty($settings['marker_icon'])) {
     $vars = array(
       'path' => $settings['marker_icon'],
     );
-    $summary .= '<br /><strong>Icon:</strong> '. theme('image', $vars);
+    $summary .= '<br /><strong>Icon:</strong> ' . theme('image', $vars);
   }
   return $summary;
 }
@@ -160,6 +200,62 @@ function geolocation_googlemaps_field_formatter_view($entity_type, $entity, $fie
       }
       break;
 
+    case 'geolocation_googlemaps_dynamic':
+      $info = entity_get_info($entity_type);
+      $key = isset($info['entity keys']['name']) ? $info['entity keys']['name'] : $info['entity keys']['id'];
+      $eid = $entity->$key;
+
+      foreach ($items as $delta => $item) {
+
+        $width = strtok($settings['map_dimensions'], 'x') . "px";
+        $height = strtok('') . "px";
+
+        $id = 'geolocation-googlemaps-dynamic-' . 'e_' . $eid . 'i_' . $instance['id'] . '-d_' . $delta;
+        $map_element['googlemap'] = array(
+          '#prefix' => '<div id="' . $id . '" class="geolocation-map geolocation-googlemaps-dynamic" ' . ' style="width:' . htmlentities($width) . ';height:' . htmlentities($height) . ';">',
+          '#suffix' => '</div>',
+        );
+
+        // Attach CSS and JS files via FAPI '#attached'.
+        $map_element['googlemap']['#attached']['css'][] = drupal_get_path('module', 'geolocation_googlemaps') . '/geolocation_googlemaps.css';
+        $map_element['googlemap']['#attached']['js'][] = array(
+          'data' => 'http://maps.google.com/maps/api/js?sensor=false',
+          'type' => 'external',
+        );
+        $map_element['googlemap']['#attached']['js'][] = array(
+          'data' => 'http://www.google.com/jsapi',
+          'type' => 'external',
+        );
+        $map_element['googlemap']['#attached']['js'][] = array(
+          'data' => drupal_get_path('module', 'geolocation_googlemaps') . '/geolocation_googlemaps_dynamic_formatter.js',
+          'type' => 'file',
+          'scope' => 'footer',
+        );
+
+        // Add each delta to the settings array.
+        $data = array(
+          'formatters' => array(
+            'e_' . $eid . 'i_' . $instance['id'] => array(
+              "settings" => $settings,
+              "deltas" => array(
+                'd_' . $delta => array(
+                  'lat' => $item['lat'],
+                  'lng' => $item['lng'],
+                ),
+              ),
+            ),
+          ),
+        );
+
+        $map_element['googlemap']['#attached']['js'][] = array(
+          'data' => array('geolocationGooglemaps' => $data),
+          'type' => 'setting',
+        );
+
+        $element[$delta] = $map_element;
+      }
+      break;
+
   }
   return $element;
 }
@@ -189,11 +285,15 @@ function geolocation_googlemaps_field_widget_settings_form($field, $instance) {
     '#description' => t('By default zooming is done with double click and/or using the map controls to avoid interrupting the normal window scroll. It can optionally be enabled here.'),
     '#default_value' => isset($settings['scrollwheel']) ? $settings['scrollwheel'] : FALSE,
   );
+  $form['marker_draggable'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Draggable Marker'),
+    '#description' => t('Enabling this will allow the user to darg/drop the marker to select a location.'),
+    '#default_value' => isset($settings['marker_draggable']) ? $settings['marker_draggable'] : FALSE,
+  );
 
   return $form;
 }
-
-
 
 /**
  * Implements hook_field_widget_form().
@@ -236,7 +336,7 @@ function geolocation_googlemaps_field_widget_form(&$form, &$form_state, $field, 
         '#prefix' => '<div id="geolocation-map-' . $id . '" class="geolocation-map" style="width:100%;height:400px;">',
         '#suffix' => '</div>',
       );
-      // Presentational item
+      // Presentational item.
       $element['latitem'] = array(
         '#type' => 'item',
         '#title' => t('Latitude:'),
@@ -251,10 +351,10 @@ function geolocation_googlemaps_field_widget_form(&$form, &$form_state, $field, 
         '#suffix' => '</div>',
         '#default_value' => $lat_value,
       );
-      // Presentational item
+      // Presentational item.
       $element['lngitem'] = array(
         '#type' => 'item',
-        '#title' => t('Longitud:'),
+        '#title' => t('Longitude:'),
         '#prefix' => '<div id="geolocation-lng-item-' . $id . '" class="geolocation-lng-item">',
         '#suffix' => '</div>',
         '#markup' => '<span class="geolocation-lat-item-value">' . $lat_value . '</span>',
@@ -274,12 +374,18 @@ function geolocation_googlemaps_field_widget_form(&$form, &$form_state, $field, 
 
       // Attach CSS and JS files via FAPI '#attached'.
       $element['googlemap']['#attached']['css'][] = drupal_get_path('module', 'geolocation_googlemaps') . '/geolocation_googlemaps.css';
-      $element['googlemap']['#attached']['js'][] = array('data' => 'http://maps.google.com/maps/api/js?sensor=false', 'type' => 'external');
-      $element['googlemap']['#attached']['js'][] = array('data' => 'http://www.google.com/jsapi', 'type' => 'external');
       $element['googlemap']['#attached']['js'][] = array(
-        'data' => drupal_get_path('module', 'geolocation_googlemaps') . '/geolocation_googlemaps.js',
+        'data' => 'http://maps.google.com/maps/api/js?sensor=false',
+        'type' => 'external',
+      );
+      $element['googlemap']['#attached']['js'][] = array(
+        'data' => 'http://www.google.com/jsapi',
+        'type' => 'external',
+      );
+      $element['googlemap']['#attached']['js'][] = array(
+        'data' => drupal_get_path('module', 'geolocation_googlemaps') . '/geolocation_googlemaps_widget.js',
         'type' => 'file',
-        'scope' => 'footer'
+        'scope' => 'footer',
       );
 
       // Make defaults available as javascript settings. In JS files use:
@@ -296,7 +402,10 @@ function geolocation_googlemaps_field_widget_form(&$form, &$form_state, $field, 
         'defaults' => $map_defaults,
         'settings' => $instance['widget']['settings'],
       );
-      $element['googlemap']['#attached']['js'][] = array('data' => array('geolocation' => $data), 'type' => 'setting');
+      $element['googlemap']['#attached']['js'][] = array(
+        'data' => array('geolocation' => $data),
+        'type' => 'setting',
+      );
 
       $element['#element_validate'] = array('geolocation_googlemaps_field_widget_validate');
 
@@ -319,6 +428,7 @@ function geolocation_googlemaps_field_widget_validate($element, &$form_state, $f
       case $element['lng']['#value'] && !$element['lat']['#value']:
         form_error($element, t('!name field is incomplete, latitude value is missing.', array('!name' => $element['#title'])));
         break;
+
       case !$element['lng']['#value'] && $element['lat']['#value']:
         form_error($element, t('!name field is incomplete, longitude value is missing.', array('!name' => $element['#title'])));
         break;

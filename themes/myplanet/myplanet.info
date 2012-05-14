@@ -1,20 +1,4 @@
 name = My Planet
 core = 7.x
 
-stylesheets[all][] = css/fonts.css
-stylesheets[all][] = css/style.css
-
-scripts[] = js/jquery.corner.js
-scripts[] = js/jquery.easing.min.js
-scripts[] = js/jquery.cookies.min.js
-scripts[] = js/jquery.placeholder.min.js
-scripts[] = js/script.js
-scripts[] = js/isotope.js
-
-regions[layer] = Layer
-regions[header] = Header
-regions[content_top] = Content Top
-regions[sub_menu] = Sub Menu
 regions[content] = Content
-regions[content_bottom] = Content Bottom
-regions[footer] = Footer

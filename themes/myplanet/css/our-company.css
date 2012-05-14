@@ -1,0 +1,31 @@
+.our-company-page .our-company { padding: 34px 0 51px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.our-company-page .our-company .left-region { width: 175px; margin-right: 20px; }
+.our-company-page .our-company .center-region { width: 370px; }
+.our-company-page .our-company .right-region { float: right; width: 366px; }
+.our-company-page .our-company .left-region .sub-title { padding-top: 7px; }
+.our-company-page .our-company .left-region .sticker { margin: 23px 0 0 1px; font-size: 0; line-height: 0; }
+.our-company-page .our-company .center-region .text { padding-top: 7px; font: 25px/140% "plantin", Georgia, serif; letter-spacing: -1px; }
+.our-company-page .our-company .right-region .sub-title { width: 366px; background: #f1f1f1 url(../images/our-company-panel-corner.png) no-repeat right 0; }
+.our-company-page .our-company .right-region .sub-title .pane-content { padding: 33px 30px 0; }
+.our-company-page .our-company .right-region .text { background-color: #f1f1f1; }
+.our-company-page .our-company .right-region .text .pane-content { padding: 24px 32px 34px; }
+.our-company-page .our-company .right-region .image { float: left; padding: 22px 0 0; font-size: 0; line-height: 0; }
+.our-company-page .our-company .right-region .image2 { float: right; }
+.our-company-page .our-company .right-region .image img { width: 176px; height: auto; }
+.our-company-page .our-approach { padding: 34px 0 51px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.our-company-page .our-approach .left-region { width: 175px; margin-right: 20px; }
+.our-company-page .our-approach .center-region { width: 370px; }
+.our-company-page .our-approach .right-region { float: right; width: 366px; }
+.our-company-page .our-approach .left-region .sub-title { padding-top: 7px; }
+.our-company-page .our-approach .left-region .sticker { margin: 23px 0 0 1px; font-size: 0; line-height: 0; }
+.our-company-page .our-approach .center-region .text { padding-top: 7px; font: 25px/140% "plantin", Georgia, serif; letter-spacing: -1px; }
+.our-company-page .our-approach .right-region .sub-title { width: 366px; background: #f1f1f1 url(../images/our-company-panel-corner.png) no-repeat right 0; }
+.our-company-page .our-approach .right-region .sub-title .pane-content { padding: 33px 30px 0; }
+.our-company-page .our-approach .right-region .text { background-color: #f1f1f1; }
+.our-company-page .our-approach .right-region .text .pane-content { padding: 24px 32px 34px; }
+.our-company-page .our-approach .right-region .image { float: left; padding: 22px 0 0; font-size: 0; line-height: 0; }
+.our-company-page .our-approach .right-region .image2 { float: right; }
+.our-company-page .our-approach .right-region .image img { width: 176px; height: auto; }
+.our-company-page .related { padding-top: 35px; }
+.our-company-page .related .left-region { margin-right: 20px; width: 175px; }
+.our-company-page .related .right-region { float: right; width: 755px; }

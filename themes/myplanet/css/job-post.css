@@ -1,0 +1,24 @@
+.job-post-page .main-content { padding: 32px 0 46px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.job-post-page .main-content .left-region { width: 175px; margin-right: 20px; }
+.job-post-page .main-content .center-region { width: 496px; }
+.job-post-page .main-content .right-region { float: right; width: 175px; }
+.job-post-page .main-content .left-region .sub-title.opportunities { padding-bottom: 18px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.job-post-page .main-content .left-region .job-posts-categories-menu { padding-top: 10px; }
+.job-post-page .main-content .left-region .sub-title.join-us { padding-top: 49px; }
+.job-post-page .main-content .left-region .text.join-us { padding-top: 18px; }
+.job-post-page .main-content .center-region .title { clear: both; margin-top: -2px; padding-bottom: 43px; font: 41px/100% "plantin", Georgia, serif; background: url(../images/divider.png) repeat-x 0 bottom; }
+.job-post-page .main-content .center-region .body { margin-top: 12px; }
+.job-post-page .main-content .right-region .testimonials-job-post-page-view { padding-top: 25px; }
+.job-post-page .main-content .right-region .read-more { padding: 31px 0 8px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.job-post-page .main-content .right-region .read-more a { display: block; color: #000; background: url(../images/arrow_right_nobg.png) no-repeat 141px -6px; }
+
+.job-posts-categories-menu ul li { float: none !important; background: url(../images/menu-back.png) no-repeat 153px 16px; }
+.job-posts-categories-menu ul li .title { display: block; padding: 9px 0 6px; color: #000; cursor: pointer; font-weight: normal; background: url(../images/divider.png) repeat-x 0 bottom; }
+.job-posts-categories-menu ul li .title:hover { color: #f05a28; }
+.job-posts-categories-menu ul li ul { padding: 12px 0; background: url(../images/divider.png) repeat-x 0 bottom; }
+.job-posts-categories-menu ul li ul li { float: none; background: none; }
+.job-posts-categories-menu ul li ul li .title { padding: 0 0 0 19px; background: none; }
+
+.testimonials-job-post-page-view .item-list ul li { float: none !important; margin-bottom: 36px; }
+.testimonials-job-post-page-view .image { font-size: 0; line-height: 0; }
+.testimonials-job-post-page-view .title { padding: 22px 19px 17px; font: normal 16px/125% "plantin", Georgia, serif; letter-spacing: -1px; background: #f1f1f1 url(../images/testimonial-back.png) no-repeat 12px 11px; }

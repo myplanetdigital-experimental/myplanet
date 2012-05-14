@@ -1,4 +1,4 @@
-var add_isotope = function(obj, old_visible_items, new_visible_items, items_on_page, cur_page, page_prefix, fade_out_speed, fade_out_effect, fade_in_speed, fade_in_effect, move_speed, move_effect) {
+var add_isotope = function(obj, old_visible_items, new_visible_items, items_on_page, cur_page, page_prefix, fade_out_speed, fade_out_effect, fade_in_speed, fade_in_effect, move_speed, move_effect, no_speed) {
 	var items_count = 0;
 	
 	if (items_on_page === false || cur_page === false) {
@@ -38,11 +38,22 @@ var add_isotope = function(obj, old_visible_items, new_visible_items, items_on_p
 		
 			obj.find("ul.pager").css("top", obj.height()).css("left", Math.round((obj.width() - obj.find("ul.pager").width()) / 2));
 			
+			temp_fade_out_speed = fade_out_speed;
+			temp_fade_in_speed = fade_in_speed;
+			temp_move_speed = move_speed;
+			
 			obj.find("ul.pager li").bind("click", function() {
 				jQuery.cookies.set(page_prefix + "_page", jQuery(this).html());
-				add_isotope(obj, new_visible_items, new_visible_items, items_on_page, jQuery(this).html(), page_prefix, fade_out_speed, fade_out_effect, fade_in_speed, fade_in_effect, move_speed, move_effect);
+				
+				add_isotope(obj, new_visible_items, new_visible_items, items_on_page, jQuery(this).html(), page_prefix, temp_fade_out_speed, fade_out_effect, temp_fade_in_speed, fade_in_effect, temp_move_speed, move_effect, false);
 			});
 		}
+	}
+	
+	if (no_speed === true) {
+		fade_out_speed = 0;
+		fade_in_speed = 0;
+		move_speed = 0;
 	}
 	
 	var page_new_visible_items = [];

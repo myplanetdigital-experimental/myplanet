@@ -1,0 +1,18 @@
+.events-calendar-view .view-header { padding-bottom: 7px; }
+.events-calendar-view .date-nav-wrapper { margin-top: 0; }
+.events-calendar-view .date-nav { margin-bottom: 0 !important; padding-bottom: 0; height: auto; min-height: 0; }
+.events-calendar-view .date-heading { float: left !important; width: auto !important; }
+.events-calendar-view .date-heading h3 { color: #f05a28; font: bold italic 17px/100% "plantin", Georgia, serif; letter-spacing: -1px; text-align: left; }
+.events-calendar-view .date-heading h3 a:hover { color: #f05a28; }
+.events-calendar-view .pager { float: right; clear: none; }
+.events-calendar-view .pager li { position: inherit !important; float: left !important; padding: 0 !important; border: 0 none !important; border-radius: 0 !important; background: none !important; font-size: 0; line-height: 0; text-indent: -1000px; overflow: hidden; }
+.events-calendar-view .pager li a { margin: 0 !important; font-size: 0 !important; line-height: 0; text-indent: -1000px; overflow: hidden; }
+.events-calendar-view .pager li.date-prev a { display: block; width: 35px; height: 35px; background: url(../images/arrow_left_nobg.png) no-repeat 0 0; }
+.events-calendar-view .pager li.date-next a { display: block; width: 35px; height: 35px; background: url(../images/arrow_right_nobg.png) no-repeat 0 0; }
+.events-calendar-view .view-content { padding-top: 10px; font-size: 11px; line-height: 218%; background: url(../images/divider.png) repeat-x 0 top; }
+.events-calendar-view .calendar-calendar { padding-bottom: 14px; background: url(../images/divider.png) repeat-x 0 bottom; }
+.events-calendar-view .calendar-calendar th { text-align: center; background: 0 none; border: 0 none; text-transform: uppercase; color: #333; }
+.events-calendar-view .calendar-calendar td { text-align: center; color: #333; }
+.events-calendar-view .calendar-calendar td.today { background: 0 none; }
+.events-calendar-view .calendar-calendar td.has-events { background-color: #d9d9d9; }
+.events-calendar-view .calendar-calendar td.has-events a { color: #333; text-decoration: none; }

@@ -5,9 +5,9 @@ core = 7.x
 dependencies[] = views
 files[] = views_tree_plugin_style_tree.inc
 
-; Information added by drupal.org packaging script on 2011-12-04
-version = "7.x-2.x-dev"
+; Information added by drupal.org packaging script on 2012-03-21
+version = "7.x-2.0"
 core = "7.x"
 project = "views_tree"
-datestamp = "1323003738"
+datestamp = "1332368746"
 
