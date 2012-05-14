@@ -1,6 +1,7 @@
+.resources-page .content-back { height: 950px; background: url(../images/resources-back.png) no-repeat center 0; }
 .resources-page .top-image { background: url(../images/divider.png) repeat-x 0 bottom; }
 .resources-page .top-image > .pane-content { margin-left: -21px; width: 971px; height: 116px; font-size: 0; line-height: 0; text-indent: -1000px; background: url(../images/resources-header.png) no-repeat 0 0; }
-.resources-page .resources { padding-top: 27px; }
+.resources-page .resources { padding-top: 143px; }
 .resources-page .resources .left-region { width: 175px; }
 .resources-page .resources .right-region { float: right; width: 757px; }
 .resources-page .resources .left-region .sub-title { height: 37px; background: url(../images/divider.png) repeat-x 0 bottom; }
