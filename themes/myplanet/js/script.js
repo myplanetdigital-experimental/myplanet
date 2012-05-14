@@ -112,6 +112,10 @@
 		function() { $(this).stop().animate({ backgroundPosition: "50% -6px" }, 250); }
 	);
 	
+	/* Search Form */
+	$(".search-form input.form-text").attr("placeholder", "Mmm resources...").placeholder();
+	$(".search-form input.form-submit").attr("value", "Go").css("color", "#fff");
+	
 	/* Resources Mega Menu */
 	var mouse_over_megamenu = false;
 	$(".main-site-menu .pane-content ul li a:last").hover(

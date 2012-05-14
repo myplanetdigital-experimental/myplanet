@@ -5,10 +5,6 @@ var new_visible_items = [];
 	
 $("document").ready(function() {
 	
-	$(".resources-page .search-form input.form-text").attr("placeholder", "Mmm resources...").placeholder();
-	$(".resources-page .search-form input.form-submit").attr("value", "Go").css("color", "#fff");
-	
-	
 	var article = $(".article-page").html() !== null ? true : false;
 	
 	var grid_type = $.cookies.get("resources_grid_type") !== null ? $.cookies.get("resources_grid_type") : "grid-2";

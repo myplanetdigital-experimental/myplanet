@@ -188,6 +188,11 @@ img { cursor: pointer; }
 .views-slideshow-controls-text span.views-slideshow-controls-text-next { background-position: -28px -18px; right: 10px; }
 .views-slideshow-controls-text span.views-slideshow-controls-text-next:hover { background-position: -208px -18px; }
 
+/* Search Form */
+.search-form { position: absolute; right: 0; top: 53px; }
+.search-form input.form-text { float: left; padding: 7px 36px 6px 31px; width: 110px; height: 17px; border: 0 none; background: #f1f1f1 url(../images/search-icon.png) no-repeat 7px 8px; font: italic 12px/16px Georgia, sans-serif; }
+.search-form input.form-submit { position: absolute; top: 0; right: 0; margin: 0; padding: 7px 7px 6px 7px; width: 31px; height: 30px; cursor: pointer; color: #000; font: bold 12px/16px Georgia, sans-serif; background-color: #000; border: 0 none; }
+
 /* Related Content */
 .related-content-view { padding: 35px 0 0; }
 .related-content-view .sub-title { float: left; margin: 0 20px 0 0; width: 175px; }
