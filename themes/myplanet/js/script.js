@@ -21,7 +21,6 @@
 		window.location = Drupal.settings.basePath;
 	});
 	
-	/*
 	var oldAnim = $.fn.animate;
 	var oldBackPos = "";
     $.fn.animate = function(prop) {
@@ -53,7 +52,6 @@
 		function() { $(this).stop().animate({ backgroundPosition: "24px 5px" }, 850, "easeOutElastic"); }, 
 		function() { $(this).stop().animate({ backgroundPosition: "24px 12px" }, 250); }
 	);
-	*/
 	
 	/* Log In */
 	$(".user-login input.form-submit").attr("value", "Go");
