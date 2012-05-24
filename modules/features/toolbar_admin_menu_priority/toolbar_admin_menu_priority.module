@@ -2,8 +2,8 @@
 
 function toolbar_admin_menu_priority_init() {
 	drupal_add_css('
-		body.admin-menu.toolbar-drawer { padding: 0 !important; }
-		body.admin-menu.toolbar-drawer .region-page-top { display: none; }
-		body.admin-menu.toolbar-drawer .toolbar { display: none; }
+		body.admin-menu.toolbar { padding: 0 !important; }
+		body.admin-menu.toolbar .region-page-top { display: none; }
+		body.admin-menu.toolbar .toolbar { display: none; }
 	', array('type' => 'inline'));
 }
