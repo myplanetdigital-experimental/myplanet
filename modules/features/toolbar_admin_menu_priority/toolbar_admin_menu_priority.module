@@ -1,5 +1,9 @@
 <?php
 
 function toolbar_admin_menu_priority_init() {
-	drupal_add_css('body.admin-menu .toolbar { display: none; } html body.admin-menu.toolbar-drawer { padding: 0 !important; }', array('type' => 'inline'));
+	drupal_add_css('
+		body.admin-menu.toolbar-drawer { padding: 0 !important; }
+		body.admin-menu.toolbar-drawer .region-page-top { display: none; }
+		body.admin-menu.toolbar-drawer .toolbar { display: none; }
+	', array('type' => 'inline'));
 }
