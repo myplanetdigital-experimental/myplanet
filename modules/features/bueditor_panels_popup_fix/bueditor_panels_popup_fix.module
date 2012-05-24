@@ -6,6 +6,6 @@ function bueditor_panels_popup_fix_init() {
 		bueditor_settle($bue_id);
 		$bue_setting['BUE']['preset']['edit-body'] = "e$bue_id";
 		drupal_add_js($bue_setting, 'setting');
-		drupal_add_css('.bue-popup{z-index: 1001 !important}', array('type' => 'inline'));
+		drupal_add_css('.bue-popup { z-index: 1001 !important; }', array('type' => 'inline'));
 	}
 }

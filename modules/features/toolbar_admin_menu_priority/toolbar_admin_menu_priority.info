@@ -1,0 +1,5 @@
+name = Toolbar & Admin Menu Priority
+core = 7.x
+package = Features
+project = toolbar_admin_menu_priority
+features[features_api][] = api:1

@@ -3,8 +3,6 @@ body { margin: 0; padding: 0; color: black; font-family: Arial, Helvetica, sans-
 ul, ul.menu, .item-list ul { margin: 0; padding: 0; list-style: none; }
 ul li, ul.menu li, .item-list ul li { margin: 0; padding: 0; list-style: none; }
 html body.admin-menu { margin-top: 30px !important; }
-html body.admin-menu .toolbar { display: none; }
-html body.admin-menu.toolbar-drawer { padding: 0 !important; }
 table { border-spacing: 0; }
 td { padding: 0; }
 a, a:link, a:visited { text-decoration: none; color: #f05a28; transition: color 0.3s ease; -webkit-transition: color 0.3s ease; -moz-transition: color 0.3s ease; -o-transition: color 0.3s ease; }
