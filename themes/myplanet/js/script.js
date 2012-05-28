@@ -127,9 +127,7 @@
 		function() {
 			setTimeout(function() {
 				if (mouse_over_megamenu === false) {
-					$(".resources-mega-menu > .inside").stop().fadeOut(500, "easeOutCubic", function() {
-						$(".resources-mega-menu").stop().slideUp(100, "easeOutCubic");
-					});
+					hide_mega_menu();
 				}
 			}, 1);
 		}
@@ -140,9 +138,14 @@
 			},
 			function() {
 				mouse_over_megamenu = false;
-				$(".resources-mega-menu").stop().slideUp(200, "easeOutCubic");
+				hide_mega_menu();
 			}
 	);
+	var hide_mega_menu = function() {
+		$(".resources-mega-menu > .inside").stop().fadeOut(500, "easeOutCubic", function() {
+			$(".resources-mega-menu").stop().slideUp(100, "easeOutCubic");
+		});
+	};
 	$(".resources-mega-menu .resources-main-category-menu .title .field-content, .resources-mega-menu-popular-view .main-category .field-content").click(function() {
 		$.cookies.set("resources_mc_filters", [$(this).html()]);
 		$.cookies.set("resources_sc_filters", null);
