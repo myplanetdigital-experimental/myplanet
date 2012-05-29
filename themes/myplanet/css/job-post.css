@@ -7,9 +7,11 @@
 .job-post-page .main-content .left-region .sub-title.join-us { padding-top: 49px; }
 .job-post-page .main-content .left-region .text.join-us { padding-top: 18px; }
 .job-post-page .main-content .center-region .title { clear: both; margin-top: -2px; padding-bottom: 43px; font: 41px/100% "plantin", Georgia, serif; background: url(../images/divider.png) repeat-x 0 bottom; }
-.job-post-page .main-content .center-region .short { padding: 20px 0 0 80px; font: 24px/117% "plantin",Georgia,serif; letter-spacing: -1px; }
+.job-post-page .main-content .center-region .short { padding: 20px 0 20px 80px; font: 24px/117% "plantin",Georgia,serif; letter-spacing: -1px; }
 .job-post-page .main-content .center-region .body { padding: 12px 0 0; }
+.job-post-page .main-content .center-region .body h3 { margin: 0; }
 .job-post-page .main-content .center-region .body p { padding: 12px 0 12px 80px; }
+.job-post-page .main-content .center-region .body ul { padding: 0 0 0 80px; }
 .job-post-page .main-content .right-region .testimonials-job-post-page-view { padding-top: 25px; }
 .job-post-page .main-content .right-region .read-more { padding: 31px 0 8px; background: url(../images/divider.png) repeat-x 0 bottom; }
 .job-post-page .main-content .right-region .read-more a { display: block; color: #000; background: url(../images/arrow_right_nobg.png) no-repeat 141px -6px; }
