@@ -16,7 +16,7 @@ function weight_views_data() {
 
   $data['weight_weights']['weight'] = array(
     'title' => t('Weight'),
-    'help' => t('The weight of the node.'),
+    'help' => t('The weight of the node, formatted as a form element.'),
     'field' => array(
       'handler' => 'weight_handler_field_weight',
       'click sortable' => TRUE,
@@ -29,6 +29,16 @@ function weight_views_data() {
     ),
     'argument' => array(
       'handler' => 'views_handler_argument_numeric',
+    ),
+  );
+
+  $data['weight_weights']['weight_value'] = array(
+    'title' => t('Weight value'),
+    'help' => t('The weight of the node.'),
+    'real field' => 'weight',
+    'field' => array(
+      'handler' => 'views_handler_field_numeric',
+      'click sortable' => TRUE,
     ),
   );
 

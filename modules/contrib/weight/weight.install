@@ -129,7 +129,7 @@ function weight_update_7202(&$sandbox) {
   if (!isset($sandbox['progress'])) {
     $sandbox['progress'] = 0;
     $sandbox['last'] = 0;
-    $sandbox['max'] = db_query("SELECT COUNT(nid) FROM {node}");
+    $sandbox['max'] = db_query("SELECT COUNT(nid) FROM {node}")->fetchField();
   }
 
   $query = db_select('node', 'n');
@@ -153,6 +153,13 @@ function weight_update_7202(&$sandbox) {
     }
 
     db_update('node')
+      ->fields(array(
+        'sticky' => $values['sticky'],
+      ))
+      ->condition('nid', $node->nid)
+      ->execute();
+
+    db_update('node_revision')
       ->fields(array(
         'sticky' => $values['sticky'],
       ))
@@ -196,49 +203,51 @@ function weight_update_7204() {
  * Set default weights for enabled types.
  */
 function weight_update_7205(&$sandbox) {
-  $types = array();
-  $defaults = array();
-  $result = db_query('SELECT type, weight_default FROM {weight_settings} WHERE weight_enabled=1');
-  foreach ($result as $row) {
-    $types[] = $row->type;
-    $defaults[$row->type] = $row->weight_default;
-  }
+  if (!db_table_exists('weight_weights')) {
+    $types = array();
+    $defaults = array();
+    $result = db_query('SELECT type, weight_default FROM {weight_settings} WHERE weight_enabled=1');
+    foreach ($result as $row) {
+      $types[] = $row->type;
+      $defaults[$row->type] = $row->weight_default;
+    }
 
-  if (!empty($types)) {
-    if (!isset($sandbox['progress'])) {
-      if (!db_table_exists('weight_weights')) {
-        db_create_table('weight_weights', drupal_get_schema_unprocessed('weight', 'weight_weights'));
+    if (!empty($types)) {
+      if (!isset($sandbox['progress'])) {
+        if (!db_table_exists('weight_weights')) {
+          db_create_table('weight_weights', drupal_get_schema_unprocessed('weight', 'weight_weights'));
+        }
+
+        $sandbox['progress'] = 0;
+        $sandbox['last'] = 0;
+        $sandbox['max'] = db_query("SELECT COUNT(nid) FROM {node} WHERE type IN (:types)",
+          array(':types' => $types))->fetchField();
       }
 
-      $sandbox['progress'] = 0;
-      $sandbox['last'] = 0;
-      $sandbox['max'] = db_query("SELECT COUNT(nid) FROM {node} WHERE type IN (:types)",
-        array(':types' => $types))->fetchField();
+      $query = db_select('node', 'n');
+      $query
+        ->fields('n', array('nid', 'type'))
+        ->condition('n.type', $types, 'IN')
+        ->condition('n.nid', $sandbox['last'], '>')
+        ->orderBy('n.nid')
+        ->range(0, 200);
+      $nodes = $query->execute();
+
+      foreach ($nodes as $node) {
+        db_insert('weight_weights')
+          ->fields(array(
+            'entity_id' => $node->nid,
+            'entity_type' => 'node',
+            'weight' => $defaults[$node->type],
+          ))
+          ->execute();
+
+        $sandbox['progress']++;
+        $sandbox['last'] = $node->nid;
+      }
+
+      $sandbox['#finished'] = empty($sandbox['max']) ? 1 : ($sandbox['progress'] / $sandbox['max']);
     }
-
-    $query = db_select('node', 'n');
-    $query
-      ->fields('n', array('nid', 'type'))
-      ->condition('n.type', $types, 'IN')
-      ->condition('n.nid', $sandbox['last'], '>')
-      ->orderBy('n.nid')
-      ->range(0, 200);
-    $nodes = $query->execute();
-
-    foreach ($nodes as $node) {
-      db_insert('weight_weights')
-        ->fields(array(
-          'entity_id' => $node->nid,
-          'entity_type' => 'node',
-          'weight' => $defaults[$node->type],
-        ))
-        ->execute();
-
-      $sandbox['progress']++;
-      $sandbox['last'] = $node->nid;
-    }
-
-    $sandbox['#finished'] = empty($sandbox['max']) ? 1 : ($sandbox['progress'] / $sandbox['max']);
   }
 }
 
@@ -246,37 +255,39 @@ function weight_update_7205(&$sandbox) {
  * Move existing node weights to weight_weights from field_data_weight.
  */
 function weight_update_7206(&$sandbox) {
-  if (!isset($sandbox['progress'])) {
-    $sandbox['progress'] = 0;
-    $sandbox['last'] = 0;
-    $sandbox['max'] = db_query("SELECT COUNT(entity_id) FROM {field_data_weight}
-      WHERE language=:lang", array(':lang' => LANGUAGE_NONE))->fetchField();
+  if (db_table_exists('field_data_weight')) {
+    if (!isset($sandbox['progress'])) {
+      $sandbox['progress'] = 0;
+      $sandbox['last'] = 0;
+      $sandbox['max'] = db_query("SELECT COUNT(entity_id) FROM {field_data_weight}
+        WHERE language=:lang", array(':lang' => LANGUAGE_NONE))->fetchField();
+    }
+
+    $query = db_select('field_data_weight', 'fw');
+    $query
+      ->fields('fw', array('entity_id', 'weight_value'))
+      ->condition('fw.language', LANGUAGE_NONE)
+      ->condition('fw.entity_id', $sandbox['last'], '>')
+      ->orderBy('fw.entity_id')
+      ->range(0, 200);
+    $nodes = $query->execute();
+
+    foreach ($nodes as $node) {
+      db_update('weight_weights')
+        ->fields(array(
+          'entity_id' => $node->entity_id,
+          'entity_type' => 'node',
+          'weight' => $node->weight_value,
+        ))
+        ->condition('entity_id', $node->entity_id)
+        ->execute();
+
+      $sandbox['progress']++;
+      $sandbox['last'] = $node->entity_id;
+    }
+
+    $sandbox['#finished'] = empty($sandbox['max']) ? 1 : ($sandbox['progress'] / $sandbox['max']);
   }
-
-  $query = db_select('field_data_weight', 'fw');
-  $query
-    ->fields('fw', array('entity_id', 'weight_value'))
-    ->condition('fw.language', LANGUAGE_NONE)
-    ->condition('fw.entity_id', $sandbox['last'], '>')
-    ->orderBy('fw.entity_id')
-    ->range(0, 200);
-  $nodes = $query->execute();
-
-  foreach ($nodes as $node) {
-    db_update('weight_weights')
-      ->fields(array(
-        'entity_id' => $node->entity_id,
-        'entity_type' => 'node',
-        'weight' => $node->weight_value,
-      ))
-      ->condition('entity_id', $node->entity_id)
-      ->execute();
-
-    $sandbox['progress']++;
-    $sandbox['last'] = $node->entity_id;
-  }
-
-  $sandbox['#finished'] = empty($sandbox['max']) ? 1 : ($sandbox['progress'] / $sandbox['max']);
 }
 
 /**

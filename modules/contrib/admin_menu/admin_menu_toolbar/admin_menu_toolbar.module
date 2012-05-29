@@ -16,14 +16,15 @@ function admin_menu_toolbar_page_build(&$page) {
   }
   $path = drupal_get_path('module', 'admin_menu_toolbar');
   $attached = &$page['page_bottom']['admin_menu']['#attached'];
+  $options = array('every_page' => TRUE);
 
-  $attached['css'][] = $path . '/admin_menu_toolbar.css';
-  $attached['js'][] = $path . '/admin_menu_toolbar.js';
+  $attached['css'][$path . '/admin_menu_toolbar.css'] = $options;
+  $attached['js'][$path . '/admin_menu_toolbar.js'] = $options;
 
   // @todo Stop-gap fix until cached rendering is resolved.
   // @see http://drupal.org/node/1567622
   if (module_exists('shortcut')) {
-    $attached['css'][] = drupal_get_path('module', 'shortcut') . '/shortcut.css';
+    $attached['css'][drupal_get_path('module', 'shortcut') . '/shortcut.css'] = $options;
   }
 
   $settings = array();

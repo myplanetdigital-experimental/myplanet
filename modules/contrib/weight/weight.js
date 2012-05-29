@@ -15,7 +15,7 @@ Drupal.behaviors.weight = {
       return vals.join(', ');
     });
     $('fieldset#edit-weight', context).drupalSetSummary(function(context) {
-      return Drupal.t('Weight: !weight', {'!weight' : $('#edit-weight--2 option:selected').val()});
+      return Drupal.t('Weight: !weight', {'!weight' : $('#edit-weight-weight option:selected').val()});
     });
   }
 };

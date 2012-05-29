@@ -31,8 +31,9 @@ function weight_menu_alter(&$items) {
     }
   }
 
-  // If we have an enabled type, change the callback for the frontpage.
-  if ($enabled) {
+  // If we have an enabled type and the option to override the front page is set,
+  // change the callback for the frontpage.
+  if ($enabled && variable_get('weight_frontpage', 1)) {
     $items['node']['page callback'] = 'weight_page_default';
   }
 }
@@ -94,6 +95,29 @@ function weight_page_default() {
 /**
  * Implements hook_form_FORM_ID_alter().
  */
+function weight_form_system_site_information_settings_alter(&$form, &$form_state) {
+  $form['front_page']['weight_frontpage'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Use weighted front page?'),
+    '#description' => t('Selecting this option will emulate the default front page,
+      but the nodes will be sorted by weight. Only nodes of content types that are
+      weight enabled will be shown.'),
+    '#return_value' => 1,
+    '#default_value' => variable_get('weight_frontpage', 1),
+    '#weight' => 5,
+  );
+
+  $form['front_page']['site_frontpage']['#weight'] = 10;
+  $form['front_page']['site_frontpage']['#states'] = array(
+    'visible' => array(
+      ':input[name="weight_frontpage"]' => array('checked' => FALSE),
+    ),
+  );
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
 function weight_form_node_admin_content_alter(&$form, &$form_state) {
   if (user_access('assign node weight')) {
     $weight_types = _weight_get_types();
@@ -101,8 +125,11 @@ function weight_form_node_admin_content_alter(&$form, &$form_state) {
     if (!empty($form['admin']['nodes']['#options'])) {
       $nodes = $form['admin']['nodes']['#options'];
     }
-    else {
+    elseif (!empty($form['admin']['nodes']['#rows'])) {
       $nodes = $form['admin']['nodes']['#rows'];
+    }
+    else {
+      $nodes = array();
     }
 
     foreach ($nodes as $nid => $node) {
@@ -113,7 +140,7 @@ function weight_form_node_admin_content_alter(&$form, &$form_state) {
         $form['weight'][$nid] = array(
           '#type' => 'select',
           '#options' => $options,
-          '#default_value' => $node->weight,
+          '#default_value' => isset($node->weight_weight) ? $node->weight_weight : $settings['default'],
           '#ajax' => array(
             'callback' => '_weight_set_ajax',
           ),
@@ -134,7 +161,7 @@ function _weight_set_ajax($form, $form_state) {
   $nid = $form_state['input']['_triggering_element_name'];
   $weight = $form_state['values'][$nid];
   $node = node_load($nid);
-  $node->weight = $weight;
+  $node->weight_weight = $weight;
   _weight_set_weight($node);
 }
 
@@ -144,15 +171,15 @@ function _weight_set_ajax($form, $form_state) {
 function weight_node_admin($form_element, &$form_state) {
   $form_element['admin']['nodes']['#header']['weight']['data'] = t('Weight');
 
-  if (!empty($form['admin']['nodes']['#options'])) {
-    $key = '#options';
+  if (!empty($form_element['admin']['nodes']['#options'])) {
+    foreach ($form_element['admin']['nodes']['#options'] as $nid => $node) {
+      $form_element['admin']['nodes']['#options'][$nid]['weight']['data'] = $form_element['weight'][$nid];
+    }
   }
-  else {
-    $key = '#rows';
-  }
-
-  foreach ($form_element['admin']['nodes'][$key] as $nid => $node) {
-    $form_element['admin']['nodes'][$key][$nid]['weight']['data'] = $form_element['weight'][$nid];
+  elseif (!empty($form_element['admin']['nodes']['#rows'])) {
+    foreach ($form_element['admin']['nodes']['#rows'] as $nid => $node) {
+      $form_element['admin']['nodes']['#rows'][$nid]['weight']['data'] = $form_element['weight'][$nid];
+    }
   }
   unset($form_element['weight']);
 
@@ -289,11 +316,11 @@ function weight_field_attach_form($entity_type, $entity, &$form, &$form_state, $
         '#attached' => array('js' => array(drupal_get_path('module', 'weight') . '/weight.js')),
       );
 
-      $form['weight']['weight'] = array(
+      $form['weight']['weight_weight'] = array(
         '#type' => 'select',
         '#title' => t('Weight'),
         '#options' => _weight_get_options($settings['range']),
-        '#default_value' => isset($entity->weight) ? $entity->weight : $settings['default'],
+        '#default_value' => isset($entity->weight_weight) ? $entity->weight_weight : $settings['default'],
       );
     }
   }
@@ -304,7 +331,7 @@ function weight_field_attach_form($entity_type, $entity, &$form, &$form_state, $
  */
 function weight_node_load($nodes, $type) {
   foreach ($nodes as $node) {
-    $node->weight = _weight_get_weight($node);
+    $node->weight_weight = _weight_get_weight($node);
   }
 }
 
@@ -312,7 +339,7 @@ function weight_node_load($nodes, $type) {
  * Implements hook_node_insert().
  */
 function weight_node_insert($node) {
-  if (!empty($node->weight)) {
+  if ($node->weight_weight !== NULL) {
     _weight_set_weight($node);
   }
 }
@@ -321,7 +348,7 @@ function weight_node_insert($node) {
  * Implements hook_node_update().
  */
 function weight_node_update($node) {
-  if (!empty($node->weight)) {
+  if ($node->weight_weight !== NULL) {
     _weight_set_weight($node);
   }
 }
@@ -346,7 +373,7 @@ function weight_views_submit($form, &$form_state) {
 
   foreach ($values['nids'] as $key => $nid) {
     $node = $nodes[$nid];
-    $node->weight = $values['weight'][$key];
+    $node->weight_weight = $values['weight'][$key];
     _weight_set_weight($node);
   }
 
@@ -373,6 +400,24 @@ function weight_preprocess_views_view_table(&$variables) {
 }
 
 /**
+ * Implements hook_apachesolr_index_document_build_node().
+ */
+function weight_apachesolr_index_document_build_node(ApacheSolrDocument $document, $node, $env_id) {
+  $document->is_weight = (int) $node->weight_weight;
+}
+
+/**
+ * Implements hook_apachesolr_query_prepare().
+ */
+function weight_apachesolr_query_prepare($query) {
+  // Add a sort on the weight.
+  $query->setAvailableSort('is_weight', array(
+    'title' => t('Weight'),
+    'default' => 'asc',
+  ));
+}
+
+/**
  * Set the weight of a node.
  */
 function _weight_set_weight($node) {
@@ -381,10 +426,10 @@ function _weight_set_weight($node) {
     ->fields(array(
       'entity_id' => $node->nid,
       'entity_type' => 'node',
-      'weight' => $node->weight,
+      'weight' => $node->weight_weight,
     ))
     ->updateFields(array(
-      'weight' => $node->weight,
+      'weight' => $node->weight_weight,
     ))
     ->execute();
 }
