@@ -22,8 +22,8 @@ $("document").ready(function() {
 	var page_prefix = "resources";
 	var cur_page = $.cookies.get(page_prefix + "_page") !== null ? $.cookies.get(page_prefix + "_page") : 1;
 	
-	var items_on_page_grid_2 = 4;
-	var items_on_page_grid_4 = 8;
+	var items_on_page_grid_2 = 8;
+	var items_on_page_grid_4 = 16;
 	var items_on_page = grid_type == "grid-2" ? items_on_page_grid_2 : items_on_page_grid_4;
 
 	var sort_type = $.cookies.get("resources_sort_type") !== null ? $.cookies.get("resources_sort_type") : "desc";
