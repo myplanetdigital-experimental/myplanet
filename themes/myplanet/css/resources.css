@@ -26,8 +26,8 @@
 .resources-view .hidden { display: none; }
 .resources-view .views-row.grid-2 { margin: 0 21px 22px 0; width: 368px; height: 278px; background-color: #f1f1f1; }
 .resources-view .grid-2 .image { float: left; font-size: 0; line-height: 0; }
-.resources-view .grid-2 .main-category { margin: 15px 0 0 130px; font-weight: bold; color: #f05a28; }
-.resources-view .grid-2 .title { margin-left: 130px; font: 25px/108% "plantin", Georgia, serif; letter-spacing: -1px; }
+.resources-view .grid-2 .main-category { margin: 15px 22px 0 130px; font-weight: bold; color: #f05a28; }
+.resources-view .grid-2 .title { margin: 0 22px 0 130px; font: 25px/108% "plantin", Georgia, serif; letter-spacing: -1px; }
 .resources-view .grid-2 .body { margin: 10px 22px 0 130px; }
 .resources-view .grid-2 .layer a { position: absolute; display: block; padding: 33px 35px 0; left: 0; right: 0; top: 0; bottom: 0; opacity: 0; filter: alpha(opacity=0); line-height: 18px; color: #fff; background-color: #000; }
 .resources-view .grid-2 .title2 { font: 25px/108% "plantin", Georgia, serif; letter-spacing: -1px; }
