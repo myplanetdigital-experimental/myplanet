@@ -1,0 +1,17 @@
+<?php
+
+function twitter_pull_footer_get_items() {
+	$items = twitter_pull_retrieve('myplanetdigital', 1);
+	
+	$output = '';
+	
+	foreach ($items as $item) {
+		$output .= '<div class="twitter-item">';
+		  $output .= '<div class="email">From ' . l('@' . $item->username, 'http://twitter.com/' . $item->username, array('attributes' => array('class' => array('orange')))) . ':</div>';
+		  $output .= '<div class="line">...on ' . date('F j, Y', $item->timestamp) . '</div>';
+		  $output .= '<div class="text">' . twitter_pull_add_links($item->text) .'</div>';
+		$output .= '</div>';
+	}
+	
+	return $output;
+}
