@@ -160,13 +160,13 @@ img { cursor: pointer; }
 
 /* Page Title */
 .page-title { position: relative; height: 116px; background: url(../images/divider.png) repeat-x 0 bottom; }
-.page-title .title { position: absolute; z-index: 20; left: 0; top: 0; padding-top: 4px; font: bold 100px/100% "tradegothic", Arial, serif; letter-spacing: -5px; }
-.page-title .page-menu { position: absolute; z-index: 25; right: 0; top: 73px; }
-.page-title .page-menu ul { float: right; margin-right: -18px; }
-.page-title .page-menu ul li { float: left; }
-.page-title .page-menu ul li a { float: left; display: block; margin: 0 18px; padding-bottom: 15px; font: bold 20px/140% "plantin", Georgia, serif; color: black; letter-spacing: -1px; }
-.page-title .page-menu ul li a:hover { color: #f05a28; }
-.page-title .page-menu ul li a.active { font-style: italic; background: url(../images/sub-menu-back.png) no-repeat center 30px; }
+.page-title .left-region { position: absolute; z-index: 20; left: 0; top: 0; padding-top: 4px; font: bold 100px/100% "tradegothic", Arial, serif; letter-spacing: -5px; }
+.page-title .right-region { position: absolute; z-index: 25; right: 0; top: 73px; }
+.page-title .right-region ul { float: right; margin-right: -18px; }
+.page-title .right-region ul li { float: left; }
+.page-title .right-region ul li a { float: left; display: block; margin: 0 18px; padding-bottom: 15px; font: bold 20px/140% "plantin", Georgia, serif; color: black; letter-spacing: -1px; }
+.page-title .right-region ul li a:hover { color: #f05a28; }
+.page-title .right-region ul li a.active { font-style: italic; background: url(../images/sub-menu-back.png) no-repeat center 30px; }
 
 /* Focal Slideshow */
 .focal-slideshow { position: relative; width: 950px; height: 495px; }
