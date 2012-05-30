@@ -160,8 +160,8 @@ img { cursor: pointer; }
 
 /* Page Title */
 .page-title { position: relative; height: 116px; background: url(../images/divider.png) repeat-x 0 bottom; }
-.page-title .left-region { position: absolute; z-index: 20; left: 0; top: 0; padding-top: 4px; font: bold 100px/100% "tradegothic", Arial, serif; letter-spacing: -5px; }
-.page-title .right-region { position: absolute; z-index: 25; right: 0; top: 73px; }
+.page-title .left-region { position: absolute; z-index: 20; padding: 4px 0 0; left: 0; right: 0; top: 0; width: auto; font: bold 100px/100% "tradegothic", Arial, serif; letter-spacing: -5px; }
+.page-title .right-region { position: absolute; z-index: 25; left: 0; right: 0; top: 73px; width: auto; }
 .page-title .right-region ul { float: right; margin-right: -18px; }
 .page-title .right-region ul li { float: left; }
 .page-title .right-region ul li a { float: left; display: block; margin: 0 18px; padding-bottom: 15px; font: bold 20px/140% "plantin", Georgia, serif; color: black; letter-spacing: -1px; }
