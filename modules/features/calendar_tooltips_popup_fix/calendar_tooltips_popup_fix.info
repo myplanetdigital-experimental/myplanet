@@ -1,0 +1,4 @@
+name = Calendar Tooltips Popup Fix
+core = 7.x
+package = Features
+features[features_api][] = api:1

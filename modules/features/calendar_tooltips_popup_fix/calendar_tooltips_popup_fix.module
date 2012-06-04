@@ -1,0 +1,5 @@
+<?php
+
+function calendar_tooltips_popup_fix_init() {
+	calendar_tooltips_initialize_beautytips();
+}
