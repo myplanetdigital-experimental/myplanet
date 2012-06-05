@@ -39,6 +39,7 @@
 .resources-view .grid-4 .image { font-size: 0; line-height: 0; }
 .resources-view .grid-4 .main-category { margin: 14px 17px 0; font-weight: bold; color: #f05a28; }
 .resources-view .grid-4 .title { margin: 8px 17px 0; font: 17px/103% "plantin", Georgia, serif; letter-spacing: -1px; }
+.resources-view .grid-4 .title a { color: #000; }
 .resources-view ul.pager { position: absolute; }
 .resources-view ul.pager li { float: left; padding: 0 10px; cursor: pointer; }
 .resources-view ul.pager li.active { font-weight: bold; }
