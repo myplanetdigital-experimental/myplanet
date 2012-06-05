@@ -37,6 +37,7 @@
 .resources-view .grid-2 .link { position: absolute; padding-right: 35px; right: 13px; bottom: 19px; height: 25px; font-weight: bold; line-height: 175%; background: url(../images/arrow_right_nobg_white.png) no-repeat 50px -7px; }
 .resources-view .views-row.grid-4 { margin: 0 20px 22px 0; width: 174px; height: 274px; background-color: #f1f1f1; }
 .resources-view .grid-4 .image { font-size: 0; line-height: 0; }
+.resources-view .grid-4 .image img { cursor: pointer; }
 .resources-view .grid-4 .main-category { margin: 14px 17px 0; font-weight: bold; color: #f05a28; }
 .resources-view .grid-4 .title { margin: 8px 17px 0; font: 17px/103% "plantin", Georgia, serif; letter-spacing: -1px; }
 .resources-view .grid-4 .title a { color: #000; }
