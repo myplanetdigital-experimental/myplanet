@@ -11,8 +11,8 @@ p { margin: 0; }
 
 /* General Elements */
 .clearfix::after { font-size: 0; line-height: 0; }
-.orange { color: #f05a28 !important; }
-a.orange:hover { color: #782d14 !important; }
+.orange, .orange a { color: #f05a28 !important; }
+a.orange:hover, .orange a:hover { color: #782d14 !important; }
 .panel-separator { display: none; }
 .panels-flexible-row { padding: 0; }
 .panels-flexible-region-inside { padding: 0; }
@@ -201,9 +201,9 @@ img { cursor: pointer; }
 .related-content-view .title { height: 175px; font: 25px/140% "plantin", Georgia, serif; letter-spacing: -1px; background-color: #f1f1f1; }
 .related-content-view .title .field-content { padding: 21px 25px; }
 .related-content-view .leadline { font: italic 11px/150% Georgia, Arial, sans-serif; color: #333; }
-.related-content-view .leadline .field-content { padding-top: 11px; }
-.related-content-view .leadline .field-content div { display: inline; }
+.related-content-view .leadline .field-content div { padding: 11px 0 0; display: inline; }
 .related-content-view .layer { position: absolute; display: block; padding: 25px 30px 0; left: 0; right: 0; top: 0; bottom: 0; opacity: 0; filter: alpha(opacity=0); color: #fff; background-color: #000; }
 .related-content-view .layer .title2 { font-size: 13px; font-weight: bold; }
 .related-content-view .layer .summary { margin-top: 10px; font-size: 12px; line-height: 150%; }
 .related-content-view .layer .link { position: absolute; padding-right: 35px; bottom: 15px; height: 25px; font-weight: bold; background: url(../images/arrow_right_nobg_white.png) no-repeat 50px -7px; }
+.related-content-view .layer .link a {}
