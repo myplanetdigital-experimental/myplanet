@@ -194,15 +194,15 @@ img { cursor: pointer; }
 .search-form input.form-submit { position: absolute; top: 0; right: 0; margin: 0; padding: 7px 7px 6px 7px; width: 31px; height: 30px; cursor: pointer; color: #000; font: bold 12px/16px Georgia, sans-serif; background-color: #000; border: 0 none; }
 
 /* Related Content */
-.related-content-view { padding: 35px 0 0; }
-.related-content-view .sub-title { float: left; margin: 0 20px 0 0; width: 175px; }
-.related-content-view .related-view { float: right; width: 755px; }
-.related-content-view .related-view ul li { margin: 0 23px 0 0; width: 236px; }
-.related-content-view .related-view .title { height: 175px; font: 25px/140% "plantin", Georgia, serif; letter-spacing: -1px; background-color: #f1f1f1; }
-.related-content-view .related-view .title .field-content { padding: 21px 25px; }
-.related-content-view .related-view .leadline { padding-top: 11px; font: italic 11px/150% Georgia, Arial, sans-serif; color: #333; }
-.related-content-view .related-view .leadline div { display: inline; }
-.related-content-view .related-view .layer a { position: absolute; display: block; padding: 25px 30px 0; left: 0; right: 0; top: 0; bottom: 0; opacity: 0; filter: alpha(opacity=0); color: #fff; background-color: #000; }
-.related-content-view .related-view .title2 { font-size: 13px; font-weight: bold; }
-.related-content-view .related-view .summary { margin-top: 10px; font-size: 12px; line-height: 150%; }
-.related-content-view .related-view .link { position: absolute; padding-right: 35px; bottom: 15px; height: 25px; font-weight: bold; background: url(../images/arrow_right_nobg_white.png) no-repeat 50px -7px; }
+.related-content { padding: 35px 0 0; }
+.related-content .left-region { padding: 0 20px 0 0; width: 175px; }
+.related-content .right-region { float: right; width: 755px; }
+.related-content-view .views-row { margin: 0 23px 0 0; width: 236px; }
+.related-content-view .title { height: 175px; font: 25px/140% "plantin", Georgia, serif; letter-spacing: -1px; background-color: #f1f1f1; }
+.related-content-view .title .field-content { padding: 21px 25px; }
+.related-content-view .leadline { padding-top: 11px; font: italic 11px/150% Georgia, Arial, sans-serif; color: #333; }
+.related-content-view .leadline div { display: inline; }
+.related-content-view .layer { position: absolute; display: block; padding: 25px 30px 0; left: 0; right: 0; top: 0; bottom: 0; opacity: 0; filter: alpha(opacity=0); color: #fff; background-color: #000; }
+.related-content-view .layer .title2 { font-size: 13px; font-weight: bold; }
+.related-content-view .layer .summary { margin-top: 10px; font-size: 12px; line-height: 150%; }
+.related-content-view .layer .link { position: absolute; padding-right: 35px; bottom: 15px; height: 25px; font-weight: bold; background: url(../images/arrow_right_nobg_white.png) no-repeat 50px -7px; }
