@@ -277,9 +277,9 @@
 	);
 	
 	/* Related Content */
-	add_custom_classes($(".related-view"));
+	add_custom_classes($(".related-content-view"));
 	
-	$(".related-view .views-row").hover(
+	$(".related-content-view .views-row").hover(
 		function() { $(this).find(".link").stop().animate({ backgroundPosition: "60px -7px" }, 850, "easeOutElastic"); },
 		function() { $(this).find(".link").stop().animate({ backgroundPosition: "50px -7px" }, 250, "easeOutElastic"); }
 	);
