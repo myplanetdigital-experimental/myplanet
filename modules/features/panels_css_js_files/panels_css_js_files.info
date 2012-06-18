@@ -1,4 +1,0 @@
-name = Panels CSS & JS Files
-core = 7.x
-package = Features
-features[features_api][] = api:1
