@@ -1,0 +1,116 @@
+<?php
+
+function panels_css_js_ctools_plugin_directory($module, $plugin) {
+    if ($module == 'ctools') {
+        return 'ctools_plugins/' . $plugin;
+    }
+}
+
+function panels_css_js_page_manager_variant_operations_alter(&$operations, $handler) {
+	reset($operations['children']);
+	$children_operations = array();
+	while (list($key, $value) = each($operations['children'])) {
+		$children_operations[$key] = $value;
+		if ($key == 'context') {
+			$children_operations['css_js'] = array(
+				'title' => t('CSS & JS'),
+				'description' => t('Add additional CSS & JS files to your page.'),
+				'form' => 'panels_css_js_form',
+			);
+		}
+	}
+	$operations['children'] = $children_operations;
+}
+
+function panels_css_js_form($form, &$form_state) {
+	$conf = &$form_state['handler']->conf;
+
+	if (empty($conf['panels_css_js_css'])) {
+		$conf['panels_css_js_css'] = '';
+	}
+
+	if (empty($conf['panels_css_js_js'])) {
+		$conf['panels_css_js_js'] = '';
+	}
+
+    panels_css_js_edit_form($form, $conf);
+    
+    return $form;
+}
+
+function panels_css_js_edit_form(&$form, &$conf) {
+    $form['settings']['panels_css_js_css'] = array(
+		'#type' => 'textarea',
+		'#title' => t('CSS Files'),
+		'#description' => t('Enter one file per line. You can use "[module-{module_name}]" or "[theme-{theme_name}]" placeholders instead of path to module/theme.<br />For example, [module-views] - path to module "Views", [theme] - path to current page theme, [theme-zen] - path to theme "Zen"'),
+		'#default_value' => $conf['panels_css_js_css'],
+	);
+
+	$form['settings']['panels_css_js_js'] = array(
+		'#type' => 'textarea',
+		'#title' => t('JS Files'),
+		'#description' => t('Enter one file per line. You can use "[module-{module_name}]" or "[theme-{theme_name}]" placeholders instead of path to module/theme.<br />For example, [module-views] - path to module "Views", [theme] - path to current page theme, [theme-zen] - path to theme "Zen"'),
+		'#default_value' => $conf['panels_css_js_js'],
+	);
+}
+
+function panels_css_js_form_submit($form, &$form_state) {
+    $conf = &$form_state['handler']->conf;
+	panels_css_js_edit_form_submit($form_state, $conf);
+}
+
+function panels_css_js_edit_form_submit(&$form_state, &$conf) {
+    $conf['panels_css_js_css'] = $form_state['values']['panels_css_js_css'];
+	$conf['panels_css_js_js'] = $form_state['values']['panels_css_js_js'];
+}
+
+function panels_css_js_ctools_render_alter($info, $page, $context) {
+	$conf = $context['handler']->conf;
+
+	if (!isset($conf['panels_css_js_css'])) {
+        return;
+    }
+
+    panels_css_js_render($conf);
+}
+
+function panels_css_js_render($conf) {
+    if ($conf['panels_css_js_css']) {
+		foreach (array_filter(array_map('trim', explode(PHP_EOL, $conf['panels_css_js_css'])), 'strlen') as $css_file) {
+			$path = panels_css_js_get_path($css_file);
+			drupal_add_css($path);
+		}
+	}
+
+	if ($conf['panels_css_js_js']) {
+		foreach (array_filter(array_map('trim', explode(PHP_EOL, $conf['panels_css_js_js'])), 'strlen') as $js_file) {
+            $path = panels_css_js_get_path($js_file);
+			drupal_add_js($path);
+		}
+	}
+}
+
+function panels_css_js_get_path($line) {
+    if (($start_pos = mb_strpos($line, '[module')) !== false && ($end_pos = mb_strpos($line, ']', $start_pos)) !== false) {
+        $module_name = mb_substr($line, $start_pos + 8, $end_pos - $start_pos - 8);
+        if (($path = drupal_get_path('module', $module_name)) != '') {
+            $line = str_replace('[module-' . $module_name . ']', $path, $line);
+            return $line;
+        }
+    }
+    if (($start_pos = mb_strpos($line, '[theme')) !== false && ($end_pos = mb_strpos($line, ']', $start_pos)) !== false) {
+        if ($end_pos - $start_pos == 6) {
+            global $theme_info;
+            $theme_path = dirname($theme_info->filename);
+            $line = str_replace('[theme]', $theme_path, $line);
+            return $line;
+        } else {
+            $theme_name = mb_substr($line, $start_pos + 7, $end_pos - $start_pos - 7);
+            if (($path = drupal_get_path('theme', $theme_name)) != '') {
+                $line = str_replace('[theme-' . $theme_name . ']', $path, $line);
+                return $line;
+            }
+        }
+    }
+    return $line;
+}
