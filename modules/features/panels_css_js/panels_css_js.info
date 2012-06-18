@@ -1,7 +1,7 @@
 name = Panels CSS & JS
 core = 7.x
 package = Panels
-description = Allow to add additional CSS & JS files to Panels or Mini Panels.
+description = Allow to add additional CSS & JS files to Panels and Mini Panels.
 dependencies[] = ctools
 dependencies[] = page_manager
 dependencies[] = panels
