@@ -85,7 +85,7 @@ function panels_css_js_render($conf) {
 function panels_css_js_filter_value($value) {
   $files = array();
   if ($value) {
-    $lines = explode(PHP_EOL, $conf['panels_css_js_css']);
+    $lines = explode(PHP_EOL, $value);
     $filtered_files = array_filter(array_map('trim', $lines), 'strlen');
     foreach ($filtered_files as $filtered_file) {
       $files[] = panels_css_js_check_placeholders($filtered_file);
