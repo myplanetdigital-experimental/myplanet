@@ -1,13 +1,23 @@
 <?php
 
-$plugin = array (
-  'single' => true,
+/**
+ * @file
+ * Contains the ctools content type plugin for adding CSS & JS files.
+ * You can find this item unser "Page elements tab".
+ */
+
+/**
+ * Plugins are described by creating a $plugin array which will be used
+ * by the system that includes this file.
+ */
+$plugin = array(
+  'single' => TRUE,
   'icon' => 'icon_page.png',
   'title' => t('CSS & JS files'),
   'description' => t('Add additional CSS & JS files.'),
   'category' => t('Page elements'),
   'defaults' => array(
-    'override_title' => false,
+    'override_title' => FALSE,
     'override_title_text' => '',
     'panels_css_js_css' => '',
     'panels_css_js_js' => '',

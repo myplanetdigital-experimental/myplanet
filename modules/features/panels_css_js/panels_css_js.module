@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Allow to add additional CSS & JS files to Panels and Mini Panels.
+ */
+
 function panels_css_js_ctools_plugin_directory($module, $plugin) {
   if ($module == 'ctools') {
     return 'ctools_plugins/' . $plugin;
@@ -107,7 +112,7 @@ function panels_css_js_check_module_placeholder(&$filepath) {
   $ph = '[module-';
   $pos_1 = mb_strpos($filepath, $ph);
   $pos_2 = mb_strpos($filepath, ']', $pos_1);
-  if ($pos_1 !== false && $pos_2 !== false) {
+  if ($pos_1 !== FALSE && $pos_2 !== FALSE) {
     $ph_length = mb_strlen($ph);
     $length = $pos_2 - $pos_1 - $ph_length;
     $pos_1 += $ph_length;
@@ -123,9 +128,8 @@ function panels_css_js_check_module_placeholder(&$filepath) {
 function panels_css_js_check_current_theme_placeholder(&$filepath) {
   $ph = '[theme]';
   $pos_1 = mb_strpos($filepath, $ph);
-  if ($pos_1 !== false) {
-    global $theme_info;
-    $theme_path = dirname($theme_info->filename);
+  if ($pos_1 !== FALSE) {
+    $theme_path = dirname($GLOBALS['theme_info']->filename);
     $filepath = str_replace($ph, $theme_path, $filepath);
   }
 }
@@ -134,7 +138,7 @@ function panels_css_js_check_theme_placeholder(&$filepath) {
   $ph = '[theme-';
   $pos_1 = mb_strpos($filepath, $ph);
   $pos_2 = mb_strpos($filepath, ']', $pos_1);
-  if ($pos_1 !== false && $pos_2 !== false) {
+  if ($pos_1 !== FALSE && $pos_2 !== FALSE) {
     $ph_length = mb_strlen($ph);
     $length = $pos_2 - $pos_1 - $ph_length;
     $pos_1 += $ph_length;

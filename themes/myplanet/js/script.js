@@ -173,8 +173,8 @@
 	
 	/* Thumbnail */
 	$(".thumbnail").hover(
-		function() { $(this).find(".layer, .layer > .field-content > a").stop().animate({ opacity: 1 }, 100, "easeOutCubic"); }, 
-		function() { $(this).find(".layer, .layer > .field-content > a").stop().animate({ opacity: 0 }, 800, "easeOutCubic"); }
+		function() { $(this).find(".layer").stop().animate({ opacity: 1 }, 100, "easeOutCubic"); }, 
+		function() { $(this).find(".layer").stop().animate({ opacity: 0 }, 800, "easeOutCubic"); }
 	);
 	
 	// Images
