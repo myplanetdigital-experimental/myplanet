@@ -29,7 +29,7 @@
 .resources-view .grid-2 .main-category { padding: 15px 22px 0 130px; font-weight: bold; color: #f05a28; }
 .resources-view .grid-2 .title { padding: 0 22px 0 130px; font: 25px/108% "plantin", Georgia, serif; letter-spacing: -1px; }
 .resources-view .grid-2 .body { padding: 10px 22px 0 130px; }
-.resources-view .grid-2 .layer a { position: absolute; display: block; padding: 33px 35px 0; left: 0; right: 0; top: 0; bottom: 0; opacity: 0; filter: alpha(opacity=0); line-height: 18px; color: #fff; background-color: #000; }
+.resources-view .grid-2 .layer { position: absolute; display: block; padding: 33px 35px 0; left: 0; right: 0; top: 0; bottom: 0; opacity: 0; filter: alpha(opacity=0); line-height: 18px; color: #fff; background-color: #000; }
 .resources-view .grid-2 .title2 { font: 25px/108% "plantin", Georgia, serif; letter-spacing: -1px; }
 .resources-view .grid-2 .leadline { margin-top: 10px; font-weight: bold; }
 .resources-view .grid-2 .leadline .postdate { margin-right: 8px; }
