@@ -10,7 +10,7 @@
 .projects-view .image { font-size: 0; line-height: 0; }
 .projects-view .title { padding-top: 11px; }
 .projects-view .leadline { padding-bottom: 8px; font: italic 12px/100% Georgia, Arial, sans-serif; color: #333; }
-.projects-view .layer a { position: absolute; display: block; padding: 33px 33px 0 28px; left: 0; right: 0; top: 0; bottom: 0; opacity: 0; filter: alpha(opacity=0); color: #fff; background-color: #000; }
+.projects-view .layer { position: absolute; display: block; padding: 33px 33px 0 28px; left: 0; right: 0; top: 0; bottom: 0; opacity: 0; filter: alpha(opacity=0); color: #fff; background-color: #000; }
 .projects-view .title2 { font-size: 13px; line-height: 115%; font-weight: bold; }
 .projects-view .summary { padding-top: 13px; font-size: 12px; line-height: 150%; }
 .projects-view .link { position: absolute; bottom: 23px; width: 100px; height: 20px; font-weight: bold; background: url(../images/mp_sprite.png) no-repeat 15px -47px; }
