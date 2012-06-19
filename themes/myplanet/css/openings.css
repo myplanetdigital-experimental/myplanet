@@ -20,7 +20,7 @@
 .job-posts-view .title .field-content { padding: 21px 25px; }
 .job-posts-view .leadline { padding-top: 8px; font: italic 11px/150% Georgia, Arial, sans-serif; color: #333; }
 .job-posts-view .leadline div { display: inline; }
-.job-posts-view .layer a { position: absolute; display: block; padding: 20px 20px 0; left: 0; right: 0; top: 0; bottom: 0; opacity: 0; filter: alpha(opacity=0); color: #fff; background-color: #000; }
+.job-posts-view .layer { position: absolute; display: block; padding: 20px 20px 0; left: 0; right: 0; top: 0; bottom: 0; opacity: 0; filter: alpha(opacity=0); color: #fff; background-color: #000; }
 .job-posts-view .title2 { font-size: 13px; font-weight: bold; }
 .job-posts-view .summary { margin-top: 10px; font-size: 12px; line-height: 150%; }
 .job-posts-view .link { position: absolute; bottom: 15px; width: 100px; height: 20px; font-weight: bold; background: url(../images/arrow_right_nobg_white.png) no-repeat 50px -7px; }
