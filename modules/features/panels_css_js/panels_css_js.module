@@ -5,12 +5,18 @@
  * Allow to add additional CSS & JS files to Panels and Mini Panels.
  */
 
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
 function panels_css_js_ctools_plugin_directory($module, $plugin) {
   if ($module == 'ctools') {
     return 'ctools_plugins/' . $plugin;
   }
 }
 
+/**
+ * Implements hook_page_manager_variant_operations_alter().
+ */
 function panels_css_js_page_manager_variant_operations_alter(&$ops, $handler) {
   reset($ops['children']);
   $children_operations = array();
@@ -27,6 +33,9 @@ function panels_css_js_page_manager_variant_operations_alter(&$ops, $handler) {
   $ops['children'] = $children_operations;
 }
 
+/**
+ * CSS & JS settings form for Variant Tab
+ */
 function panels_css_js_form($form, &$form_state) {
   $conf = &$form_state['handler']->conf;
   if (empty($conf['panels_css_js_css'])) {
@@ -39,6 +48,9 @@ function panels_css_js_form($form, &$form_state) {
   return $form;
 }
 
+/**
+ * Common CSS & JS settings form that is used for Variant Tab and Content Type.
+ */
 function panels_css_js_edit_form(&$form, &$conf) {
   $description = 'Enter one file per line. You can use "[module-{module_name}]"
     or "[theme-{theme_name}]" placeholders instead of path to module/theme.
@@ -58,16 +70,26 @@ function panels_css_js_edit_form(&$form, &$conf) {
   );
 }
 
+/**
+ * Handles CSS & JS settings form submission for Variant Tab
+ */
 function panels_css_js_form_submit($form, &$form_state) {
   $conf = &$form_state['handler']->conf;
   panels_css_js_edit_form_submit($form_state, $conf);
 }
 
+/**
+ * Handles CSS & JS settings forms submission for Variant Tab and Content Type.
+ */
 function panels_css_js_edit_form_submit(&$form_state, &$conf) {
   $conf['panels_css_js_css'] = $form_state['values']['panels_css_js_css'];
   $conf['panels_css_js_js'] = $form_state['values']['panels_css_js_js'];
 }
 
+/**
+ * Implements hook_ctools_render_alter().
+ * When a Panels item is rendered, add CSS & JS files for Variant Tab.
+ */
 function panels_css_js_ctools_render_alter($info, $page, $context) {
   $conf = $context['handler']->conf;
   if (!isset($conf['panels_css_js_css'])) {
@@ -76,6 +98,9 @@ function panels_css_js_ctools_render_alter($info, $page, $context) {
   panels_css_js_render($conf);
 }
 
+/**
+ * Common render function for Variant Tab and Content Type.
+ */
 function panels_css_js_render($conf) {
   $files = panels_css_js_filter_value($conf['panels_css_js_css']);
   foreach ($files as $css_file) {
@@ -87,6 +112,9 @@ function panels_css_js_render($conf) {
   }
 }
 
+/**
+ * Explode function for textarea fields.
+ */
 function panels_css_js_filter_value($value) {
   $files = array();
   if ($value) {
@@ -99,6 +127,10 @@ function panels_css_js_filter_value($value) {
   return $files;
 }
 
+/**
+ * Common function for checking if placeholders exist at the file path
+ * and replace it by proper paths.
+ */
 function panels_css_js_check_placeholders($filepath) {
   $ph_funcs = array('module', 'current_theme', 'theme');
   foreach ($ph_funcs as $ph_func) {
@@ -108,6 +140,9 @@ function panels_css_js_check_placeholders($filepath) {
   return $filepath;
 }
 
+/**
+ * Check for [module-{module_name}] placeholder.
+ */
 function panels_css_js_check_module_placeholder(&$filepath) {
   $ph = '[module-';
   $pos_1 = mb_strpos($filepath, $ph);
@@ -125,6 +160,9 @@ function panels_css_js_check_module_placeholder(&$filepath) {
   }
 }
 
+/**
+ * Check for [theme] placeholder (current theme).
+ */
 function panels_css_js_check_current_theme_placeholder(&$filepath) {
   $ph = '[theme]';
   $pos_1 = mb_strpos($filepath, $ph);
@@ -134,6 +172,9 @@ function panels_css_js_check_current_theme_placeholder(&$filepath) {
   }
 }
 
+/**
+ * Check for [theme-{theme_name}] placeholder.
+ */
 function panels_css_js_check_theme_placeholder(&$filepath) {
   $ph = '[theme-';
   $pos_1 = mb_strpos($filepath, $ph);

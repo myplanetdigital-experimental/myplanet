@@ -20,6 +20,6 @@
 .our-team-view .image { font-size: 0; line-height: 0; }
 .our-team-view .layer { position: absolute; display: block; padding: 15px 15px 0; left: 0; right: 0; top: 0; bottom: 0; opacity: 0; filter: alpha(opacity=0); color: #fff; background-color: #000; }
 .our-team-view .full-name { font-size: 13px; font-weight: bold; }
-.our-team-view .leadline { margin-top: 10px; }
+.our-team-view .leadline { margin-top: 10px; font-size: 12px; line-height: 150%; }
 .our-team-view .twitter { position: absolute; bottom: 15px; font-weight: bold; }
 .our-team-view .twitter a:hover { color: #fff !important; }

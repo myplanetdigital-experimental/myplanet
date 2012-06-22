@@ -24,17 +24,27 @@ $plugin = array(
   ),
 );
 
+/**
+ * CSS & JS settings form for Content Type.
+ */
 function panels_css_js_css_js_content_type_edit_form($form, &$form_state) {
   $conf = &$form_state['conf'];
   panels_css_js_edit_form($form, $conf);
   return $form;
 }
 
+/**
+ * Handles CSS & JS settings form submission for Content Type.
+ */
 function panels_css_js_css_js_content_type_edit_form_submit($form, &$form_state) {
   $conf = &$form_state['conf'];
   panels_css_js_edit_form_submit($form_state, $conf);
 }
 
+/**
+ * Implements hook_content_type_render().
+ * When a Panels item is rendered, add CSS & JS files for Content Type.
+ */
 function panels_css_js_css_js_content_type_render($subtype, $conf, $panel_args, $context) {
   if (!isset($conf['panels_css_js_css'])) {
     return;
