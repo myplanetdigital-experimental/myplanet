@@ -1,0 +1,6 @@
+name = MPD dashboard
+description = Custom module for /admin/dashboard configuration.
+core = 7.x
+package = Custom
+dependencies[] = dashboard
+

@@ -1,0 +1,57 @@
+<?php
+
+/**
+ * implements hook_block_info().
+ */
+function mpd_dashboard_block_info() {
+  // This example comes from node.module.
+  $blocks['popular_resources'] = array(
+    'info' => t('Popular Resources'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function mpd_dashboard_block_view($delta) {
+  switch ($delta) {
+    case 'popular_resources':
+      /* Get the popular resources node and provide the form item that the
+       * view resources_mega_menu_popular uses.
+       * @TODO Refactor the resources_mega_menu_popular view so it doesn't
+       *  depend on specific database configuration, also get rid of this mess.
+       */
+      module_load_include('inc', 'node', 'node.pages');
+      $node = node_load('237');
+      $form = drupal_get_form($node->type . '_node_form', $node);
+      unset($form['title']);
+      unset($form['additional_settings']);
+      unset($form['actions']['preview']);
+      unset($form['actions']['delete']);
+
+      // Loop through all form elements and remove the ones we don't want.
+      foreach ($form as $element_key => $element) {
+        $parts = explode('_', $element_key);
+        // If the element was created by the field module.
+        if ($parts[0] == 'field') {
+          if (isset($parts[3])) {
+            // If it is a multi-node reference.
+            if ($parts[3] == 'multi' && $parts[2] == 'ref') {
+              continue;
+            }
+          }
+          // Otherwise, trash it.
+          unset($form[$element_key]);
+        }
+      }
+      return array(
+        'subject' => 'Popular Resources',
+        'content' => drupal_render($form)
+      );
+      break;
+  }
+}
+
