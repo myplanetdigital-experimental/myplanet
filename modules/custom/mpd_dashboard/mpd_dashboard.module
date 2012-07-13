@@ -27,13 +27,7 @@ function mpd_dashboard_block_view($delta) {
       module_load_include('inc', 'node', 'node.pages');
       $node = node_load('237');
 
-      // Basically a drupal_get_form(), but customized so that the user stays
-      // on this page after submission.
-      $form_state = array();
-      $form_state['build_info']['args'][] = $node;
-      $form_state['rebuild'] = TRUE;
-      $form_state['redirect'] = array($_GET['q']);
-      $form = drupal_build_form($node->type . '_node_form', $form_state);
+      $form = drupal_get_form($node->type . '_node_form', $node);
 
       // Get rid of irrelevent form elements.
       unset($form['title']);
@@ -63,6 +57,15 @@ function mpd_dashboard_block_view($delta) {
         'content' => drupal_render($form)
       );
       break;
+  }
+}
+
+/**
+ * Implements hook_node_update().
+ */
+function mpd_dashboard_node_update($node) {
+  if ($node->nid == '237' && arg(1) == 'dashboard') {
+    drupal_goto($_GET['q']);
   }
 }
 
