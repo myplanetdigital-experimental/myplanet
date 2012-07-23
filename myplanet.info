@@ -1,0 +1,6 @@
+name = Myplanet
+description = An install profile for building the Myplanet Digital site.
+version = VERSION
+core = 7.x
+dependencies[] = block
+dependencies[] = dblog
