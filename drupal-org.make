@@ -7,6 +7,7 @@ core = 7.x
 ; ; This is the issue title: http://drupal.org/node/xxxxxxx#comment-xxxxxxx
 ; projects[][patch][] =
 
+; Requires Drush 5.5 to work
 defaults[projects][subdir] = contrib
 
 ; MODULES

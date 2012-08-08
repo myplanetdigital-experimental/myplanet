@@ -3,6 +3,12 @@ Myplanet Digital
 
 An install profile for building the Myplanet website.
 
+Requirements
+------------
+
+- This profile requires Drush 5.5+, as it uses the [defaults
+  array][drush-defaults].
+
 To Build
 --------
 
@@ -23,3 +29,6 @@ Vagrant
 The intention is that this site will rarely be advised to be built
 outside the accompanying Ariadne environment. An Ariadne project will be
 provided shortly.
+
+<!-- Links -->
+   [drush-defaults]: http://drupal.org/node/1633050#comment-6127400
