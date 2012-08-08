@@ -5,5 +5,5 @@ includes[] = drupal-org-core.make
 
 projects[secondlevel][type] = profile
 projects[secondlevel][download][type] = git
-projects[secondlevel][download][url] = git@github.com:myplanetdigital/myplanet.git
+projects[secondlevel][download][url] = https://github.com/myplanetdigital/myplanet.git
 projects[secondlevel][download][revision] = develop

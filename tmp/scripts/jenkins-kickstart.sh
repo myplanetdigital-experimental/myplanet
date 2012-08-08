@@ -15,6 +15,7 @@ echo -e "Host *\n  StrictHostKeyChecking no" > ~/.ssh/config
 # Add rerun directory to PATH
 export PATH="$PATH:$WORKSPACE/profile/tmp/scripts/rerun"
 export RERUN_MODULES="$WORKSPACE/profile/tmp/scripts/rerun-modules"
+export PROJECT="myplanet"
 
 # Build site
 rerun 2ndlevel:build -f $WORKSPACE/profile/build-${PROJECT}.make -d $WORKSPACE/build -p ${PROJECT}
