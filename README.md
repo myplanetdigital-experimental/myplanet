@@ -26,9 +26,10 @@ To build the site in a \*nix environment:
 Vagrant
 -------
 
-The intention is that this site will rarely be advised to be built
-outside the accompanying Ariadne environment. An Ariadne project will be
-provided shortly.
+The intention is that the recommended means to build the site will be
+using the [accompanying Ariadne environment][ariadne-myplanet]. Please
+see that projects README for instructions on using it.
 
 <!-- Links -->
-   [drush-defaults]: http://drupal.org/node/1633050#comment-6127400
+   [drush-defaults]:   http://drupal.org/node/1633050#comment-6127400
+   [ariadne-myplanet]: https://github.com/myplanetdigital/ariadne-myplanet#readme
