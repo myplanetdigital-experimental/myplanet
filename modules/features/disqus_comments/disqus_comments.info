@@ -1,0 +1,20 @@
+name = Disqus Comments
+core = 7.x
+package = Features
+php = 5.2.4
+dependencies[] = articles
+dependencies[] = disqus
+dependencies[] = features
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:1
+features[user_permission][] = administer disqus
+features[user_permission][] = display disqus comments on profile
+features[user_permission][] = toggle disqus comments
+features[user_permission][] = view disqus comments
+features[variable][] = disqus_developer
+features[variable][] = disqus_domain
+features[variable][] = disqus_location
+features[variable][] = disqus_nodetypes
+; TODO: Sort out where to keep this outside public repo
+; features[variable][] = disqus_userapikey
