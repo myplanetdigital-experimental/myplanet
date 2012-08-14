@@ -4,3 +4,8 @@ version = VERSION
 core = 7.x
 dependencies[] = block
 dependencies[] = dblog
+
+; FEATURES
+dependencies[] = calendar_tooltips_popup_fix
+dependencies[] = disqus_comments
+dependencies[] = twitter_pull_footer
