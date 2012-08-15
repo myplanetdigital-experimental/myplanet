@@ -62,16 +62,16 @@ projects[wysiwyg][version] = 2.1
 libraries[ckeditor][download][type] = file
 libraries[ckeditor][download][url] = http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.6.4/ckeditor_3.6.4.tar.gz
 
-libraries[kcfinder][download][type] = file
-libraries[kcfinder][download][url] = http://sourceforge.net/projects/kcfinder/files/KCFinder/2.51/kcfinder-2.51.tar.gz/download
+libraries[excanvas_r3][download][type] = file
+libraries[excanvas_r3][download][url] = http://explorercanvas.googlecode.com/files/excanvas_r3.zip
+libraries[excanvas_r3][destination] = modules/contrib/beautytips/other_libs
 
 ; Currently using v2.9998 (v2.9999.5 is most recent)
 libraries[jquery.cycle][download][type] = file
 libraries[jquery.cycle][download][url] = https://raw.github.com/myplanetdigital/cycle/cc6a55e/jquery.cycle.all.js
 
+libraries[kcfinder][download][type] = file
+libraries[kcfinder][download][url] = http://sourceforge.net/projects/kcfinder/files/KCFinder/2.51/kcfinder-2.51.tar.gz/download
+
 libraries[swfupload][download][type] = file
 libraries[swfupload][download][url] = http://swfupload.googlecode.com/files/SWFUpload%20v2.2.0.1%20Core.zip
-
-libraries[excanvas_r3][download][type] = file
-libraries[excanvas_r3][download][url] = http://explorercanvas.googlecode.com/files/excanvas_r3.zip
-libraries[excanvas_r3][destination] = modules/contrib/beautytips/other_libs
