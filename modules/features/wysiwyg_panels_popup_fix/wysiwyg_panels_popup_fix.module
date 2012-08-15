@@ -1,0 +1,7 @@
+<?php
+
+function wysiwyg_panels_popup_fix_form_alter(&$form, &$form_state, $form_id) {
+    if ($form_id == 'ctools_custom_content_type_edit_form') {
+        $form['body']['#wysiwyg'] = false;
+    }
+}

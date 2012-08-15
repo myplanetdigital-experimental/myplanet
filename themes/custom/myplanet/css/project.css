@@ -1,15 +1,41 @@
 .project-page .project-slideshow-view { padding: 10px 0 0; }
 .project-page .project-slideshow-view .view-content { position: relative; width: 950px; height: 460px; }
 .project-page .project-slideshow-view .views-slideshow-cycle-main-frame { font-size: 0; line-height: 0; }
-.project-page .main-content { padding-top: 31px; }
-.project-page .main-content .left-region { width: 175px; margin-right: 20px; }
-.project-page .main-content .center-region { width: 368px; }
+
+.project-page .main-content { padding: 31px 0 0; }
+.project-page .main-content .left-region { width: 175px; margin-right: 13px; }
+.project-page .main-content .center-region { width: 364px; }
 .project-page .main-content .right-region { float: right; width: 368px; }
 .project-page .main-content .left-region .sub-title { padding: 0 0 12px; background: url(../images/divider.png) repeat-x 0 bottom; }
 .project-page .main-content .left-region .url { padding: 10px 0 0; }
 .project-page .main-content .left-region .url a { padding: 0 0 3px; background: url(../images/divider.png) repeat-x 0 bottom; }
-.project-page .main-content .center-region .body { font: 25px/128% "plantin", Georgia, serif; letter-spacing: -1px; }
-.project-page .main-content .right-region .sub-title { padding: 0 0 21px; }
-.project-page .main-content .right-region .discover { padding: 0 0 42px; }
-.project-page .main-content .right-region .plan { padding: 0 0 42px; }
-.project-page .main-content .right-region .execute { padding: 0 0 42px; }
+.project-page .main-content .left-region .credits { padding: 33px 0 12px; }
+.project-page .main-content .left-region .participants { padding: 8px 0 0; }
+.project-page .main-content .center-region .summary { padding: 0 0 0 7px; font: 25px/32px "plantin", Georgia, serif; letter-spacing: -1px; }
+.project-page .main-content .center-region img { max-width: 100%; width: auto; height: auto; }
+.project-page .main-content .center-region .images-before { padding: 32px 0 0; }
+.project-page .main-content .center-region .images-before { font-size: 0; line-height: 0; }
+.project-page .main-content .center-region .images-before .field-item { padding: 32px 0 0; }
+.project-page .main-content .center-region .images-before .field-item:first-child { padding: 0; }
+.project-page .main-content .right-region .text-before {  }
+.project-page .main-content .right-region .text-before h2 { margin: 0; padding: 20px 0 21px; font: bold italic 17px/100% "plantin", Georgia, serif; letter-spacing: -1px; }
+.project-page .main-content .right-region .text-before h2:first-child { padding-top: 0; }
+.project-page .main-content .right-region .text-before p { margin: 0; padding: 0 0 22px; }
+.project-page .pull-quote { padding: 38px 0 0; }
+.project-page .pull-quote .left-region { width: 175px; }
+.project-page .pull-quote .right-region { float: right; width: 755px; }
+.project-page .pull-quote .right-region > .inside {  background: #f1f1f1 url(../images/webform-bottom.png) no-repeat 0 bottom; }
+.project-page .pull-quote .right-region > .inside > .panel-pane { padding: 36px 50px; }
+.project-page .pull-quote .right-region .field-item { font: 25px/33px "plantin", Georgia, serif; letter-spacing: -1px; }
+.project-page .main-content2 { padding: 41px 0 0; }
+.project-page .main-content2 .left-region { width: 175px; height: 1px; margin-right: 13px; }
+.project-page .main-content2 .center-region { width: 364px; }
+.project-page .main-content2 .right-region { float: right; width: 368px; }
+.project-page .main-content2 .center-region img { max-width: 100%; width: auto; height: auto; }
+.project-page .main-content2 .center-region .images-after { font-size: 0; line-height: 0; }
+.project-page .main-content2 .center-region .images-after .field-item { padding: 32px 0 0; }
+.project-page .main-content2 .center-region .images-after .field-item:first-child { padding: 0; }
+.project-page .main-content2 .right-region .text-after {  }
+.project-page .main-content2 .right-region .text-after h2 { margin: 0; padding: 20px 0 21px; font: bold italic 17px/100% "plantin", Georgia, serif; letter-spacing: -1px; }
+.project-page .main-content2 .right-region .text-after h2:first-child { padding-top: 0; }
+.project-page .main-content2 .right-region .text-after p { margin: 0; padding: 0 0 22px; }
