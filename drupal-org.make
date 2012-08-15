@@ -59,6 +59,9 @@ projects[wysiwyg][version] = 2.1
 
 ; LIBRARIES
 
+libraries[ckeditor][download][type] = file
+libraries[ckeditor][download][url] = http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.6.4/ckeditor_3.6.4.tar.gz
+
 libraries[kcfinder][download][type] = file
 libraries[kcfinder][download][url] = http://sourceforge.net/projects/kcfinder/files/KCFinder/2.51/kcfinder-2.51.tar.gz/download
 
