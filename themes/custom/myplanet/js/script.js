@@ -129,7 +129,7 @@
 				if (mouse_over_megamenu === false) {
 					hide_mega_menu();
 				}
-			}, 1);
+			}, 1000);
 		}
 	);
 	$(".resources-mega-menu").hover(
@@ -283,5 +283,10 @@
 		function() { $(this).find(".link").stop().animate({ backgroundPosition: "60px -7px" }, 850, "easeOutElastic"); },
 		function() { $(this).find(".link").stop().animate({ backgroundPosition: "50px -7px" }, 250, "easeOutElastic"); }
 	);
-	
+      
+    /* Body Text */
+    $(".body .field-item > p > img").each(function() {
+        $(this).parent().css("padding-left", 0);
+    });
+    
 }); })(jQuery);

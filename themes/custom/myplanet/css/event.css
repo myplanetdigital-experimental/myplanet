@@ -17,17 +17,6 @@
 .event-page .main-content .right-region .link { clear: both; padding: 20px 0 8px; background: url(../images/divider.png) repeat-x 0 bottom; }
 .event-page .main-content .right-region .link a { display: block; color: #000; background: url(../images/arrow_right_nobg.png) no-repeat 140px -6px; }
 
-.event-sign-up-form { position: relative; margin: 12px 0 15px; width: 504px; height: 308px; background: url(../images/event-sign-up-form.png) no-repeat 0 0; }
-.event-sign-up-form .form-item { margin: 0; clear: both; padding: 0 0 12px 21px; }
-.event-sign-up-form .form-required { display: none; }
-.event-sign-up-form #webform-component-full-name { padding-top: 33px; }
-.event-sign-up-form label { float: left; padding: 3px 42px 0 0; width: 105px; text-align: right; }
-.event-sign-up-form input { padding: 5px 10px; width: 289px; height: 18px; border: 0 none; background: #fff url(../images/divider.png) repeat-x 0 bottom; }
-.event-sign-up-form .form-submit { position: absolute; right: 20px; bottom: 20px; width: 87px; height: 88px; color: #fff; font-weight: bold; border: 0 none; text-indent: -3px; cursor: pointer; background: url(../images/black-circle-88.png) no-repeat 0 0; }
-.event-sign-up-form .form-submit:hover { background-position: -87px 0; }
-.event-sign-up-form .webform-confirmation { padding: 30px 50px; font-weight: bold; }
-.event-sign-up-form .links { display: none; }
-
 .events-featured-view .views-row { margin-bottom: 47px; background-color: #f1f1f1; }
 .events-featured-view .image { font-size: 0; line-height: 0; }
 .events-featured-view .date-start { padding: 16px 17px 0; font-size: 12px; line-height: 167%; font-weight: bold; }

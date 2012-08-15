@@ -5,7 +5,7 @@
 .events-page .events .right-region { float: right; width: 754px; }
 
 .events-view .views-row { margin: 0 23px 25px 0; width: 236px; }
-.events-view .title { height: 175px; font: 25px/140% "plantin", Georgia, serif; letter-spacing: -1px; background-color: #f1f1f1; }
+.events-view .title { height: 175px; font: 25px/27px "plantin", Georgia, serif; letter-spacing: -1px; background-color: #f1f1f1; }
 .events-view .title .field-content { padding: 21px 25px; }
 .events-view .leadline { padding-top: 11px; font: italic 11px/150% Georgia, Arial, sans-serif; color: #333; }
 .events-view .leadline div { display: inline; }

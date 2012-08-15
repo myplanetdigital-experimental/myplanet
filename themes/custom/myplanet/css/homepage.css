@@ -3,7 +3,7 @@
 
 .homepage-items-view { padding: 416px 0 0; }
 .homepage-items-view .item-list ul li { margin: 0 23px 0 0; width: 301px; height: 235px; background: url(../images/front-item-back.png) no-repeat 0 0; }
-.homepage-items-view .title { margin: 35px 30px; font: 35px/90% "plantin", Georgia, serif; letter-spacing: -2px; }
+.homepage-items-view .title { margin: 35px 30px; font: 35px/37px "plantin", Georgia, serif; letter-spacing: -2px; }
 .homepage-items-view .link { font-size: 0; line-height: 0; }
 .homepage-items-view .link a { position: absolute; display: block; bottom: 16px; right: 24px; width: 50px; height: 50px; background: url(../images/arrow-orange.png) no-repeat 0 0; }
 .homepage-items-view .layer { position: absolute; display: block; padding: 25px 40px 0; left: 0; right: 0; top: 0; bottom: 0; opacity: 0; filter: alpha(opacity=0); color: #fff; background-color: #000; }

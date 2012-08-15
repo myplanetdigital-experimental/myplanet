@@ -16,7 +16,7 @@
 
 .job-posts-view .views-row { margin: 0 23px 25px 0; width: 236px; }
 .job-posts-view .hidden { display: none; }
-.job-posts-view .title { height: 167px; font: 25px/140% "plantin", Georgia, serif; letter-spacing: -1px; background: url(../images/job-post-back.png) no-repeat 0 0; }
+.job-posts-view .title { height: 167px; font: 25px/27px "plantin", Georgia, serif; letter-spacing: -1px; background: url(../images/job-post-back.png) no-repeat 0 0; }
 .job-posts-view .title .field-content { padding: 21px 25px; }
 .job-posts-view .leadline { padding-top: 8px; font: italic 11px/150% Georgia, Arial, sans-serif; color: #333; }
 .job-posts-view .leadline div { display: inline; }

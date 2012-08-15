@@ -7,14 +7,7 @@ $("document").ready(function() {
 	var cur_blog_link = $.trim($(".main-content .center-region .link .pane-content").html());
 	cur_blog_link = cur_blog_link.substr(cur_blog_link.indexOf("//") + 2);
 	cur_blog_link = cur_blog_link.substr(cur_blog_link.indexOf("/"));
-	
-	var postdate_string = $.trim($(".main-content .center-region .postdate .pane-content").html());
-	var date_string = postdate_string.substr(postdate_string.indexOf(" ") + 1);
-	date_string = date_string.substr(0, date_string.indexOf(" "));
-	var postdate = new Date(date_string);
-	
-	$(".main-content .center-region .postdate").html(postdate_string.substr(0, postdate_string.indexOf(",")) + " " + postdate.getDate() + ", " + postdate.getFullYear());
-	
+
 	for (var i = 0; i < new_visible_items.length; i++) {
 		var blog_link = $(".resources-hidden-view .views-row:eq(" + new_visible_items[i] + ") .link a").attr("href");
 		if (blog_link == cur_blog_link) {

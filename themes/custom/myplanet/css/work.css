@@ -6,6 +6,8 @@
 .work-page .selected-projects .left-region { width: 175px; }
 .work-page .selected-projects .right-region { float: right; width: 752px; }
 
+.work-slideshow-view .image a img { cursor: pointer !important; }
+
 .projects-view .views-row { margin: 0 22px 20px 0; width: 236px; }
 .projects-view .image { font-size: 0; line-height: 0; }
 .projects-view .title { padding-top: 11px; }

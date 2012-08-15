@@ -17,9 +17,11 @@
 .article-page .main-content .center-region .second-category .field-item { float: left; padding: 0 10px 0 0; }
 .article-page .main-content .center-region .second-category .field-item:last-child { padding: 0; }
 .article-page .main-content .center-region .title { clear: both; margin-top: 2px; padding-bottom: 43px; font: 41px/100% "plantin", Georgia, serif; letter-spacing: -2px; background: url(../images/divider.png) repeat-x 0 bottom; }
-.article-page .main-content .center-region .short { padding: 20px 0 20px 0; font: 24px/117% "plantin",Georgia,serif; letter-spacing: -1px; }
-.article-page .main-content .center-region .body { margin-top: 12px; }
-.article-page .main-content .center-region .body p { padding: 0 0 12px; }
+.article-page .main-content .center-region .social-buttons { padding: 15px 0 0 82px; }
+.article-page .main-content .center-region .short { padding: 14px 0 20px 80px; font: 24px/117% "plantin", Georgia,serif; letter-spacing: -1px; }
+.article-page .main-content .center-region .body { padding: 12px 0 38px; }
+.article-page .main-content .center-region .comment-form-title { padding: 42px 0 18px; }
+.article-page .main-content .center-region .comments-view {  }
 .article-page .main-content .right-region .links { height: 29px; background: url(../images/divider.png) repeat-x 0 bottom; }
 .article-page .main-content .right-region .links .previous { float: left; }
 .article-page .main-content .right-region .links .previous a { padding-left: 15px; color: #000; background: url(../images/arrow_left_nobg.png) no-repeat -14px -9px; }
@@ -27,14 +29,15 @@
 .article-page .main-content .right-region .links .next a { padding-right: 15px; color: #000; background: url(../images/arrow_right_nobg.png) no-repeat 53px -9px; }
 .article-page .main-content .right-region .sub-title { clear: both; margin-top: 41px; }
 .article-page .main-content .right-region .resources-realated-view { margin-top: 21px; }
-.article-page .bottom-links { padding: 50px 0 0; }
+.article-page .bottom-links { padding: 85px 0 0; }
 .article-page .bottom-links .left-region { width: 175px; }
 .article-page .bottom-links .right-region { float: right; width: 755px; }
 .article-page .bottom-links .link { float: left; width: 355px; padding-bottom: 8px; background: url(../images/divider.png) repeat-x 0 bottom; }
 .article-page .bottom-links .link .title { color: grey; font: italic 11px/145% Georgia; }
+.article-page .bottom-links .link.previous .title { padding-left: 18px; }
 .article-page .bottom-links .link a { display: block; margin-top: -2px; color: #000; font-weight: bold; font-size: 11px; line-height: 182%; }
 .article-page .bottom-links .previous { margin-right: 45px; }
-.article-page .bottom-links .previous a { padding-left: 18px; background: url(../images/arrow_left_nobg.png) no-repeat -14px -7px; }
+.article-page .bottom-links .previous a { padding: 0 0 0 18px; background: url(../images/arrow_left_nobg.png) no-repeat -14px -7px; }
 .article-page .bottom-links .next a { padding-right: 18px; background: url(../images/arrow_right_nobg.png) no-repeat 334px -7px; }
 
 .resources-hidden-view { display: none; }
@@ -43,8 +46,8 @@
 .user-article-page-view  .fullname { margin-top: 21px; font-weight: bold; }
 
 .resources-realated-view .item-list ul li { position: relative; float: none !important; margin-bottom: 32px; width: 236px; }
-.resources-realated-view .main-category { position: absolute; left: 20px; top: 16px; color: #f05a28; font-size: 11px; font-weight: bold; }
-.resources-realated-view .title { padding: 34px 20px 0; height: 151px; font: 25px/140% "plantin", Georgia, serif; letter-spacing: -1px; background-color: #f1f1f1; }
+.resources-realated-view .main-category { position: absolute; left: 25px; top: 16px; color: #f05a28; font-size: 11px; font-weight: bold; }
+.resources-realated-view .title { padding: 34px 25px 0; height: 151px; font: 25px/27px "plantin", Georgia, serif; letter-spacing: -1px; background-color: #f1f1f1; }
 .resources-realated-view .leadline { padding-top: 10px; font: italic 11px/150% Georgia, Arial, sans-serif; color: #333; }
 .resources-realated-view .leadline div { display: inline; }
 .resources-realated-view .layer a { position: absolute; display: block; padding: 20px 20px 0; left: 0; right: 0; top: 0; bottom: 0; opacity: 0; filter: alpha(opacity=0); color: #fff; background-color: #000; }
