@@ -3,11 +3,16 @@ language: php
 php:
   - 5.4
 
-env:
-  - PROJECT_NAME=myplanet DRUSH_VERSION=5.7 CASPERJS_VERSION=1.0.0-RC4
+env: |
+     PROJECT_NAME=myplanet \
+     DRUSH_VERSION=5.7 \
+     CASPERJS_VERSION=1.0.0-RC4 \
+     PHANTOMJS_EXECUTABLE='phantomjs --local-to-remote-url-access=yes --ignore-ssl-errors=yes' \
+     DISPLAY=:99.0
 
-before_install: bash tmp/scripts/travis_before_install.sh
 
-before_script: bash tmp/scripts/travis_install.sh
+before_install: ./tmp/scripts/travis_before_install.sh
 
-script: bash tmp/scripts/travis_test.sh
+before_script: ./tmp/scripts/travis_install.sh
+
+script: ./tmp/scripts/travis_test.sh
