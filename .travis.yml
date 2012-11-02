@@ -5,14 +5,14 @@ php:
 
 env: |
      PROJECT_NAME=myplanet
-     DRUSH_VERSION=5.7
-     CASPERJS_VERSION=1.0.0-RC4
-     PHANTOMJS_EXECUTABLE='phantomjs --local-to-remote-url-access=yes --ignore-ssl-errors=yes'
-     DISPLAY=:99.0
+     export DRUSH_VERSION=5.7
+     export CASPERJS_VERSION=1.0.0-RC4
+     export PHANTOMJS_EXECUTABLE='phantomjs --local-to-remote-url-access=yes --ignore-ssl-errors=yes'
+     export DISPLAY=:99.0
 
 
-before_install: ./tmp/scripts/travis_before_install.sh
+before_install: bash tmp/scripts/travis_before_install.sh
 
-before_script: ./tmp/scripts/travis_install.sh
+before_script: bash tmp/scripts/travis_install.sh
 
-script: ./tmp/scripts/travis_test.sh
+script: bash tmp/scripts/travis_test.sh
