@@ -4,7 +4,7 @@ php:
   - 5.4
 
 env:
-  - PROJECTNAME=myplanet DRUSH_VERS=5.7
+  - PROJECT_NAME=myplanet DRUSH_VERSION=5.7
 
 before_install: bash tmp/scripts/travis_before_install.sh
 
