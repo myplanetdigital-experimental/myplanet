@@ -13,6 +13,6 @@ env: |
 
 before_install: bash tmp/scripts/travis_before_install.sh
 
-before_script: bash tmp/scripts/travis_install.sh
+before_script: ./tmp/scripts/travis_install.sh
 
 script: bash tmp/scripts/travis_test.sh
