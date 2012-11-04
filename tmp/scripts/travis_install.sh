@@ -14,12 +14,13 @@ cd ..
 export WORKSPACE=`pwd`
 mv ${PROJECT_NAME} profile
 cd $WORKSPACE/profile
-drush make build-${PROJECT_NAME}.make $WORKSPACE/build --yes
+drush make build-${PROJECT_NAME}.make $WORKSPACE/build \
+  --prepare-install \
+  --yes
 cd $WORKSPACE/build
-mkdir ~/.drush
-echo "sendmail_path=/dev/null" > ~/.drush/drush.ini
-drush si ${PROJECT_NAME} \
+drush site-install ${PROJECT_NAME} \
   --db-url=mysql://root:@127.0.0.1/${PROJECT_NAME} \
+  --sites-subdir=default \
   --account-name=admin \
   --account-pass=admin \
   --site-mail=admin@example.com \
